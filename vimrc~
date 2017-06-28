@@ -359,7 +359,6 @@ let g:tagbar_type_vimwiki = {
 
 
 "Gundo
-nnoremap <F5> :GundoToggle<CR>
 set undodir=~/.vim/tmp/undo//
 set undodir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//

@@ -8,6 +8,7 @@ export ZSH=/home/jcrean/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="random"
 ZSH_THEME="sonicradish"
+ZSH_THEME="honukai"
 #ZSH_THEME="jonathan"
 #ZSH_THEME="fino"
 #ZSH_THEME="bullet"
@@ -113,7 +114,7 @@ alias h="history"
 #alias IRC="python2 /home/jcrean/Nextcloud/programming-scripts/python/pyrnotify/pyrnotify.py 4321 & ssh -R 4321:localhost:4321 tmux attach"
 alias IRC="ssh -C 192.168.1.169 -t tmux a"
 alias reload="source ~/.zshrc"
-alias vimwiki='vim -c VimwikiIndex'
+#alias vimwiki='vim -c VimwikiIndex'
 alias todo='vim -c To-Do'
 alias ssh='TERM=xterm ssh'
 alias dual-mon='xrandr --output DP2 --mode 2560x1440 --dpi 100 --rotate left --left-of DP1 --rotate normal;xrandr --output DP1 --mode 3840x2160 --dpi 125 --primary;xrandr --output eDP1 --off'

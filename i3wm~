@@ -259,8 +259,8 @@ bar {
 #bindcode $mod+68 exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '-5%'
 #bindcode $mod+69 exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '+5%'
 #bindcode $mod+67 exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '+10%'
-bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '-10%'
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+10%'
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-10%'
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Make the currently focused window a scratchpad
