@@ -24,9 +24,11 @@ filetype plugin indent on
 au FileType py set autoindent
 au FileType py set smartindent
 au FileType py set textwidth=79 " PEP-8 Friendly
+
 " This is set for editing files over the network
 set nocp
 set linebreak
+
 " Spell checking
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
@@ -83,6 +85,10 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
 Plugin 'sjl/gundo.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'garbas/vim-snipmate'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Mapping my leader key
@@ -92,9 +98,9 @@ Plugin 'sjl/gundo.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  "move to next and previous tab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F11> :tabNext<ENTER>
+map <leader><F11> :tabNext<ENTER>
 
-map <F10> :tabprevious<ENTER>
+map <leader><F10> :tabprevious<ENTER>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -334,6 +340,9 @@ endif
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
+"let g:neosnippet#disable_runtime_snippets = 0
+let g:neosnippet#snippets_directory= '~/.vim/bundle/vim-snippets/snippets'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "      VIM AIRLINE SETTINGS
@@ -371,3 +380,8 @@ set noswapfile
 set undofile
 set history=100
 set undolevels=100
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Indent Guides
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+

@@ -83,6 +83,10 @@ Plugin 'Shougo/neosnippet-snippets'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
 Plugin 'sjl/gundo.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'garbas/vim-snipmate'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Mapping my leader key
@@ -334,6 +338,9 @@ endif
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
+"let g:neosnippet#disable_runtime_snippets = 0
+let g:neosnippet#snippets_directory= '~/.vim/bundle/vim-snippets/snippets'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "      VIM AIRLINE SETTINGS
@@ -359,6 +366,7 @@ let g:tagbar_type_vimwiki = {
 
 
 "Gundo
+nnoremap <F5> :GundoToggle<CR>
 set undodir=~/.vim/tmp/undo//
 set undodir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
