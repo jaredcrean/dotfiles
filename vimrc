@@ -88,6 +88,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'markcornick/vim-vagrant'
 "Plugin 'garbas/vim-snipmate'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -141,6 +142,12 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Remap ctrl n for buffernext and  ctrl p to bufferprevious
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -250,7 +257,7 @@ let g:syntastic_mode_map = { 'mode': 'passive',
                           \ 'active_filetypes': [],     
                           \ 'passive_filetypes': [] } 
 
-"nnoremap <silent> <F5> :SyntasticCheck<CR>    
+nnoremap <silent> <F3> :SyntasticCheck<CR>    
 " Insert Date into file
 inoremap <F4> <C-R>=strftime("\*%a %d %b %Y %H %M\*")<CR>
 
@@ -384,4 +391,8 @@ set undolevels=100
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Indent Guides
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup vagrant
+  au!
+  au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
 

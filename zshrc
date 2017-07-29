@@ -129,4 +129,8 @@ alias dl360-ilo='sshpass -p $(echo "") ssh -o StrictHostKeyChecking=no admin@$1'
 
 #random quote
 #quote
-#
+
+#finxing paste issues and problems running for loops and back slash
+
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+export VAGRANT_DEFAULT_PROVIDER=virtualbox

@@ -211,7 +211,7 @@ exec xautolock -time 15 -locker suspendandlock
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -254,13 +254,19 @@ bar {
         tray_output primary
 }
 
+#bar {
+#         i3bar_command ~/.i3/lemonbar/i3_lemonbar.py
+#}
+
+#exec_always --no-startup-id killall lemonbar; sh ~/.config/i3/panel-top.sh
+
 # volume control not useing do to volumeicon use program hotkeys
 #bindcode $mod+68 /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '-5%'
 #bindcode $mod+68 exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '-5%'
 #bindcode $mod+69 exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '+5%'
 #bindcode $mod+67 exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+10%'
-bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-10%'
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '+10%'
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '-10%'
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Make the currently focused window a scratchpad
