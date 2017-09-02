@@ -22,7 +22,7 @@ order += "run_watch VPN"
 order += "wireless _first_"
 #order += "ethernet _first_"
 order += "load"
-#order += "ram_usage"
+order += "ram_usage"
 order += "battery_level"
 order += "tztime local"
 

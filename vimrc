@@ -9,6 +9,7 @@ else
 endif
 
 syntax on
+set scrolloff=5 " Keep 3 lines below and above the cursor
 set history=10000
 set hidden
 set nornu
