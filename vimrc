@@ -1,7 +1,9 @@
+set encoding=utf-8
+
 if has('gui_running')
   set background=dark
   colorscheme torte
-  "set guifont=UbuntuMonoDerivativePowerline\ Nerd\ Font\ 25
+"  "set guifont=UbuntuMonoDerivativePowerline\ Nerd\ Font\ 25
   set guifont=UbuntuMonoDerivativePowerline\ Nerd\ Font\ 25
 else
   set background=dark
@@ -9,7 +11,7 @@ else
 endif
 
 syntax on
-set scrolloff=5 " Keep 3 lines below and above the cursor
+set encoding=utf-8
 set history=10000
 set hidden
 set nornu
@@ -20,6 +22,36 @@ set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ \ [%l/%L\ (%p%%)
 set complete+=kspell
 " Fix for delayed ESC key
 set timeoutlen=1000 ttimeoutlen=0
+set splitright
+set backup
+set writebackup
+set noswapfile
+set undofile
+set undodir=~/.vim/tmp/undo//
+set backupskip=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swp//
+set history=1000
+set undolevels=1000
+set undoreload=10000
+set incsearch
+" highlight the searched words
+set hlsearch
+set nocompatible              " be iMproved, required
+set shiftwidth=4
+set clipboard=unnamedplus
+set bs=2
+set modifiable
+set t_Co=256
+set ts=4
+set cursorline
+set expandtab
+set colorcolumn=80
+" make gitgutter update faster
+set updatetime=250
+"set mouse=a
+set scrolloff=10
+
+set linebreak
 
 filetype plugin indent on
 au FileType py set autoindent
@@ -35,23 +67,6 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.txt setlocal spell
 autocmd BufRead,BufNewFile *.wiki setlocal spell
 
-" search as you type
-set incsearch
-" highlight the searched words
-set hlsearch
-set nocompatible              " be iMproved, required
-set shiftwidth=4
-set clipboard=unnamedplus
-set bs=2
-set modifiable
-set t_Co=256
-set ts=4
-set encoding=utf-8
-set cursorline
-set expandtab
-set colorcolumn=80
-"set mouse=a
-
 filetype plugin on          " required
 
 " set the runtime path to include Vundle and initialize
@@ -64,12 +79,13 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'plasticboy/vim-markdown'
 Plugin 'L9'
 Plugin 'tpope/vim-speeddating'
 Plugin 'kien/ctrlp.vim'
@@ -80,16 +96,20 @@ Plugin 'morhetz/gruvbox'
 Plugin 'mattn/calendar-vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'shougo/neocomplete.vim'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
-Plugin 'honza/vim-snippets'
-Plugin 'majutsushi/tagbar'
+"Plugin 'honza/vim-snippets'
+"Plugin 'majutsushi/tagbar'
 Plugin 'sjl/gundo.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'markcornick/vim-vagrant'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'rking/ag.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bling/vim-bufferline'
+Plugin 'edkolev/tmuxline.vim'
 "Plugin 'garbas/vim-snipmate'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -111,6 +131,16 @@ filetype plugin indent on    " required
 "filetype plugin on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" File Exploer open
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:netrw_winsize = 25
+let g:netrw_browse_split = 1
+let g:netrw_banner = 0
+let g:netrw_altv = 0
+let g:netrw_preview = 1
+let g:netrw_liststyle = 3
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PowerLine Config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
@@ -118,16 +148,16 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 set laststatus=2
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NerdTree config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Open on the right of screen
-let g:NERDTreeWinPos = "right"
-map <F2> :NERDTreeToggle<CR>
+let g:NERDTreeWinPos = "left"
+nmap <silent> <C-D> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+"let g:NERDTreeWinSize = 38
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MarkDown Plugin
@@ -143,12 +173,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Remap ctrl n for buffernext and  ctrl p to bufferprevious
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -220,6 +244,9 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -235,7 +262,7 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " Jedi VIM settings      
-let g:jedi#force_py_version = 3
+let g:jedi#force_py_version = 2
 
 "YouCompleteMe
 "let g:ycm_python_binary_path = '/usr/bin/python3.5'
@@ -254,17 +281,25 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_auto_jump = 1
 let g:syntastic_mode_map = { 'mode': 'passive',     
                           \ 'active_filetypes': [],     
                           \ 'passive_filetypes': [] } 
+let g:syntastic_chef_checkers = ['foodcritic']
+let g:syntastic_ruby_checkers = ['rubocop']
+autocmd BufNewFile,BufRead */templates/*/*.erb set filetype=eruby.chef
+autocmd BufNewFile,BufRead */metadata.rb set filetype=ruby.chef
+"autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
+inoremap <F7> <C-R>=strftime("\*%a %d %b %Y %H %M\*")<CR>
+autocmd BufNewFile,BufReadPost *.json set filetype=json
 
-nnoremap <silent> <F3> :SyntasticCheck<CR>    
-" Insert Date into file
-inoremap <F4> <C-R>=strftime("\*%a %d %b %Y %H %M\*")<CR>
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Run python code in vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 nnoremap <buffer> <F9> :exec 'w !python' shellescape(@%, 1)<cr>
-noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
+"noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
 autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescape(@%, 1)<cr>
 
 
@@ -274,10 +309,8 @@ autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescap
 " Set the dir of the wiki this can be more then one in the forme of a dic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"let g:vimwiki_list = [{'path': '$HOME/Nextcloud/documents/vimwiki'}]
-let g:vimwiki_list = [{'path': '$HOME/Nextcloud/documents/vimwiki',
+let g:vimwiki_list = [{'path': '~/vimwiki/',
             \ 'syntax': 'markdown', 'ext': '.md'}]
-
 
 au BufRead,BufNewFile *.md set filetype=vimwiki
 
@@ -319,10 +352,13 @@ endfunction
 " CtrlP settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
+let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_switch_buffer = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
+"this will hopefully set nerdtree and Ctrlp to current working dir
+"let g:NERDTreeChDirMode       = 2
+let g:ctrlp_working_path_mode = 'c'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "           Snipets configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -342,9 +378,9 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+"if has('conceal')
+"  set conceallevel=2 concealcursor=niv
+"endif
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -358,42 +394,31 @@ let g:neosnippet#snippets_directory= '~/.vim/bundle/vim-snippets/snippets'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline_theme='badwolf'
+let g:airline_theme='wombat'
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"  TagBar
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <F8> :TagbarToggle<CR>
 
-let g:tagbar_type_vimwiki = {
-          \   'ctagstype':'vimwiki'
-          \ , 'kinds':['h:header']
-          \ , 'sro':'&&&'
-          \ , 'kind2scope':{'h':'header'}
-          \ , 'sort':0
-          \ , 'ctagsbin':'/home/jcrean/dotfiles/vwtags.py'
-          \ , 'ctagsargs': 'all'
-          \ }
+"fix for the glyps
 
 
 "Gundo
-nnoremap <F5> :GundoToggle<CR>
-set undodir=~/.vim/tmp/undo//
-set undodir=~/.vim/tmp/backup//
-set directory=~/.vim/tmp/swap//
-set backupskip=~/tmp/*,/private/tmp/*"
-set backup
-set writebackup
-set noswapfile
-
-set undofile
-set history=100
-set undolevels=100
+nnoremap <F6> :GundoToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Indent Guides
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup vagrant
-  au!
-  au BufRead,BufNewFile Vagrantfile set filetype=ruby
-augroup END
 
+
+" The Silver Searcher
+if executable('ag')
+
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+endif
+
+let g:ag_working_path_mode="r"
