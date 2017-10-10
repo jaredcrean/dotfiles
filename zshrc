@@ -34,7 +34,7 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 export BROWSER='chromium'
-export TERM='xterm-256color'
+#export TERM='xterm-256color'
 #set up python shell
 export PYTHONSTARTUP=~/.pythonrc
 

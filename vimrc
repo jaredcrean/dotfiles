@@ -4,8 +4,8 @@ syntax on
 colorscheme solarized
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
-"set term=screen-256color
-"set t_Co=256
+set term=screen-256color
+set t_Co=256
 set background=dark
 set encoding=utf-8
 set history=10000
