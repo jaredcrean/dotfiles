@@ -9,9 +9,9 @@ export ZSH=/home/jcrean/.oh-my-zsh
 #ZSH_THEME="jonathan"
 #ZSH_THEME="fino"
 #ZSH_THEME="bullet"
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 #ZSH_THEME="af-magic"
-
+ZSH_THEME="powerlevel9k/powerlevel9k"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 

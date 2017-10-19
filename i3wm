@@ -186,14 +186,13 @@ exec --no-startup-id /usr/sbin/xrandr --output eDP1 --dpi 180 --primary
 exec --no-startup-id /usr/sbin/blueberry-tray
 exec --no-startup-id /usr/sbin/nm-applet
 exec --no-startup-id /usr/sbin/owncloud
-#exec --no-startup-id /usr/sbin/volumeicon
+exec --no-startup-id /usr/sbin/volumeicon
 exec --no-startup-id /usr/sbin/nextcloud
 exec --no-startup-id /usr/sbin/copyq
 #exec --no-startup-id /usr/sbin/shutter
 #exec --no-startup-id nitrogen --restore
 #Start the keyring
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,gpg,secrets
-
 
 #Notification setting
 exec --no-startup-id /usr/sbin/dunst -config ~/dotfiles/dunstrc
