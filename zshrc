@@ -38,6 +38,19 @@ export BROWSER='chromium'
 #set up python shell
 export PYTHONSTARTUP=~/.pythonrc
 
+# A better ls
+###############################################################################
+unalias ls
+if ls --color -d . >/dev/null 2>&1; then  # GNU ls
+  export COLUMNS  # Remember columns for subprocesses.
+  eval "$(dircolors)"
+  function ls {
+    command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" | less -R -X -F
+  }
+  alias ll='ls -l'
+  alias l='ls -l -a'
+fi
+
 
 function test-port() {
 (echo > /dev/tcp/$1/$2) >/dev/null 2>&1 && echo 'Its open' || echo 'Its Down!'
@@ -66,3 +79,4 @@ alias dl360-ilo='sshpass -p $(echo "") ssh -o StrictHostKeyChecking=no admin@$1'
 #finxing paste issues and problems running for loops and back slash
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
+

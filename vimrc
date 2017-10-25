@@ -254,7 +254,7 @@ let g:jedi#force_py_version = 2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " Set the dir of the wiki this can be more then one in the forme of a dic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/Nextcloud/documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 au BufRead,BufNewFile *.md set filetype=vimwiki
 let g:vimwiki_folding='list'
