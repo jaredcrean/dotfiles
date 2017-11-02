@@ -62,48 +62,46 @@ autocmd BufRead,BufNewFile *.wiki setlocal spell
 filetype plugin on          " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let Vundle manage Vundle, required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plugin 'gmarik/Vundle.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'L9'
-"Plugin 'kien/ctrlp.vim'
-Plugin 'junegunn/rainbow_parentheses.vim'
-Plugin 'vimwiki/vimwiki'
-Plugin 'morhetz/gruvbox'
-Plugin 'mattn/calendar-vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'honza/vim-snippets'
-"Plugin 'majutsushi/tagbar'
-Plugin 'sjl/gundo.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'rking/ag.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'vadv/vim-chef'
-"Plugin 'garbas/vim-snipmate'
-Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/limelight.vim'
-
+Plug 'gmarik/Vundle.vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/syntastic'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+"Plug 'L9'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'morhetz/gruvbox'
+Plug 'mattn/calendar-vim'
+Plug 'nvie/vim-flake8'
+Plug 'shougo/neocomplete.vim'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
+"Plun 'majutsushi/tagbar'
+Plug 'sjl/gundo.vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ryanoasis/vim-devicons'
+Plug 'vim-ruby/vim-ruby'
+Plug 'rking/ag.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'vadv/vim-chef'
+"Plun 'garbas/vim-snipmate'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/limelight.vim'
+call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Mapping my leader key
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,7 +115,6 @@ Plugin 'junegunn/limelight.vim'
 "map <leader><F10> :tabprevious<ENTER>
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -161,10 +158,10 @@ nnoremap <C-H> <C-W><C-H>
 "RainbowParentheses config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rainbow#max_level = 16
-let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+"let g:rainbow#pairs = [['(', ')'], ['[', ']']]
 
 "List of colors that you do not want. ANSI code or #RRGGBB
-let g:rainbow#blacklist = [233, 234]
+"let g:rainbow#blacklist = [233, 234]
 autocmd VimEnter * RainbowParentheses
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -324,13 +321,13 @@ nnoremap <buffer> <F9> :exec 'w !python' shellescape(@%, 1)<cr>
 "noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
 autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescape(@%, 1)<cr>
 
-" CtrlP settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_cmd = 'CtrlPBuffer'
-let g:ctrlp_switch_buffer = 1
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+" FZF commands and mappings
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-a> :Ag<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-f> :BLines<CR>
+
+"
 "this will hopefully set nerdtree and Ctrlp to current working dir
 let g:NERDTreeChDirMode       = 2
 let g:ctrlp_working_path_mode = 'c'
