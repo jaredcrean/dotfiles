@@ -1,6 +1,10 @@
 # Solarized dark color scheme
 
 [options]
+browser = firefox
+allow_bold = true
+mouse_autohide = true
+scrollback_lines = 50000
 #font = Monospace 23
 font = InconsolataGo Nerd 23px
 #font = xos4 Terminus 26px
@@ -11,7 +15,7 @@ font = Droid Sans Mono 23
 [colors]
 foreground = #839496
 foreground_bold = #eee8d5
-#foreground_dim = #888888
+foreground_dim = #888888
 background = #002b36
 cursor = #93a1a1
 

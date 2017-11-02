@@ -39,7 +39,7 @@ set bs=2
 set modifiable
 set ts=4
 set cursorline
-set expandtab
+"set expandtab
 set colorcolumn=80
 set updatetime=250
 set scrolloff=10
@@ -101,6 +101,8 @@ Plugin 'rking/ag.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vadv/vim-chef'
 "Plugin 'garbas/vim-snipmate'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/limelight.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Mapping my leader key

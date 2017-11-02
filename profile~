@@ -1,5 +1,0 @@
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/thinkorswim/
-export PYTHONSTARTUP=~/.pythonrc"
-
-test-port() { '(echo > /dev/tcp/$1/$2) >/dev/null 2>&1 && echo "Its open" || echo "Its Down!"' }
-

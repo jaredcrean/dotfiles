@@ -14,6 +14,7 @@ export ZSH=/home/jcrean/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
+export TERM='xterm-256color'
 
 HIST_STAMPS="mm/dd/yyyy"
 HISTSIZE=40000
@@ -34,7 +35,6 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 export BROWSER='chromium'
-#export TERM='xterm-256color'
 #set up python shell
 export PYTHONSTARTUP=~/.pythonrc
 
@@ -45,7 +45,7 @@ if ls --color -d . >/dev/null 2>&1; then  # GNU ls
   export COLUMNS  # Remember columns for subprocesses.
   eval "$(dircolors)"
   function ls {
-    command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" | less -R -X -F
+    command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" |less -R -X -F
   }
   alias ll='ls -l'
   alias l='ls -l -a'
