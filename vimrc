@@ -1,3 +1,14 @@
+"┌─────────────────────────────────────────────────────────────────────────────┐
+"│                                                                             │
+"│   mmm    mm   mmmmm  mmmmmm mmmm     m     mmmm         m    m mmmmm  m    m│
+"│     #    ##   #   "# #      #   "m   #    #"   "        "m  m"   #    ##  ##│
+"│     #   #  #  #mmmm" #mmmmm #    #        "#mmm          #  #    #    # ## #│
+"│     #   #mm#  #   "m #      #    #            "#         "mm"    #    # "" #│
+"│ "mmm"  #    # #    " #mmmmm #mmm"         "mmm#"          ##   mm#mm  #    #│
+"│                                                                             │
+"│                                                                             │
+"└─────────────────────────────────────────────────────────────────────────────┘
+
 set encoding=utf-8
 syntax enable
 syntax on
@@ -109,19 +120,6 @@ call plug#end()
  let mapleader=","
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
- "move to next and previous tab
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"map <leader><F11> :tabNext<ENTER>
-
-"map <leader><F10> :tabprevious<ENTER>
-
-" All of your Plugins must be added before the following line
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PowerLine Config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2
@@ -208,9 +206,8 @@ endfunction
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " AutoComplPop like behavior.
 let g:neocomplete#enable_auto_select = 0
@@ -241,13 +238,7 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " Jedi VIM settings      
-let g:jedi#force_py_version = 2
-
-"YouCompleteMe
-"let g:ycm_python_binary_path = '/usr/bin/python3.5'
-"let g:EclimCompletionMethod = 'omnifunc'
-"let g:ycm_auto_trigger = 1
-
+let g:jedi#force_py_version = 3
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " VimWiki settings
