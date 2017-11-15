@@ -78,11 +78,11 @@ call plug#begin('~/.vim/plugged')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let Vundle manage Vundle, required
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'gmarik/Vundle.vim'
+"Plug 'gmarik/Vundle.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -91,6 +91,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'vimwiki/vimwiki'
+Plug 'mhinz/vim-grepper'
 Plug 'morhetz/gruvbox'
 Plug 'mattn/calendar-vim'
 Plug 'nvie/vim-flake8'
@@ -98,6 +99,7 @@ Plug 'shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
+Plug 'w0rp/ale'
 "Plun 'majutsushi/tagbar'
 Plug 'sjl/gundo.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -207,7 +209,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 " Close popup by <Space>.
-inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
 " AutoComplPop like behavior.
 let g:neocomplete#enable_auto_select = 0
@@ -274,23 +276,23 @@ endfunction
 "            Syntax Checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_auto_jump = 1
-let g:syntastic_mode_map = { 'mode': 'passive',     
-                          \ 'active_filetypes': [],     
-                          \ 'passive_filetypes': [] } 
-let g:syntastic_chef_checkers = ['foodcritic']
-let g:syntastic_chef_foodcritic_args = "-I ~/.chef/foodcritic"
-let g:syntastic_ruby_checkers = ['rubocop']
-"let g:syntastic_ruby_rubocop_exec = '/opt/chefdk/embedded/ruby /opt/chefdk/embedded/bin/rubocop'
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_aggregate_errors = 1
+"let g:syntastic_auto_jump = 1
+"let g:syntastic_mode_map = { 'mode': 'passive',     
+"                          \ 'active_filetypes': [],     
+"                          \ 'passive_filetypes': [] } 
+"let g:syntastic_chef_checkers = ['foodcritic']
+"let g:syntastic_chef_foodcritic_args = "-I ~/.chef/foodcritic"
+"let g:syntastic_ruby_checkers = ['rubocop']
+""let g:syntastic_ruby_rubocop_exec = '/opt/chefdk/embedded/ruby /opt/chefdk/embedded/bin/rubocop'
 
 """             Set file types
 autocmd BufNewFile,BufRead */templates/*/*.erb set filetype=eruby.chef
@@ -304,7 +306,6 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 inoremap <F7> <C-R>=strftime("\*%a %d %b %Y %H %M\*")<CR>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Run python code in vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -317,12 +318,39 @@ autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescap
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-a> :Ag<CR>
 nnoremap <C-p> :Files<CR>
-nnoremap <C-f> :BLines<CR>
+nnoremap / :BLines<CR>
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Grepper
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:grepper       = {}
+let g:grepper.tools = ['grep', 'git', 'rg']
+
+nnoremap <Leader>g :Grepper -tool git<CR>
+nnoremap <Leader>G :Grepper -tool rg<CR>
+
+" Search for the current word
+nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+
+" Search for the current selection
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ripgrep
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set grepprg=rg\ -H\ --no-heading\ --vimgrep
+set grepformat=$f:$l:%c:%m
 
 "
 "this will hopefully set nerdtree and Ctrlp to current working dir
 let g:NERDTreeChDirMode       = 2
-let g:ctrlp_working_path_mode = 'c'
+"let g:ctrlp_working_path_mode = 'c'
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -408,9 +436,9 @@ if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+"  let g:ctrlp_use_caching = 0
 
 endif
 

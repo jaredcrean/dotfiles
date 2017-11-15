@@ -34,9 +34,19 @@ source $ZSH/oh-my-zsh.sh
  fi
 
 export EDITOR='vim'
-export BROWSER='chromium'
+export BROWSER='firefox-beta-bin'
 #set up python shell
 export PYTHONSTARTUP=~/.pythonrc
+
+###############################################################################
+# FZF bindings and settings
+###############################################################################
+#
+source ~/.fzf.zsh
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 # A better ls
 ###############################################################################
@@ -75,6 +85,9 @@ alias single-mon='xrandr --output DP1 --mode 3840x2160 --dpi 125 --primary;xrand
 alias calulator='/usr/sbin/speedcrunch'
 alias pulse-vpn='sudo openconnect --servercert=sha1:8fde39f3bf2d772cb7f1f2339e86387ff12992bb --authgroup="single-Factor Pulse Clients" --protocol=nc $1/dana-na/auth/url_6/welcome.cgi --pid-file="/var/run/work-vpn.pid" --user=$2  -b'
 alias dl360-ilo='sshpass -p $(echo "") ssh -o StrictHostKeyChecking=no admin@$1'
+alias speedtest='wget dl.getipaddr.net/speedtest.sh -q -O- | bash'
+
+# Git alias
 
 #finxing paste issues and problems running for loops and back slash
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
