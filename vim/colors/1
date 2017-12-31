@@ -12,8 +12,8 @@
 set encoding=utf-8
 syntax enable
 syntax on
-colorscheme solarized
-"colorscheme onedark
+#colorscheme solarized
+colorscheme onedark
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
 set term=screen-256color
