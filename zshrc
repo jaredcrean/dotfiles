@@ -4,6 +4,7 @@ export ZSH=/home/jcrean/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="random"
+ZSH_THEME="fox"
 #ZSH_THEME="sonicradish"
 #ZSH_THEME="honukai"
 #ZSH_THEME="jonathan"
@@ -11,7 +12,7 @@ export ZSH=/home/jcrean/.oh-my-zsh
 #ZSH_THEME="bullet"
 #ZSH_THEME="agnoster"
 #ZSH_THEME="af-magic"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 export TERM='xterm-256color'
@@ -34,7 +35,7 @@ source $ZSH/oh-my-zsh.sh
  fi
 
 export EDITOR='vim'
-export BROWSER='firefox-beta-bin'
+export BROWSER='firefox'
 #set up python shell
 export PYTHONSTARTUP=~/.pythonrc
 
@@ -50,16 +51,16 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 
 # A better ls
 ###############################################################################
-unalias ls
-if ls --color -d . >/dev/null 2>&1; then  # GNU ls
-  export COLUMNS  # Remember columns for subprocesses.
-  eval "$(dircolors)"
-  function ls {
-    command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" |less -R -X -F
-  }
-  alias ll='ls -l'
-  alias l='ls -l -a'
-fi
+#unalias ls
+#if ls --color -d . >/dev/null 2>&1; then  # GNU ls
+#  export COLUMNS  # Remember columns for subprocesses.
+#  eval "$(dircolors)"
+#  function ls {
+#    command ls -F -h --color=always -v --author --time-style=long-iso -C "$@" |less -R -X -F
+#  }
+#  alias ll='ls -l'
+#  alias l='ls -l -a'
+#fi
 
 
 function test-port() {
@@ -86,10 +87,16 @@ alias calulator='/usr/sbin/speedcrunch'
 alias pulse-vpn='sudo openconnect --servercert=sha1:8fde39f3bf2d772cb7f1f2339e86387ff12992bb --authgroup="single-Factor Pulse Clients" --protocol=nc $1/dana-na/auth/url_6/welcome.cgi --pid-file="/var/run/work-vpn.pid" --user=$2  -b'
 alias dl360-ilo='sshpass -p $(echo "") ssh -o StrictHostKeyChecking=no admin@$1'
 alias speedtest='wget dl.getipaddr.net/speedtest.sh -q -O- | bash'
-
+alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 # Git alias
 
+# Kitty Terminal alias
+alias icat='kitty icat'
 #finxing paste issues and problems running for loops and back slash
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 
+if [[ $TERM == xterm-termite ]]; then
+	  . /etc/profile.d/vte.sh
+	    __vte_osc7
+fi
