@@ -15,11 +15,12 @@ ZSH_THEME="fox"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
-export TERM='xterm-256color'
+#export TERM='xterm-256color'
+export TERM='xterm-kitty'
 
 HIST_STAMPS="mm/dd/yyyy"
 HISTSIZE=40000
-HISTFILE=~/.zsh_history
+HISTFILE=~/.shell_history
 
 plugins=(git docker docker-compose powerline archlinux zsh-syntax-highlighting colored-man-pages zsh-history-substring-search nyan python battery)
 

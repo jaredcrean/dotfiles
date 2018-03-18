@@ -28,5 +28,8 @@ fi
 if echo hello|grep --color=auto l >/dev/null 2>&1; then
       export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 fi
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export HISTFILE='~/.shell_history'
+bind -x '"\C-p": vim $(fzf);'

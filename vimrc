@@ -12,12 +12,14 @@
 set encoding=utf-8
 syntax enable
 syntax on
-colorscheme solarized
+"colorscheme solarized
+"colorscheme SpaceVim
+colorscheme gruvbox
 "colorscheme onedark
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
-set term=screen-256color
-set t_Co=256
+"set term=screen-256color
+"set t_Co=256
 set background=dark
 set encoding=utf-8
 set history=10000
@@ -56,6 +58,9 @@ set colorcolumn=80
 set updatetime=250
 set scrolloff=10
 set ffs=unix
+"setting this for kitty terminal
+
+let &t_ut=''
 
 set linebreak
 
@@ -113,6 +118,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vadv/vim-chef'
 "Plun 'garbas/vim-snipmate'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/limelight.vim'
 Plug 'ryuzee/neocomplcache_php_selenium_snippet'
 
@@ -318,7 +324,7 @@ autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescap
 " FZF commands and mappings
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-a> :Ag<CR>
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :Files ~/<CR>
 nnoremap / :BLines<CR>
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
