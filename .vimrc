@@ -138,6 +138,7 @@ let python_highlight_all=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NerdTree config
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -152,12 +153,14 @@ let NERDTreeShowBookmarks=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MarkDown Plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:vim_markdown_folding_disabled=0
 let g:vim_markdown_folding_style_pythonic = 1
 "let g:vim_markdown_fenced_languages = ['python', 
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Remae keys to standered vim bindings
@@ -166,6 +169,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "RainbowParentheses config
@@ -176,6 +180,7 @@ let g:rainbow#max_level = 16
 "List of colors that you do not want. ANSI code or #RRGGBB
 "let g:rainbow#blacklist = [233, 234]
 autocmd VimEnter * RainbowParentheses
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "           AutoComplete Configs
@@ -327,7 +332,7 @@ nnoremap <buffer> <F9> :exec 'w !python' shellescape(@%, 1)<cr>
 autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescape(@%, 1)<cr>
 
 " FZF commands and mappings
-#nnoremap <C-b> :Buffers<CR>
+nnoremap <C-b> :Buffers<CR>
 nnoremap <C-a> :Ag<CR>
 nnoremap <C-p> :Files <CR>
 nnoremap / :BLines<CR>
