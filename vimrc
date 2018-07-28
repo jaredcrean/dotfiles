@@ -327,7 +327,7 @@ nnoremap <buffer> <F9> :exec 'w !python' shellescape(@%, 1)<cr>
 autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescape(@%, 1)<cr>
 
 " FZF commands and mappings
-#nnoremap <C-b> :Buffers<CR>
+"#nnoremap <C-b> :Buffers<CR>
 nnoremap <C-a> :Ag<CR>
 nnoremap <C-p> :Files <CR>
 nnoremap / :BLines<CR>
