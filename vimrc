@@ -12,14 +12,7 @@
 set encoding=utf-8
 syntax enable
 syntax on
-"colorscheme solarized
-"colorscheme SpaceVim
 colorscheme gruvbox
-"colorscheme onedark
-"let g:solarized_visibility = "high"
-"let g:solarized_contrast = "high"
-"set term=screen-256color
-"set t_Co=256
 set background=dark
 set encoding=utf-8
 set history=10000
@@ -39,7 +32,7 @@ set undofile
 set undolevels=1500
 set directory=$HOME/.vim/tmp/swp//
 set undodir=$HOME/.vim/tmp/undo//
-"set backupskip=~/.vim/tmp/backup//
+set backupskip=~/.vim/tmp/backup//
 set backupdir=$HOME/.vim/tmp/backup//
 set history=1000
 set undolevels=1000
@@ -53,7 +46,6 @@ set bs=2
 set modifiable
 set ts=4
 set cursorline
-"set expandtab
 set colorcolumn=80
 set updatetime=250
 set scrolloff=10
@@ -81,14 +73,10 @@ autocmd BufRead,BufNewFile *.wiki setlocal spell
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/plugged')
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " let Vundle manage Vundle, required
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'gmarik/Vundle.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
@@ -96,26 +84,23 @@ Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-grepper'
 Plug 'morhetz/gruvbox'
 Plug 'mattn/calendar-vim'
-"Plug 'nvie/vim-flake8'
 Plug 'shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 Plug 'w0rp/ale'
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
 "Plun 'majutsushi/tagbar'
 Plug 'sjl/gundo.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ryanoasis/vim-devicons'
-"Plug 'vim-ruby/vim-ruby'
 Plug 'airblade/vim-gitgutter'
-"Plug 'vadv/vim-chef'
-"Plun 'garbas/vim-snipmate'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/limelight.vim'
@@ -125,22 +110,31 @@ Plug 'pearofducks/ansible-vim'
 Plug 'mbbill/undotree'
 Plug 'rking/ag.vim'
 Plug 'fisadev/vim-isort'
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 let python_highlight_all=1
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "Mapping my leader key
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  let mapleader=","
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PowerLine Config
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autoreloading of .vimrc
+autocmd! bufwritepost .vimrc source %
+
+" Better saving shortcuts
+noremap <C-Z> :update<CR>
+vnoremap <C-Z> <C-C>:update<CR>
+inoremap <C-Z> <C-O>:update<CR>
+
+" Better quiting
+noremap  <Leader>e  :quit<CR>
+noremap <Leader>E :qa!<CR>
+
+
 " NerdTree config
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Open on the right of screen
 let g:NERDTreeWinPos = "left"
 nmap <silent> <C-D> :NERDTreeToggle<CR>
@@ -152,24 +146,17 @@ let NERDTreeShowBookmarks=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MarkDown Plugin
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:vim_markdown_folding_disabled=0
 let g:vim_markdown_folding_style_pythonic = 1
-"let g:vim_markdown_fenced_languages = ['python', 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Remae keys to standered vim bindings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "RainbowParentheses config
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rainbow#max_level = 16
 "let g:rainbow#pairs = [['(', ')'], ['[', ']']]
 
@@ -177,9 +164,7 @@ let g:rainbow#max_level = 16
 "let g:rainbow#blacklist = [233, 234]
 autocmd VimEnter * RainbowParentheses
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "           AutoComplete Configs
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Neocomplete
     "Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -243,10 +228,6 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
@@ -254,11 +235,8 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " Jedi VIM settings      
 let g:jedi#force_py_version = 3
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " VimWiki settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" 
 " Set the dir of the wiki this can be more then one in the forme of a dic
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vimwiki_list = [{'path': '~/Nextcloud/documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 au BufRead,BufNewFile *.md set filetype=vimwiki
@@ -283,34 +261,23 @@ endfunction
 
 :autocmd FileType vimwiki map c :call ToggleCalendar()
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"            Syntax Checking
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_aggregate_errors = 1
-"let g:syntastic_auto_jump = 1
-"let g:syntastic_mode_map = { 'mode': 'passive',     
-"                          \ 'active_filetypes': [],     
-"                          \ 'passive_filetypes': [] } 
-"let g:syntastic_chef_checkers = ['foodcritic']
-"let g:syntastic_chef_foodcritic_args = "-I ~/.chef/foodcritic"
-"let g:syntastic_ruby_checkers = ['rubocop']
-""let g:syntastic_ruby_rubocop_exec = '/opt/chefdk/embedded/ruby /opt/chefdk/embedded/bin/rubocop'
-
 """             Set file types
 autocmd BufNewFile,BufRead */templates/*/*.erb set filetype=eruby.chef
 autocmd BufNewFile,BufRead */metadata.rb set filetype=ruby.chef
 autocmd BufNewFile,BufReadPost *.json set filetype=json
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" ALE linting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_completion_enabled = 1
+
+let b:ale_linters = ['flake8']
+let b:ale_fixers = [
+\   'remove_trailing_lines',
+\   'isort',
+\   'ale#fixers#generic_python#BreakUpLongLines',
+\   'yapf',
+\]
 
 
 """""   HIT F7 to insert date in insert mode
@@ -318,32 +285,35 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 inoremap <F7> <C-R>=strftime("\*%a %d %b %Y %H %M\*")<CR>
 
+"Run python code in vim #FIX: Replace with asyncrun plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Run python code in vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-nnoremap <buffer> <F9> :exec 'w !python' shellescape(@%, 1)<cr>
-"noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
-autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescape(@%, 1)<cr>
-
+"
+"nnoremap <buffer> <F9> :exec 'w !python' shellescape(@%, 1)<cr>
+""noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
+"autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescape(@%, 1)<cr>
+"
 " FZF commands and mappings
-"#nnoremap <C-b> :Buffers<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <C-b> :Buffers<CR>
 nnoremap <C-a> :Ag<CR>
 nnoremap <C-p> :Files <CR>
-nnoremap / :BLines<CR>
+"nnoremap / :Lines<CR>
+
+nnoremap <C-g> :GFiles <CR>
+"get the git commit logs
+nnoremap <C-c> :Commits <CR>
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Grepper
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:grepper       = {}
 let g:grepper.tools = ['grep', 'git', 'rg']
 
 nnoremap <Leader>g :Grepper -tool git<CR>
 nnoremap <Leader>G :Grepper -tool rg<CR>
+
 
 " Search for the current word
 nnoremap <Leader>* :Grepper -cword -noprompt<CR>
@@ -353,13 +323,10 @@ nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ripgrep
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set grepprg=rg\ -H\ --no-heading\ --vimgrep
 set grepformat=$f:$l:%c:%m
 
-"
 "this will hopefully set nerdtree and Ctrlp to current working dir
 let g:NERDTreeChDirMode       = 2
 "let g:ctrlp_working_path_mode = 'c'
@@ -377,9 +344,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "           Snipets configuration
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -397,10 +362,10 @@ imap <expr><TAB>
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+"" For conceal markers.
+"if has('conceal')
+"  set conceallevel=2 concealcursor=niv
+"endif
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
@@ -408,9 +373,7 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory= '~/.vim/bundle/vim-snippets/snippets'
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "      VIM AIRLINE SETTINGS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -419,10 +382,7 @@ let g:airline_theme = 'wombat'
 "Gundo
 nnoremap <F6> :GundoToggle<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Indent Guides
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 " The Silver Searcher
 if executable('ag')
@@ -436,17 +396,18 @@ endif
 
 let g:ag_working_path_mode="r"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ansible
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 
-"
 "undotree
-"
 if has("persistent_undo")
     set undodir=~/.undodir/
     set undofile
 endif
 
 nnoremap <F5> :UndotreeToggle<cr>
+
+" Python-mode
+let g:pymode_python = 'python3'
+
+

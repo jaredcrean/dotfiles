@@ -6,9 +6,9 @@ allow_bold = true
 mouse_autohide = true
 scrollback_lines = 50000
 #font = Monospace 23
-font = InconsolataGo Nerd 14px
+font = InconsolataGo Nerd 12px
 #font = xos4 Terminus 26px
-font = InconsolataGo Nerd 14px
+font = InconsolataGo Nerd 12px
 font = Droid Sans Mono 13
 
 
