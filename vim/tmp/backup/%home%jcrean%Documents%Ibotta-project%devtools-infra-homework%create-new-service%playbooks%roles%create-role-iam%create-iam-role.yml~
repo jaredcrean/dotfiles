@@ -1,0 +1,14 @@
+---
+
+- hosts: local
+  connection: local
+  gather_facts: false
+
+  - name: create the s3 bucket, apply policy
+    s3_bucket:
+      state: present
+      aws_access_key: "{{ super_access_key }}"
+      aws_secret_key: "{{ secret_key }}"
+      name: "{{ s3_bucket_name }}"
+      policy: "{{ lookup('file', 'get-put-s3-bucket.json') }}"
+

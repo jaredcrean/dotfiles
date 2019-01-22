@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become:
+  tasks:
+  - name: copy the resolve.conf file to all hosts
+    file:
+      src: files/resolve.conf
+      dest: /etc/resolve.conf

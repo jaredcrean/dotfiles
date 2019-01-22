@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+if [ $1 == "--help" ]
+then
+   /app/server_linux_amd64 --help 2>/dev/null || exit 1
+
+elif [ $# -gt 0 ]
+then
+	exec $@
+
+else
+   exec /app/server_linux_amd64
+
+fi
+
+if [ $? -ne 0 ]
+then
+	exit 1

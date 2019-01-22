@@ -1,0 +1,6 @@
+---
+
+super_access_key: "secrets managment"
+secret_key: "secrets managment"
+role_name: ibotta-homework-s3
+

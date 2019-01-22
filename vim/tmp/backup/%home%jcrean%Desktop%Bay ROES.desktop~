@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=BayROES
+Exec=/usr/lib/jvm/java-10-jdk/jre/bin/javaws /opt/bayroes/Bay\ ROES/Bay\ ROES.app/Contents/Resources/launch.jnlp
+Type=Application
+StartupNotify=true
+Comment=Bay ROES
+#Path=/home/jcrean/.wine/dosdevices/c:/Program Files (x86)/ROES/BayPhotoLab-231891327020221410712124250219154169164197225120101/
+Icon=55C6_Logo.0

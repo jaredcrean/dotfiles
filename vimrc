@@ -32,9 +32,9 @@ set undofile
 set undolevels=1500
 set directory=$HOME/.vim/tmp/swp//
 set undodir=$HOME/.vim/tmp/undo//
-set backupskip=~/.vim/tmp/backup//
+set backupskip=$HOME/.vim/tmp/backup//
 set backupdir=$HOME/.vim/tmp/backup//
-set history=1000
+set history=3000
 set undolevels=1000
 set undoreload=10000
 set incsearch
@@ -52,7 +52,7 @@ set scrolloff=10
 set ffs=unix
 "setting this for kitty terminal
 
-let &t_ut=''
+"let &t_ut=''
 
 set linebreak
 
@@ -74,7 +74,7 @@ autocmd BufRead,BufNewFile *.wiki setlocal spell
 call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
@@ -88,12 +88,25 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'morhetz/gruvbox'
 Plug 'mattn/calendar-vim'
-Plug 'shougo/neocomplete.vim'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'sheerun/vim-polyglot'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
+"Plug 'Shougo/neosnippet'
+"Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
+"Plug 'roxma/nvim-completion-manager'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'w0rp/ale'
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'skywind3000/asyncrun.vim'
+"Plug 'python-mode/python-mode', { 'branch': 'develop' }
 "Plun 'majutsushi/tagbar'
 Plug 'sjl/gundo.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -104,13 +117,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/limelight.vim'
-Plug 'ryuzee/neocomplcache_php_selenium_snippet'
+"Plug 'ryuzee/neocomplcache_php_selenium_snippet'
 Plug 'rodjek/vim-puppet'
 Plug 'pearofducks/ansible-vim'
 Plug 'mbbill/undotree'
 Plug 'rking/ag.vim'
 Plug 'fisadev/vim-isort'
 Plug 'nathanaelkane/vim-indent-guides'
+"Plug 'vim-scripts/taglist'
 call plug#end()
 
 let python_highlight_all=1
@@ -155,6 +169,23 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+"same thing but for windows using Ctrl
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" easier tab movement
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
+
+" sort alphabetically
+vnoremap <Leader>s :sort<CR>
+
+" better indentaion shortcut holds selection
+vnoremap < <gv
+vnoremap > >gv 
 
 "RainbowParentheses config
 let g:rainbow#max_level = 16
@@ -217,7 +248,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType python setlocal omnifunc=jedi#completions
+"autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
@@ -233,7 +264,7 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " Jedi VIM settings      
-let g:jedi#force_py_version = 3
+"let g:jedi#force_py_version = 3
 
 " VimWiki settings
 " Set the dir of the wiki this can be more then one in the forme of a dic
@@ -289,6 +320,9 @@ inoremap <F7> <C-R>=strftime("\*%a %d %b %Y %H %M\*")<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 "nnoremap <buffer> <F9> :exec 'w !python' shellescape(@%, 1)<cr>
+" This allows you to see the output of the command below it
+let $PYTHONUNBUFFERED=1
+nnoremap <buffer> <F9> :AsyncRun -raw python %<CR>
 ""noremap <F5> <ESC>:w<CR>:silent execute "!python %"<CR><CR>
 "autocmd FileType python nnoremap <buffer> <F9> :exec '!clear; python' shellescape(@%, 1)<cr>
 "
@@ -398,6 +432,7 @@ let g:ag_working_path_mode="r"
 
 " Ansible
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile */ansible/*.yamlk set filetype=yaml.ansible
 
 "undotree
 if has("persistent_undo")
@@ -408,6 +443,70 @@ endif
 nnoremap <F5> :UndotreeToggle<cr>
 
 " Python-mode
-let g:pymode_python = 'python3'
+"let g:pymode_python = 'python3'
+let g:pymode = 1
+
+"filetype plugin indent on
+"
+"let g:pymode = 1
+"let g:pymode_rope = 1
+"
+"" Documentation
+"let g:pymode_doc = 1
+"let g:pymode_doc_key = 'K'
+"
+""Linting
+"let g:pymode_lint = 1
+"let g:pymode_lint_checker = "pyflakes,pep8"
+"" Auto check on save
+"let g:pymode_lint_write = 1
+"
+"" Support virtualenv
+"let g:pymode_virtualenv = 0
+"
+"" Enable breakpoints plugin
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_key = 'b'
+"
+"" syntax highlighting
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_all = 1
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"
+"" Don't autofold code
+"let g:pymode_folding = 1
 
 
+
+
+
+" Async run run command asynchronously
+" Quick run via <F9>
+nnoremap <F9> :call <SID>compile_and_run()<CR>
+ 
+augroup spacevimAsyncRun
+    autocmd!
+    " Automatically open the quickfix window
+    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(15, 1)
+augroup END
+ 
+function! s:compile_and_run()
+ let l:cmd = {
+ \ 'c' : "gcc % -o %<; time ./%<",
+ \ 'sh' : "time bash %",
+ \ 'go' : "go run %",
+ \ 'cpp' : "g++ -std=c++11 % -o %<; time ./%<",
+ \ 'ruby' : "time ruby %",
+ \ 'java' : "javac %; time java %<",
+ \ 'rust' : "rustc % -o %<; time ./%<",
+ \ 'python' : "time python %",
+ \}
+ let l:ft = &filetype
+ if has_key(l:cmd, l:ft)
+   exec 'w'
+   exec "AsyncRun! ".l:cmd[l:ft]
+ else
+   echoerr "AsyncRun not supported in current filetype!"
+ endif
+endfunction

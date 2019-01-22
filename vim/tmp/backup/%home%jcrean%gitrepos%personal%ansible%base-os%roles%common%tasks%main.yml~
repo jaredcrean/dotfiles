@@ -1,0 +1,51 @@
+- name: install common packages
+  package:
+    name: [ 'autofs, rpcbind', 'ntp', 'vim' ]
+    state: present
+
+- template:
+    src: ../templates/auto.master.j2
+    dest:  /etc/auto.master
+    owner: root
+    group: root
+    mode:  644
+
+- template:
+    src: ../templates/auto.nfs.j2
+    dest:  /etc/auto.nfs
+    owner: root
+    group: root
+    mode:  644
+
+- template:
+    src: ../templates/resolve.conf.j2
+    dest: /etc/resove.conf
+    owner: root
+    group: root
+    mode: 644
+
+- name: Setup time sync
+  template:
+    src: ../templates/ntp.conf.j2
+    dest: /etc/ntp.conf
+    owner: root
+    group: root
+    mode: 644
+
+- name: Start the ntpd service
+  service:
+    name: ntpd
+    enabled: yes
+    state: started
+
+- name: Start the rpcbind service
+  service:
+    name: rpcbind
+    enabled: yes
+    state: started
+
+- name: Start the autofs service
+  service:
+    name: autofs
+    enabled: yes
+    state: started

@@ -1,0 +1,11 @@
+[kvm-hosts]
+kvm0.jaredcrean.com
+kvm1.jaredcrean.com
+kvm2.jaredcrean.com
+
+[kube-hosts]
+kube0.jaredcrean.com
+kube1.jaredcrean.com
+kube2.jaredcrean.com
+
+

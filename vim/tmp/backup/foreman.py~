@@ -1,0 +1,29 @@
+import requests
+
+
+foreman_url = "https://katello.jaredcrean.com/api"
+common_params = "/common_parameters"
+
+try:
+    requests.urllib3.disable_warnings()
+except AttributeError:
+    requests.packages.urllib3.disable_warnings()
+
+FOREMAN_REQUEST_HEADERS = {
+    'content-type': 'application/json',
+    'accept': 'application/json'
+}
+FOREMAN_API_VERSION = 'v2'
+
+
+
+class foreman(object):
+    def __init__(self, hostname, port, username, password, ssl=True):
+        self.hostname = hostname
+        self.username = username
+        self.port = port
+        self.password = password
+
+
+url_get = requests.get("{}{}".format(foreman_url, common_params), verify=False)
+print(url_get)

@@ -1,0 +1,10 @@
+{
+    "Version": "2018-30-18",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "ibt-homework-bucket"
+        }
+    ]
+}
