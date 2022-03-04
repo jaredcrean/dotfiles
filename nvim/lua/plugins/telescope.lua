@@ -1,0 +1,26 @@
+-- require'mapx'.setup{ global = true }
+--- Using Lua functions
+--
+--local wk = require("which-key")
+--
+--wk.register({
+--  f = {
+--    name = "file", -- optional group name
+--    f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
+--    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false, buffer = 123 }, -- additional options for creating the keymap
+--    n = { "New File" }, -- just a label. don't create any mapping
+--    e = "Edit File", -- same as above
+--    ["1"] = "which_key_ignore",  -- special label to hide it in the popup
+--    b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
+--  },
+--}, { prefix = "<leader>" })
+
+--wk.register({
+--  f = {
+--    name = "files",
+--    f = { "<cmd>lua require('telescope.builtin').find_files()<cr>", "Find_files" },
+--    g = { "<cmd>lua require('telescope.builtin').live_grep()<cr>", "Live_Grep" },
+--    b = { "<leader>", "fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", "Buffers" },
+--    h = { "<leader>", "fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", "Help_Tags" }
+--   },
+--}, { prefix = "<leader>" })
