@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='scp://jcrean001c@192.168.1.81//home/jcrean/'
-let g:netrw_dirhist_2='scp://192.168.1.81//home/jcrean/'
-let g:netrw_dirhist_3='scp://192.168.1.81//home/jcrean/weather-station/'
-let g:netrw_dirhist_4='scp://192.168.1.81//home/jcrean/'
-let g:netrw_dirhist_5='/home/jcrean'
-let g:netrw_dirhist_6='/home/jcrean/.adobe'
-let g:netrw_dirhist_7='/home/jcrean/dotfiles/vim'

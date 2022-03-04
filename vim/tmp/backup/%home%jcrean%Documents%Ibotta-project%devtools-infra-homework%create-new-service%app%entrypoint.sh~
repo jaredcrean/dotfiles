@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [[ $1 = "--help"]]
-then
-   /bin/bash /app/server_linux_amd64 --help	
-   exit 1
-else
-	/bin/bash -c $1
-fi

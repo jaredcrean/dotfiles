@@ -1,7 +1,0 @@
----
-- name: Install all the commmon componets of the server
-  hosts: kubernetes
-  remote_user: root
-
-  roles:
-    - common

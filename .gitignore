@@ -42,3 +42,7 @@ openconnect.conf
 ehthumbs.db
 Thumbs.db
 
+# Temp Files and Backups
+########################
+/vim/tmp/**
+

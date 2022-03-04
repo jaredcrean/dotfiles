@@ -19,3 +19,6 @@ for file in $FILES; do
     ln -sf $NEWDIR/$files ~/.$file
 done
 
+ln -s ~/dotfiles/nvim ~/.config/nvim
+ln -sf ~/dotfiles/zshrc ~/.zshrc
+ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
