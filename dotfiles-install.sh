@@ -20,5 +20,8 @@ for file in $FILES; do
 done
 
 ln -s ~/dotfiles/nvim ~/.config/nvim
-ln -sf ~/dotfiles/zshrc ~/.zshrc
+ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
+ln -sf ~/dotfiles/zsh/oh-my-zsh ~/.oh-my-zsh
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/touchegg.conf ~/.config/touchegg/touchegg.conf
+
