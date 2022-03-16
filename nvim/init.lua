@@ -9,12 +9,18 @@
 require "jc.configs" -- plugin independent configs
 require "jc.mappings" -- plugin independent mappings
 require "jc.plugins"
-require "jc.lsp" -- plugin independent mappings
+require "jc.lsp"
 require "jc.cmp" -- plugin independent mappings
+require "jc.project"
 require "jc.telescope"
 require "jc.gitsigns"
 require "jc.treesitter"
 require "jc.which-key"
 require "jc.nvim-tree"
 require "jc.nvim-web-devicons"
-require "jc.project"
+require "jc.autopairs"
+require "jc.bufferline"
+require "jc.alpha"
+require "jc.feline"
+require "jc.nvim-comment"
+require "jc.colorscheme"
