@@ -86,7 +86,6 @@ Thumbs.db
 .dbus/
 .dbus/session-bus
 .dbus/session-bus/0a43a4888e100a79ba505d0454a09f2a-0
-.config/
 .config/user-dirs.dirs
 .config/ibus
 .config/ibus/bus
