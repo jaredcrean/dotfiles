@@ -1,19 +1,58 @@
-local null_ls_status_ok, null_ls = pcall(require, "null-ls")
-if not null_ls_status_ok then
-	return
-end
+local nls = require("null-ls")
+local U = require("jc.lsp.utils")
 
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-local formatting = null_ls.builtins.formatting
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-local diagnostics = null_ls.builtins.diagnostics
+local fmt = nls.builtins.formatting
+local dgn = nls.builtins.diagnostics
 
-null_ls.setup({
-	debug = false,
+nls.setup({
 	sources = {
-		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-		formatting.black.with({ extra_args = { "--fast" } }),
-		formatting.stylua,
-    -- diagnostics.flake8
+		-- # FORMATTING #
+		fmt.trim_whitespace.with({
+			filetypes = { "text", "sh", "zsh", "toml", "make", "conf", "tmux" },
+		}),
+
+		fmt.prettierd,
+		fmt.eslint_d,
+		-- fmt.prettier.with({
+		--     extra_args = {
+		--         '--tab-width=4',
+		--         '--trailing-comma=es5',
+		--         '--end-of-line=lf',
+		--         '--arrow-parens=always',
+		--     },
+		-- }),
+		fmt.rustfmt,
+		fmt.stylua,
+		fmt.terraform_fmt,
+		fmt.gofmt,
+		fmt.zigfmt,
+		-- fmt.shfmt,
+		-- # DIAGNOSTICS #
+		dgn.eslint_d,
+		dgn.shellcheck,
+		dgn.luacheck.with({
+			extra_args = { "--globals", "vim", "--std", "luajit" },
+		}),
+
+		fmt.stylua,
+		fmt.shfmt.with({
+			filetype = { "sh", "zsh" },
+		}),
+
+		fmt.prettier.with({
+			filetypes = { "json", "yaml", "markdown" },
+		}),
+
+		fmt.isort,
+		fmt.black,
+		nls.builtins.diagnostics.shellcheck.with({
+			diagnostics_format = "#{m} [#{c}]",
+		}),
+		nls.builtins.code_actions.gitsigns,
 	},
+
+	on_attach = function(client, bufnr)
+		U.fmt_on_save(client)
+		--U.mappings(bufnr)
+	end,
 })
