@@ -18,7 +18,7 @@ configs.setup({
 	indent = { enable = true, disable = { "" } },
 	context_commentstring = {
 		enable = true,
-		enable_autocmd = false,
+		enable_autocmd = true,
 	},
 	rainbow = {
 		enable = true,

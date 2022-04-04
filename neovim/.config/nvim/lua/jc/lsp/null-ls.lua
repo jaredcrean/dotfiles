@@ -8,7 +8,7 @@ nls.setup({
 	sources = {
 		-- # FORMATTING #
 		fmt.trim_whitespace.with({
-			filetypes = { "text", "sh", "zsh", "toml", "make", "conf", "tmux" },
+			filetypes = { "text", "sh", "zsh", "toml", "make", "conf", "tmux", "terraform" },
 		}),
 
 		fmt.prettierd,
@@ -23,7 +23,9 @@ nls.setup({
 		-- }),
 		fmt.rustfmt,
 		fmt.stylua,
-		fmt.terraform_fmt,
+		fmt.terraform_fmt.with({
+			filetypes = { "terraform", "tf" },
+		}),
 		fmt.gofmt,
 		fmt.zigfmt,
 		-- fmt.shfmt,
