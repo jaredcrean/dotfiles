@@ -14,7 +14,7 @@ local setup = {
 		-- the presets plugin, adds help for a bunch of default keybindings in Neovim
 		-- No actual key bindings are created
 		presets = {
-			operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+			operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
 			motions = true, -- adds help for motions
 			text_objects = true, -- help for text objects triggered after entering an operator
 			windows = true, -- default bindings on <c-w>
@@ -89,11 +89,11 @@ local mappings = {
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["f"] = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Find files",
-	},
-	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+	-- ["f"] = {
+	-- 	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	-- 	"Find files",
+	-- },
+	-- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
 	p = {
@@ -104,14 +104,54 @@ local mappings = {
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
+	f = {
+		name = "Find",
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		f = {
+			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"Find files",
+		},
+		t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+		h = { "<cmd>Telescope help_tags<cr>", "Help" },
+		i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
+		l = { "<cmd>Telescope resume<cr>", "Last Search" },
+		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
+		R = { "<cmd>Telescope registers<cr>", "Registers" },
+		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+		C = { "<cmd>Telescope commands<cr>", "Commands" },
+	},
 
+	-- g = {
+	-- 	name = "Git",
+	-- 	g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+	-- 	G = { "<cmd>Telescope repo list<CR>", "Search git repos in home dirctory" },
+	-- 	j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
+	-- 	k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
+	-- 	l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+	-- 	p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+	-- 	r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+	-- 	R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+	-- 	s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+	-- 	u = {
+	-- 		"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+	-- 		"Undo Stage Hunk",
+	-- 	},
+	-- 	o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+	-- 	b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+	-- 	c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+	-- 	d = {
+	-- 		"<cmd>Gitsigns diffthis HEAD<cr>",
+	-- 		"Diff",
+	-- 	},
+	-- },
 	g = {
 		name = "Git",
 		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-		G = { "<cmd>Telescope repo list<CR>", "Search git repos in home dirctory" },
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+		l = { "<cmd>GitBlameToggle<cr>", "Blame" },
 		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
 		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
@@ -126,6 +166,15 @@ local mappings = {
 		d = {
 			"<cmd>Gitsigns diffthis HEAD<cr>",
 			"Diff",
+		},
+		G = {
+			name = "Gist",
+			a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
+			d = { "<cmd>Gist -d<cr>", "Delete" },
+			f = { "<cmd>Gist -f<cr>", "Fork" },
+			g = { "<cmd>Gist -b<cr>", "Create" },
+			l = { "<cmd>Gist -l<cr>", "List" },
+			p = { "<cmd>Gist -b -p<cr>", "Create Private" },
 		},
 	},
 
