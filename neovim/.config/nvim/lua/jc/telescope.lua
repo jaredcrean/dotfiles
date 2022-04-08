@@ -87,6 +87,9 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
+    media_files = {
+        find_cmd = "rg" -- find command (defaults to `fd`)
+    },
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
       override_generic_sorter = true,  -- override the generic sorter
@@ -97,5 +100,6 @@ telescope.setup {
   },
 }
 
+require("telescope").load_extension "media_files"
 require("telescope").load_extension "repo"
 require('telescope').load_extension "fzf"
