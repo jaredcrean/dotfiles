@@ -249,6 +249,11 @@ _G.packer_plugins = {
     path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/session-lens",
     url = "https://github.com/rmagatti/session-lens"
   },
+  ["telescope-media-files.nvim"] = {
+    loaded = true,
+    path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
+    url = "https://github.com/nvim-telescope/telescope-media-files.nvim"
+  },
   ["telescope-repo.nvim"] = {
     loaded = true,
     path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/telescope-repo.nvim",
