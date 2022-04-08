@@ -109,7 +109,7 @@ local mappings = {
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		f = {
-			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = true})<cr>",
 			"Find files",
 		},
 		t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
@@ -180,35 +180,14 @@ local mappings = {
 
 	l = {
 		name = "LSP",
-		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-		d = {
-			"<cmd>Telescope lsp_<cr>",
-			"Document Diagnostics",
-		},
-		--TODO: Fix the Diagnostics its not working
-		w = {
-			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-			"Workspace Diagnostics",
-		},
-		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-		i = { "<cmd>LspInfo<cr>", "Info" },
-		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-		j = {
-			"<cmd>lua vim.diagnostic.goto_next()<CR>",
-			"Next Diagnostic",
-		},
-		k = {
-			"<cmd>lua vim.diagnostic.goto_prev()<cr>",
-			"Prev Diagnostic",
-		},
-		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-		S = {
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-			"Workspace Symbols",
-		},
+    d = { "<Cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
+    D = { "<Cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
+    s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
+    I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
+    t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
+    a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+    l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
+    i = { "<cmd>LspInfo<CR>", "Lsp Info" },
 	},
 	s = {
 		name = "Search",
