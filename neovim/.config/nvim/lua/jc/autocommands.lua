@@ -6,6 +6,10 @@ vim.cmd([[
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
   augroup end
+  augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+  augroup END
   augroup _git
     autocmd!
     autocmd FileType gitcommit setlocal wrap

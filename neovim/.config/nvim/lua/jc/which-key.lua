@@ -90,7 +90,7 @@ local mappings = {
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	-- ["f"] = {
-	-- 	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+	--"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 	-- 	"Find files",
 	-- },
 	-- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
@@ -108,7 +108,10 @@ local mappings = {
 		name = "Find",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		f = { "<cmd>lua require('telescope.builtin').find_files{hidden = true}(require('telescope.themes').get_dropdown{previewer = true})<cr>", "Find files" },
+		f = {
+			"<cmd>lua require('telescope.builtin').find_files{hidden = true}(require('telescope.themes').get_dropdown{previewer = true})<cr>",
+			"Find files",
+		},
 		t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 		h = { "<cmd>Telescope help_tags<cr>", "Help" },
 		i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
@@ -160,10 +163,19 @@ local mappings = {
 		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-		d = {
-			"<cmd>Gitsigns diffthis HEAD<cr>",
-			"Diff",
+		d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
+		w = {
+			name = "Git Worktrees",
+			w = {
+				"<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>",
+				"Switch and Delete a Worktree",
+			},
+			n = {
+				"<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>",
+				"Create New Worktree",
+			},
 		},
+
 		G = {
 			name = "Gist",
 			a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
@@ -177,14 +189,14 @@ local mappings = {
 
 	l = {
 		name = "LSP",
-    d = { "<Cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
-    D = { "<Cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
-    s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
-    I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
-    t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
-    a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-    l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
-    i = { "<cmd>LspInfo<CR>", "Lsp Info" },
+		d = { "<Cmd>lua vim.lsp.buf.definition()<CR>", "Definition" },
+		D = { "<Cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
+		s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
+		I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
+		t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
+		a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+		l = { "<cmd>lua vim.diagnostic.open_float()<CR>", "Line Diagnostics" },
+		i = { "<cmd>LspInfo<CR>", "Lsp Info" },
 	},
 	s = {
 		name = "Search",
