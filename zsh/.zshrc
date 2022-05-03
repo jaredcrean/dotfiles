@@ -46,7 +46,7 @@ HIST_STAMPS="mm.dd.yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf ufw git git-extras aws ssh-agent aws-mfa docker fzf-tab zsh-syntax-highlighting colorize terraform git-extras)
+plugins=(fzf ufw git git-extras aws zsh-aws-vault ssh-agent aws-mfa docker fzf-tab zsh-syntax-highlighting colorize terraform git-extras)
 
 source $ZSH/oh-my-zsh.sh
 
