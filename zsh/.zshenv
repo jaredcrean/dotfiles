@@ -23,7 +23,6 @@ MOZ_USE_XINPUT2=1
 
 ### "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export PLASMA_USE_QT_SCALING=1
 
 ### "vim" as manpager
 # export MANPAGER='/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelat

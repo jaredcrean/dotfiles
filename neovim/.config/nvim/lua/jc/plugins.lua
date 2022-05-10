@@ -51,7 +51,7 @@ return packer.startup(function(use)
 		"lewis6991/impatient.nvim",
 	})
 
-	-- Easily speed up your neovim startup time!. A faster version of filetype.vim
+	-- Easily speed up your neovim startup time!. A faster version of filetype.vim use("nathom/filetype.nvim")
 	use("nathom/filetype.nvim")
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 
@@ -91,8 +91,10 @@ return packer.startup(function(use)
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use("williamboman/nvim-lsp-installer")
 
+  -- Git plugins
 	use("lewis6991/gitsigns.nvim")
 	use("kdheepak/lazygit.nvim")
+
 	-- Terraform setup
 	use("hashivim/vim-terraform")
 
@@ -108,13 +110,37 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-media-files.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use("ThePrimeagen/git-worktree.nvim")
-
+  use("xiyaowong/telescope-emoji.nvim")
 	use("ahmedkhalf/project.nvim")
-
+  use("nvim-telescope/telescope-project.nvim")
+  use("cljoly/telescope-repo.nvim")
 	-- Themes
 	--  use "lunarvim/darkplus.nvim"
 	use("folke/lsp-colors.nvim")
 	use("marko-cerovac/material.nvim")
+
+  use("lettertwo/laserwave.nvim")
+  use("folke/tokyonight.nvim")
+  use("rktjmp/lush.nvim")
+
+  -- Neovim Orgmode and plugins for it
+  use {'nvim-orgmode/orgmode', config = function()
+        require('orgmode').setup{}
+  end
+  }
+
+  use {"akinsho/org-bullets.nvim", config = function()
+    require("org-bullets").setup {
+      symbols = { "◉", "○", "✸", "✿" }
+      -- or a function that receives the defaults and returns a list
+      --symbols = function(default_list)
+      --  table.insert(default_list, "♥")
+      --  return default_list
+      --end
+    }
+  end}
+
+  use ('lukas-reineke/headlines.nvim')
 
 	-- CMP Plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

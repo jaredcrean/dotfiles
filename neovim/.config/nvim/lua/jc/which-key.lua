@@ -89,14 +89,16 @@ local mappings = {
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	["E"] = { "<cmd>Telescope emoji<CR>", "Emoji Search" },
 	-- ["f"] = {
 	--"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 	-- 	"Find files",
 	-- },
 	-- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+	--["p"] = { "<cmd>lua require'telescope'.extensions.project.project{}<cr>", "Projects" },
+	["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
-	p = {
+	P = {
 		name = "Packer",
 		c = { "<cmd>PackerCompile<cr>", "Compile" },
 		i = { "<cmd>PackerInstall<cr>", "Install" },
@@ -108,15 +110,32 @@ local mappings = {
 		name = "Find",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		--f = {
+		--	"<cmd>lua require("telescope.builtin").find_files{hidden = true}(require('telescope.themes').get_dropdown{previewer = true})<cr>",
+		--	"Find files",
+		--},
+
 		f = {
-			"<cmd>lua require('telescope.builtin').find_files{hidden = true}(require('telescope.themes').get_dropdown{previewer = true})<cr>",
+			"<cmd>lua require('telescope.builtin').find_files({hidden=true, layout_config={prompt_position='bottom'}})<cr>",
 			"Find files",
 		},
+
+		-- w = {
+		--       "<cmd>lua require('telescope.builtin').find_files({hidden=true, cwd='~/gitrepos/Projects/work', layout_config={prompt_position='bottom'}})<cr>",
+		-- 	"Search Work Git Repos",
+		-- },
+
+
+		w = {
+      "<cmd>lua require'telescope'.extensions.repo.list{file_ignore_patterns={'/%.cache/', '/%.cargo/'}}<cr>",
+			"Search Git Repos",
+		},
+
 		t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+		s = { "<cmd>Telescope grep_string theme=ivy<cr>", "Cursor Find String in CWD" },
 		h = { "<cmd>Telescope help_tags<cr>", "Help" },
 		i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
 		l = { "<cmd>Telescope resume<cr>", "Last Search" },
-		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
@@ -149,6 +168,7 @@ local mappings = {
 	g = {
 		name = "Git",
 		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+		--g = { "<cmd>lua require('telescope').extensions.lazygit.lazygit()<CR>", "Lazygit" },
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
 		l = { "<cmd>GitBlameToggle<cr>", "Blame" },
@@ -204,11 +224,9 @@ local mappings = {
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-		R = { "<cmd>Telescope registers<cr>", "Registers" },
-		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-		C = { "<cmd>Telescope commands<cr>", "Commands" },
-		s = { "<cmd>SearchSession<cr>", "Search session's" },
+		--s = { "<cmd>SearchSession<cr>", "Search session's" },
+		s = { "<cmd>Telescope session-lens search_session<cr>", "Search session's" },
+--		s = { "<cmd>Telescope<cr>", "Home GitRepo's" },
 	},
 
 	t = {

@@ -48,6 +48,7 @@ HIST_STAMPS="mm.dd.yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(fzf ufw git git-extras aws zsh-aws-vault ssh-agent aws-mfa docker fzf-tab zsh-syntax-highlighting colorize terraform git-extras)
 
+setopt globdots
 source $ZSH/oh-my-zsh.sh
 
 

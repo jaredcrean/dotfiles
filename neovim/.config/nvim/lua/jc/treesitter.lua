@@ -2,6 +2,8 @@ local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
 	return
 end
+-- Load custom tree-sitter grammar for org filetype
+require('orgmode').setup_ts_grammar()
 
 configs.setup({
 	ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -12,8 +14,9 @@ configs.setup({
 	},
 	highlight = {
 		enable = true, -- false will disable the whole extension
-		disable = { "" }, -- list of language that will be disabled
-		additional_vim_regex_highlighting = true,
+		disable = { "org" }, -- list of language that will be disabled
+		--additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = {'org'},
 	},
 	indent = { enable = true, disable = { "" } },
 	context_commentstring = {

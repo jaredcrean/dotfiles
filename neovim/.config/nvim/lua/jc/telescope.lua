@@ -57,6 +57,7 @@ telescope.setup({
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
+
 				["j"] = actions.move_selection_next,
 				["k"] = actions.move_selection_previous,
 				["H"] = actions.move_to_top,
@@ -81,16 +82,31 @@ telescope.setup({
 	pickers = {
 		-- Default configuration for builtin pickers goes here:
 		-- picker_name = {
-		--   picker_config_key = value,
-		--   ...
+		--   picker_config_key = value, ...
 		-- }
 		-- Now the picker_config_key will be applied every time you call this
-		-- builtin picker
+    live_grep = {
+    additional_args = function(opts)
+        return {"--hidden"}
+    end -- builtin picker
+    },
 	},
 	extensions = {
 		--media_files = {
 		--	find_cmd = "fzf", -- find command (defaults to `fd`)
 		--},
+  -- project = {
+  --   base_dirs = {
+  --     '~/gitrepos/',
+  --     {'~/gitrepos/Projects/'},
+  --     --{'~/dev/src3', max_depth = 4},
+  --     {path = '~/gitrepos/Projects/work/'},
+  --     --{path = '~/dev/src5', max_depth = 2},
+  --   },
+  --   hidden_files = true, -- default: false
+  --   theme = "dropdown"
+  -- },
+
 		fzf = {
 			fuzzy = true, -- false will only do exact matching
 			override_generic_sorter = true, -- override the generic sorter
@@ -103,5 +119,10 @@ telescope.setup({
 
 --require("telescope").load_extension("media_files")
 require("telescope").load_extension("repo")
+--require('telescope').load_extension('project')
+require('telescope').load_extension('projects')
+require'telescope'.load_extension('repo')
 require("telescope").load_extension("git_worktree")
 require("telescope").load_extension("fzf")
+require("telescope").load_extension("emoji")
+require('telescope').load_extension('lazygit')

@@ -21,6 +21,7 @@ vim.g.nvim_tree_icons = {
 	},
 }
 
+
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
 	return
@@ -32,6 +33,8 @@ if not config_status_ok then
 end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
+--Better intergration into projects
+vim.g.nvim_tree_respect_buf_cwd = 1
 
 nvim_tree.setup({
 	disable_netrw = true,
