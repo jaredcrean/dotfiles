@@ -112,7 +112,15 @@ return packer.startup(function(use)
 	use("ThePrimeagen/git-worktree.nvim")
   use("xiyaowong/telescope-emoji.nvim")
 	use("ahmedkhalf/project.nvim")
-  use("nvim-telescope/telescope-project.nvim")
+
+  use {
+    "ahmedkhalf/project.nvim",
+    requires = {"neovim/nvim-lspconfig"},
+    config = "require'jc.project'"
+  }
+
+
+--  use("nvim-telescope/telescope-project.nvim")
   use("cljoly/telescope-repo.nvim")
 	-- Themes
 	--  use "lunarvim/darkplus.nvim"
