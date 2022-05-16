@@ -27,6 +27,7 @@ require("jc.autopairs")
 require("jc.bufferline")
 require("jc.alpha")
 require("jc.orgmode")
+require("jc.glow")
 -- require "jc.feline"
 require("jc.nvim-comment")
 require("jc.toggleterm")

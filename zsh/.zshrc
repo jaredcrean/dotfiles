@@ -1,6 +1,9 @@
 # initialize direnv
 eval $(thefuck --alias)
 (( ${+commands[direnv]} )) && emulate zsh -c "$(direnv export zsh)"
+
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.

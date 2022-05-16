@@ -111,22 +111,17 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use("ThePrimeagen/git-worktree.nvim")
   use("xiyaowong/telescope-emoji.nvim")
-	use("ahmedkhalf/project.nvim")
 
   use {
     "ahmedkhalf/project.nvim",
     requires = {"neovim/nvim-lspconfig"},
     config = "require'jc.project'"
   }
-
-
---  use("nvim-telescope/telescope-project.nvim")
   use("cljoly/telescope-repo.nvim")
+
 	-- Themes
-	--  use "lunarvim/darkplus.nvim"
 	use("folke/lsp-colors.nvim")
 	use("marko-cerovac/material.nvim")
-
   use("lettertwo/laserwave.nvim")
   use("folke/tokyonight.nvim")
   use("rktjmp/lush.nvim")
@@ -163,7 +158,8 @@ return packer.startup(function(use)
 	use("rmagatti/session-lens")
 
 	use("windwp/nvim-autopairs")
-
+  -- Markdown Colors
+  use {"ellisonleao/glow.nvim", branch = 'main'}
 	-- Buffers
 	use("akinsho/bufferline.nvim")
 	use("kazhala/close-buffers.nvim")
