@@ -126,10 +126,7 @@ return packer.startup(function(use)
   use("rktjmp/lush.nvim")
   use{"luisiacc/gruvbox-baby", branch = 'main'}
   -- Neovim Orgmode and plugins for it
-  use {'nvim-orgmode/orgmode', config = function()
-        require('orgmode').setup{}
-  end
-  }
+  use {'nvim-orgmode/orgmode'}
 
   use {"akinsho/org-bullets.nvim", config = function()
     require("org-bullets").setup {
@@ -143,6 +140,8 @@ return packer.startup(function(use)
   end}
 
   use ('lukas-reineke/headlines.nvim')
+
+  use ('ThePrimeagen/harpoon')
 
 	-- CMP Plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
