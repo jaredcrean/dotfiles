@@ -37,6 +37,7 @@ local options = {
 }
 
 local goptions = {
+  lastsatus = 3,
 	neovide_cursor_vfx_mode = "pixiedust",
 	neovide_input_use_logo = true,
 	neovide_cursor_vfx_particle_lifetime = 1.2,

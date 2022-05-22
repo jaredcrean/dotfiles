@@ -117,7 +117,6 @@ return packer.startup(function(use)
     requires = {"neovim/nvim-lspconfig"},
     config = "require'jc.project'"
   }
-  use("cljoly/telescope-repo.nvim")
 
 	-- Themes
 	use("folke/lsp-colors.nvim")
@@ -125,7 +124,7 @@ return packer.startup(function(use)
   use("lettertwo/laserwave.nvim")
   use("folke/tokyonight.nvim")
   use("rktjmp/lush.nvim")
-
+  use{"luisiacc/gruvbox-baby", branch = 'main'}
   -- Neovim Orgmode and plugins for it
   use {'nvim-orgmode/orgmode', config = function()
         require('orgmode').setup{}

@@ -103,11 +103,11 @@ nvim_tree.setup({
 		cmd = "trash",
 		require_confirm = true,
 	},
-  highlight = {
-    enable = true,
-    disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
-    additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
-  },
+-- highlight = { TODO: This setting changed at some point
+--   enable = true,
+--   disable = {'org'}, -- Remove this to use TS highlighter for some of the highlights (Experimental)
+--   additional_vim_regex_highlighting = {'org'}, -- Required since TS highlighter doesn't support all syntax features (conceal)
+-- },
 	-- quit_on_open = 0,
 	--- git_hl = 1,
 	-- disable_window_picker = 0,

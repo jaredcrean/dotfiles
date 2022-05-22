@@ -7,11 +7,11 @@ require("project_nvim").setup {
   -- lsp, while **"pattern"** uses vim-rooter like glob pattern matching. Here
   -- order matters: if one is not detected, the other is used as fallback. You
   -- can also delete or rearangne the detection methods.
-  detection_methods = { "lsp", "pattern" },
+  detection_methods = { "pattern" },
 
   -- All the patterns used to detect root dir, when **"pattern"** is in
   -- detection_methods
-  patterns = { ".terraform", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+  patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
 
   -- Table of lsp clients to ignore by name
   -- eg: { "efm", ... }
@@ -20,7 +20,7 @@ require("project_nvim").setup {
   -- Don't calculate root dir on specific directories
   -- Ex: { "~/.cargo/*", ... }
   -- exclude_dirs = { "!.git/worktrees", "!=extras", "!^fixtures", "!build/env.sh" },
-  exclude_dirs = {},
+  exclude_dirs = { "!.git/worktrees" },
 
   -- Show hidden files in telescope
   show_hidden = true,
