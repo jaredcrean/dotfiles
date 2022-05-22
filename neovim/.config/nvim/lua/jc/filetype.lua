@@ -5,7 +5,11 @@ require("filetype").setup {
             tfvars = "terraform",
             tfstate = "json",
         },
-    },
+    complex = {
+          -- Set the filetype of any full filename matching the regex to gitconfig
+          [".*i3/config"] = "i3config", -- Included in the plugin
+          }
+        },
 }
 -- In init.lua or filetype.nvim's config file
 --require("filetype").setup({
