@@ -62,8 +62,13 @@ source $ZSH_CUSTOM/aliases.zsh
 #export TERM=screen-256color
 
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+
 # export the qt theme
 #export QT_QPA_PLATFORMTHEME=gtk2
+
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+
 # Autoload zsh zsh-add-hook
 autoload -U add-zsh-hook
 
