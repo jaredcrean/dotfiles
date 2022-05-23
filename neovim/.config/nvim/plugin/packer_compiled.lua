@@ -69,6 +69,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   ["FixCursorHold.nvim"] = {
     loaded = true,
     path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
@@ -204,6 +209,11 @@ _G.packer_plugins = {
     path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
   },
+  neorg = {
+    loaded = true,
+    path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/neorg",
+    url = "https://github.com/nvim-neorg/neorg"
+  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
@@ -223,11 +233,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-comment"] = {
-    loaded = true,
-    path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/nvim-comment",
-    url = "https://github.com/terrortylor/nvim-comment"
   },
   ["nvim-lsp-installer"] = {
     loaded = true,
@@ -264,11 +269,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/org-bullets.nvim",
     url = "https://github.com/akinsho/org-bullets.nvim"
-  },
-  orgmode = {
-    loaded = true,
-    path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/orgmode",
-    url = "https://github.com/nvim-orgmode/orgmode"
   },
   ["packer.nvim"] = {
     loaded = true,

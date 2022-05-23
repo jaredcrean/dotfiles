@@ -53,7 +53,7 @@ nls.setup({
 		nls.builtins.code_actions.gitsigns,
 	},
 
-	on_attach = function(client, bufnr)
+	on_attach = function(client)
 		U.fmt_on_save(client)
 		--U.mappings(bufnr)
 	end,

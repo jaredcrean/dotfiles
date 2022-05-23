@@ -66,8 +66,8 @@ return packer.startup(function(use)
 	use("p00f/nvim-ts-rainbow")
 
 	-- easier commenting
-	use("terrortylor/nvim-comment")
-
+	-- use("terrortylor/nvim-comment")
+  use { 'numToStr/Comment.nvim'}
 	-- Better status line
 	--  use 'feline-nvim/feline.nvim'
 	use("nvim-lualine/lualine.nvim")
@@ -125,8 +125,11 @@ return packer.startup(function(use)
   use("folke/tokyonight.nvim")
   use("rktjmp/lush.nvim")
   use{"luisiacc/gruvbox-baby", branch = 'main'}
-  -- Neovim Orgmode and plugins for it
-  use {'nvim-orgmode/orgmode'}
+  -- Neorg 
+  use {
+      "nvim-neorg/neorg",
+      requires = "nvim-lua/plenary.nvim"
+  }
 
   use {"akinsho/org-bullets.nvim", config = function()
     require("org-bullets").setup {

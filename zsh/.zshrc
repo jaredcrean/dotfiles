@@ -2,7 +2,7 @@
 eval $(thefuck --alias)
 (( ${+commands[direnv]} )) && emulate zsh -c "$(direnv export zsh)"
 
-export SSH_ASKPASS=/usr/bin/ksshaskpass
+# export SSH_ASKPASS=/usr/bin/ksshaskpass
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR"/ssh-agent.socket
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -31,7 +31,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
 # See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="false"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -49,11 +49,10 @@ HIST_STAMPS="mm.dd.yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf ufw git git-extras aws zsh-aws-vault ssh-agent aws-mfa docker fzf-tab zsh-syntax-highlighting colorize terraform git-extras)
+plugins=( git aws zsh-aws-vault ssh-agent aws-mfa docker zsh-syntax-highlighting colorize terraform fzf-tab fzf-zsh-plugin )
 
 setopt globdots
 source $ZSH/oh-my-zsh.sh
-
 
 # User configuration
 
@@ -62,27 +61,30 @@ source $ZSH_CUSTOM/aliases.zsh
 
 #export TERM=screen-256color
 
-#export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 # export the qt theme
 #export QT_QPA_PLATFORMTHEME=gtk2
 # Autoload zsh zsh-add-hook
 autoload -U add-zsh-hook
 
-autoload -U compinit && compinit //override comp
+# autoload -U compinit && compinit //override comp
 
 autoload -Uz url-quote-magic
+
 zle -N self-insert url-quote-magic
+
+zstyle ':completion:*:*:*:default' menu yes select search
+
 # disable sort when completing `git checkout`
 #zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
+# zstyle ':completion:*:descriptions' format '[%d]'
 # set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
-
+# zstyle ':fzf-tab:*' switch-group ',' '.'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

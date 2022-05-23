@@ -96,8 +96,13 @@ local mappings = {
 	-- },
 	-- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["p"] = { "<cmd>lua require'telescope'.extensions.projects.projects{}<cr>", "Projects" },
-	["m"] = { "<cmd>Telescope harpoon marks<cr>", "Projects" },
 	--["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
+
+  m = {
+      name = "Harpoon",
+	    m = { "<cmd>Telescope harpoon marks<cr>", "Harpoon Marks" },
+	    a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add Harpoon Marks" },
+  },
 
 	P = {
 		name = "Packer",
