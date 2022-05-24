@@ -46,7 +46,7 @@ return {
     { key = "&", mods = "LEADER|SHIFT", action=wezterm.action{CloseCurrentTab={confirm=true}}},
     { key = "d", mods = "LEADER",       action=wezterm.action{CloseCurrentPane={confirm=true}}},
     { key = "x", mods = "LEADER",       action=wezterm.action{CloseCurrentPane={confirm=true}}},
-    { key = "n", mods = "LEADER",       action=wezterm.action{MoveTabRelative=1}},
-    { key = "N", mods = "LEADER|SHIFT", action=wezterm.action{MoveTabRelative=-1}},
+    { key = "n", mods = "LEADER",       action=wezterm.action{ActivateTabRelative=1}},
+    { key = "N", mods = "LEADER|SHIFT", action=wezterm.action{ActivateTabRelative=-1}},
   },
 }
