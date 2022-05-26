@@ -3,7 +3,7 @@
 #if [[ -n $SSH_CONNECTION ]]; then
 #  export EDITOR='neovide'
 #else
-#  export EDITOR='mvim'
+#  export EDITOR='nvim'
 #fi
 
 export EDITOR='neovide'

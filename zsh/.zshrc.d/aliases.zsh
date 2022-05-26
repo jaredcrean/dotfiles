@@ -35,9 +35,11 @@ alias lsa='exa -a --icons --long --git'
 
 ##### Git alias
 alias gcam='git commit -a -m'
+alias gis='git status'
 
 # Worktree's
 alias gwl='git worktree list'
+
 
 # List the directories in tree format and take an argument for the depth level
 function lst() {
