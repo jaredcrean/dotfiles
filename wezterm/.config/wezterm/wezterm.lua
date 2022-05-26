@@ -2,6 +2,8 @@ local wezterm = require 'wezterm';
 --Themes
 
 
+--require('domians.ssh')
+
 -- Better Pane navigation like tmux with vim plugin
 local os = require("os")
 
@@ -30,6 +32,42 @@ wezterm.on("move-down", function(window, pane)
 	move_around(window, pane, "Down", "j")
 end)
 
+-- Better pane resizing in wezterm and vim
+local vim_resize = function(window, pane, direction_wez, direction_nvim)
+	local result = os.execute(
+		"env NVIM_LISTEN_ADDRESS=/tmp/nvim"
+			.. pane:pane_id()
+			.. " "
+			.. "~/"
+			.. "/bin/"
+			.. "wezterm.nvim.navigator "
+			.. direction_nvim
+	)
+	if result then
+		window:perform_action(wezterm.action({ SendString = "\x1b" .. direction_nvim }), pane)
+	else
+		window:perform_action(wezterm.action({ ActivatePaneDirection = direction_wez }), pane)
+	end
+end
+
+wezterm.on("resize-left", function(window, pane)
+	vim_resize(window, pane, "Left", "h")
+end)
+
+wezterm.on("resize-right", function(window, pane)
+	vim_resize(window, pane, "Right", "l")
+end)
+
+wezterm.on("resize-up", function(window, pane)
+	vim_resize(window, pane, "Up", "k")
+end)
+
+wezterm.on("resize-down", function(window, pane)
+	vim_resize(window, pane, "Down", "j")
+end)
+
+
+-- Settings for look and feel
 return {
   -- color_scheme = "tokyonight_storm",
   color_scheme = "Gruvbox Dark",
@@ -47,8 +85,8 @@ return {
     saturation = 1.0,
   },
   scrollback_lines = 10000,
-  font_antialias = "Subpixel", -- None, Greyscale, Subpixel
-  font_hinting = "Full",  -- None, Vertical, VerticalSubpixel, Full
+--  font_antialias = "Subpixel", -- None, Greyscale, Subpixel
+  --font_hinting = "Full",  -- None, Vertical, VerticalSubpixel, Full
   font_size = 11,
   font = wezterm.font("Hasklug Nerd Font"),
   -- You can specify some parameters to influence the font selection;
@@ -65,14 +103,6 @@ return {
     { key = "o", mods = "LEADER",       action="TogglePaneZoomState" },
     { key = "z", mods = "LEADER",       action="TogglePaneZoomState" },
     { key = "c", mods = "LEADER",       action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
---    { key = "h", mods = "LEADER",       action=wezterm.action{ActivatePaneDirection="Left"}},
---    { key = "j", mods = "LEADER",       action=wezterm.action{ActivatePaneDirection="Down"}},
---    { key = "k", mods = "LEADER",       action=wezterm.action{ActivatePaneDirection="Up"}},
---    { key = "l", mods = "LEADER",       action=wezterm.action{ActivatePaneDirection="Right"}},
---    { key = "H", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Left", 5}}},
---    { key = "J", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Down", 5}}},
---    { key = "K", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Up", 5}}},
---    { key = "L", mods = "LEADER|SHIFT", action=wezterm.action{AdjustPaneSize={"Right", 5}}},
     { key = "1", mods = "LEADER",       action=wezterm.action{ActivateTab=0}},
     { key = "2", mods = "LEADER",       action=wezterm.action{ActivateTab=1}},
     { key = "3", mods = "LEADER",       action=wezterm.action{ActivateTab=2}},
@@ -88,13 +118,11 @@ return {
     { key = "n", mods = "LEADER",       action=wezterm.action{ActivateTabRelative=1}},
     { key = "N", mods = "LEADER|SHIFT", action=wezterm.action{ActivateTabRelative=-1}},
 
-
     -- pane move(vim aware)
     { key = "h", mods = "CTRL", action = wezterm.action({ EmitEvent = "move-left" }) },
     { key = "l", mods = "CTRL", action = wezterm.action({ EmitEvent = "move-right" }) },
     { key = "k", mods = "CTRL", action = wezterm.action({ EmitEvent = "move-up" }) },
     { key = "j", mods = "CTRL", action = wezterm.action({ EmitEvent = "move-down" }) },
-
 
     -- Vim aware pane resize
     { key = "h", mods = "ALT", action = wezterm.action({ EmitEvent = "resize-left" }) },

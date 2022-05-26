@@ -28,6 +28,7 @@ require("jc.bufferline")
 require("jc.alpha")
 require("jc.glow")
 require("jc.neorg")
+require("jc.joplin")
 -- require "jc.feline"
 require("jc.comment")
 require("jc.toggleterm")

@@ -170,6 +170,9 @@ return packer.startup(function(use)
   use("RyanMillerC/better-vim-tmux-resizer")
 
 
+  -- Joplin Notes
+  use("ZwodahS/jopvim.nvim")
+
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets")

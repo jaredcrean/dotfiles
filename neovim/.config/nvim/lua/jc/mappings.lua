@@ -20,10 +20,11 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- Replaces with tmuc navigator
+--keymap("n", "<C-h>", "<C-w>h", opts)
+--keymap("n", "<C-j>", "<C-w>j", opts)
+--keymap("n", "<C-k>", "<C-w>k", opts)
+--keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -74,25 +75,3 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
-vim.cmd([[
-  packadd vim-tmux-navigator
-  nnoremap <silent><c-h> <cmd>TmuxNavigateLeft<cr>
-  nnoremap <silent><c-j> <cmd>TmuxNavigateDown<cr>
-  nnoremap <silent><c-k> <cmd>TmuxNavigateUp<cr>
-  nnoremap <silent><c-l> <cmd>TmuxNavigateRight<cr>
-
-  tnoremap <c-h> <C-\><C-N><cmd>TmuxNavigateLeft<cr>
-  tnoremap <c-j> <C-\><C-N><cmd>TmuxNavigateDown<cr>
-  tnoremap <c-k> <C-\><C-N><cmd>TmuxNavigateUp<cr>
-  tnoremap <c-l> <C-\><C-N><cmd>TmuxNavigateRight<cr>
-]])
-
-vim.cmd([[
-  packadd better-vim-tmux-resizer
-  let g:tmux_resizer_no_mappings = 1
-  nnoremap <silent> <m-h> <cmd>TmuxResizeLeft<cr>
-  nnoremap <silent> <m-j> <cmd>TmuxResizeDown<cr>
-  nnoremap <silent> <m-k> <cmd>TmuxResizeUp<cr>
-  nnoremap <silent> <m-l> <cmd>TmuxResizeRight<cr>
-]])

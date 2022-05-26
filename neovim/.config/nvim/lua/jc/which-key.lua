@@ -86,10 +86,10 @@ local mappings = {
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
-	["q"] = { "<cmd>q<CR>", "Quit" },
+	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	["E"] = { "<cmd>Telescope emoji<CR>", "Emoji Search" },
+	["E"] = { "<cmd>Telescope emoji<CR>", "Emoji Search" }, -- 🌈🍻🤡
 	-- ["f"] = {
 	--"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 	-- 	"Find files",
@@ -99,9 +99,14 @@ local mappings = {
 	--["p"] = { "<cmd>Telescope projects<cr>", "Projects" },
 
   m = {
-      name = "Harpoon",
+      name = "🔱Harpoon",
 	    m = { "<cmd>Telescope harpoon marks<cr>", "Harpoon Marks" },
 	    a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add Harpoon Marks" },
+  },
+  n = {
+    name = "📔 Notes Joplin",
+    n = { "<cmd>lua require('jopvim.telescope').joplin_folders()<cr>", "Create New note in folder" },
+    s = { "<cmd>lua require('jopvim.telescope').joplin_notes()<cr>", "Search Notes in Joplin" },
   },
 
 	P = {

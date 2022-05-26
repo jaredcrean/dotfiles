@@ -8,10 +8,10 @@ function docker-tag-dates() {
   }
 
 # cd dir and ls
-function chpwd() {
-    emulate -L zsh
-    lsd -A
-}
+#function chpwd() {
+#    emulate -L zsh
+#    ls
+#}
 
 function ldkeys() {
 

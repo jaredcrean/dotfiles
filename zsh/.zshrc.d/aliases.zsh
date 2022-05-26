@@ -30,14 +30,22 @@ alias ip='ip -color=auto'
 alias yay='paru'
 
 # Better ls
-alias ls='exa --icons --long --git'
-alias lsa='exa -a --icons --long --git'
+#alias ls='exa --icons --long --git'
+#alias lsa='exa -a --icons --long --git'
+
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+alias tree='lsd --tree'
 
 ##### Git alias
 alias gcam='git commit -a -m'
 alias gis='git status'
+alias gp='git push'
 
-# Worktree's
+# Git Worktree's
 alias gwl='git worktree list'
 
 
