@@ -1,5 +1,5 @@
 alias reload="source ~/.zshrc"
-alias cdw="cd $HOME/gitrepos/Projects/work/northlabs/"
+alias cdw="cd $HOME/gitrepos/Projects/work/"
 alias cdr="cd $HOME/gitrepos/"
 alias cdd="cd $HOME/.dotfiles"
 

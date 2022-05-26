@@ -4,6 +4,10 @@ tmuxinator/*
 *.html
 openconnect.conf
 
+# Neovim #
+##########
+*packer_compiled.lua
+
 # Compiled source #
 ###################
 *.com
