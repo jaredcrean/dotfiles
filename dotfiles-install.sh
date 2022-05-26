@@ -6,4 +6,7 @@ stow --verbose --target="$HOME" zsh
 stow --verbose --target="$HOME" bash
 stow --verbose --target="$HOME" i3
 stow --verbose --target="$HOME" wezterm
+#stow --verbose --target="$HOME" polybar-collection
+stow --verbose --target="$HOME" picom
+echo "1" > ./polybar-themes/setup.sh --material
 #stow --verbose --target=$HOME i3

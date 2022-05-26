@@ -19,7 +19,7 @@ ZSH_CUSTOM="/home/jcrean/.zshrc.d"
 #ZSH_THEME="random"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 COMPLETION_WAITING_DOTS="false"
 
@@ -42,10 +42,9 @@ autoload -Uz url-quote-magic
 
 zle -N self-insert url-quote-magic
 
-zstyle ':completion:*:*:*:default' menu yes select search
 
 # disable sort when completing `git checkout`
-#zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:git-checkout:*' sort false
 
 # set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
@@ -59,6 +58,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
+zstyle ':completion:*:*:*:default' menu yes select search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -66,6 +66,8 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 [[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
 
 #[[ -d ~/.zshrc.d ]] || source ~/.zshrc.d/*
+# Wezterm pane vim navigation with wezterm.nvim
+[ -n "$WEZTERM_PANE" ] && export NVIM_LISTEN_ADDRESS="/tmp/nvim$WEZTERM_PANE"
 
 # Created by `pipx` on 2022-03-04 07:36:39
 export PATH="$PATH:/home/jcrean/.local/bin:/snap/bin"

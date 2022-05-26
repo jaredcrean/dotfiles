@@ -7,9 +7,9 @@ set $mod Mod4
 #font pango:DejaVu Sans Mono 13
 #font pango:FiraCode-Retina 13
 #font pango:MesloLGS Nerd Font 16
-font pango:Hasklug Nerd Font 20
+#font pango:Hasklug Nerd Font 10
 #font pango:Meslo LG L 13
-#font pango: Source Code Pro 13
+font pango: Source Code Pro 13
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -35,9 +35,14 @@ bindsym $mod+p exec bwmenu -c 30 --auto-lock 1800
 # bindsym $mod+c exec /usr/sbin/speedcrunch inFloatingMode
 
 # Make Shutter floating window
-for_window [class="Shutter"] floating enable
+#for_window [class="Shutter"] floating enable
+#for_window [class="zoom"] floating enable
+#for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
+#for_window [class="zoom" title="Zoom Meeting"] floating disable
 
-
+for_window [class="zoom"] floating enable, sticky enable
+for_window [class="zoom"] [title="Zoom Meeting"] resize set 1880 1040, move position 20 20
+for_window [class="zoom"] [title="Chat"] move position mouse
 # Floating java consule
 # for_window [instance="sun-awt-X11-XFramePeer"] floating enable
 
@@ -95,28 +100,28 @@ bindsym $mod+9 workspace number 9 
 bindsym $mod+0 workspace number 10 
 
 # move focused container to workspace
-# bindsym $mod+Shift+1 move container to workspace number 1 
-# bindsym $mod+Shift+2 move container to workspace number 2 
-# bindsym $mod+Shift+3 move container to workspace number 3 
-# bindsym $mod+Shift+4 move container to workspace number 4 ﱘ
-# bindsym $mod+Shift+5 move container to workspace number 5 
-# bindsym $mod+Shift+6 move container to workspace number 6 
-# bindsym $mod+Shift+7 move container to workspace number 7 
-# bindsym $mod+Shift+8 move container to workspace number 8 
-# bindsym $mod+Shift+9 move container to workspace number 9 
-# bindsym $mod+Shift+0 move container to workspace number 10 
+bindsym $mod+Shift+1 move container to workspace number 1 
+bindsym $mod+Shift+2 move container to workspace number 2 
+bindsym $mod+Shift+3 move container to workspace number 3 
+bindsym $mod+Shift+4 move container to workspace number 4 ﱘ
+bindsym $mod+Shift+5 move container to workspace number 5 
+bindsym $mod+Shift+6 move container to workspace number 6 
+bindsym $mod+Shift+7 move container to workspace number 7 
+bindsym $mod+Shift+8 move container to workspace number 8 
+bindsym $mod+Shift+9 move container to workspace number 9 
+bindsym $mod+Shift+0 move container to workspace number 10 
 
 
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
+# bindsym $mod+Shift+1 move container to workspace number 1
+# bindsym $mod+Shift+2 move container to workspace number 2
+# bindsym $mod+Shift+3 move container to workspace number 3
+# bindsym $mod+Shift+4 move container to workspace number 4
+# bindsym $mod+Shift+5 move container to workspace number 5
+# bindsym $mod+Shift+6 move container to workspace number 6
+# bindsym $mod+Shift+7 move container to workspace number 7
+# bindsym $mod+Shift+8 move container to workspace number 8
+# bindsym $mod+Shift+9 move container to workspace number 9
+# bindsym $mod+Shift+0 move container to workspace number 10
 
 # force a window on a named workspace
 # assign [class="Opera"] 2 www
@@ -128,9 +133,13 @@ assign [class="wezterm-gui"] 2
 # bindsym --release $mod+Print exec shutter -s --output=~/Pictures/SCREESHOTS/$(date +%F-%T).png
 
 # Autostart
-exec_always --no-startup-id picom -CGb
-exec_always --no-startup-id $HOME/polybar-collection/launch.sh
-exec_always --no-startup-id /usr/lib/pam_kwallet_init
+exec_always --no-startup-id "/usr/bin/feh --bg-fill ~/Pictures/Wallpapers/backiee-203955-landscape.jpg"
+exec_always --no-startup-id "/usr/bin/picom -b --config ~/.conf/picom/picom.conf"
+exec_always --no-startup-id "/usr/lib/notification-daemon-1.0/notification-daemon &"
+# exec_always --no-startup-id "$HOME/.polybar-collection/launch.sh"
+exec_always --no-startup-id "bash ~/.config/polybar/launch.sh --material"
+exec_always --no-startup-id xinput --set-prop 21 "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id "/usr/lib/pam_kwallet_init"
 # exec --no-startup-id /usr/sbin/xrandr --output DP1 --dpi 100
 # exec --no-startup-id /usr/sbin/xrandr --output DP2 --dpi 70
 # exec --no-startup-id /usr/sbin/xrandr --output eDP1 --primary
@@ -138,19 +147,16 @@ exec_always --no-startup-id /usr/lib/pam_kwallet_init
 # exec --no-startup-id /usr/sbin/xrandr --output DP2 --mode 2560x1440 --left-of DP1
 # exec --no-startup-id /usr/sbin/xrandr --output DP1 --mode 3840x2160 --primary
 # exec --no-startup-id /usr/sbin/blueberry-tray
-exec_always --no-startup-id /usr/sbin/nm-applet
-#exec --no-startup-id /usr/sbin/volumeicon
-exec_always --no-startup-id /usr/sbin/copyq
-#exec --no-startup-id nitrogen --restore
-
-# Set Wallpaper
-exec_always --no-startup-id /usr/bin/feh --bg-fill ~/Pictures/Wallpapers/backiee-203955-landscape.jpg
+# exec_always --no-startup-id /usr/sbin/nm-applet
+# exec --no-startup-id /usr/sbin/volumeicon
+exec --no-startup-id "/usr/sbin/copyq"
+# exec --no-startup-id nitrogen --restore
 
 # Notification setting
-exec_always --no-startup-id /usr/sbin/dunst -config ~/.dotfiles/dunstrc
+# exec --no-startup-id "/usr/sbin/dunst -config ~/.dotfiles/dunstrc"
 
 # screen lock After 10 Min
-exec_always --no-startup-id xautolock -time 15 -locker "i3lock -i ~/Pictures/Wallpapers/backiee-205901-landscape.jpg -c 000000"
+# exec_always --no-startup-id xautolock -time 15 -locker "i3lock -i ~/Pictures/Wallpapers/backiee-205901-landscape.jpg -c 000000"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -219,18 +225,18 @@ bindsym $mod+minus scratchpad show
 # for_window [class=".*"] title_format "<b>%title</b>"
 
 # focusd windows color
-#client.focused #9fbc00 #9fbc00 #111111
-#client.unfocused #444444 #444444 #FE9A2E
-#client.focused_inactive #444444 #444444 #2c2c2f
-#client.urgent #383a3b #383a3b #ee0000
+client.focused #9fbc00 #9fbc00 #111111
+client.unfocused #444444 #444444 #FE9A2E
+client.focused_inactive #444444 #444444 #2c2c2f
+client.urgent #383a3b #383a3b #ee0000
 # Dark Purple client.focused            #242321   #341B1F   #6EFEB9 #b88853
 ###############################################################################
 #                                  backgroud   text
 ###############################################################################
-client.focused            #242321   #04B45F   #0040FF #b88853
-client.focused_inactive   #000000   #000000   #d9cec3 #000000
-client.unfocused          #000000   #000000   #d9cec3 #000000
-client.urgent             #6EFEB9   #000000   #d9cec3 #6EFEB9
+# client.focused            #242321   #04B45F   #0040FF #b88853
+# client.focused_inactive   #000000   #000000   #d9cec3 #000000
+# client.unfocused          #000000   #000000   #d9cec3 #000000
+# client.urgent             #6EFEB9   #000000   #d9cec3 #6EFEB9
 
 
 # rename workspace

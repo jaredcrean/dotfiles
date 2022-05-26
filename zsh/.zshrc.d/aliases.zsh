@@ -36,6 +36,9 @@ alias lsa='exa -a --icons --long --git'
 ##### Git alias
 alias gcam='git commit -a -m'
 
+# Worktree's
+alias gwl='git worktree list'
+
 # List the directories in tree format and take an argument for the depth level
 function lst() {
    if [[ $# -gt 0 ]]
@@ -47,3 +50,5 @@ function lst() {
      echo "### Add a number to show deeper directories example: lst 3"
    fi
 }
+
+eval $(thefuck --alias fu)

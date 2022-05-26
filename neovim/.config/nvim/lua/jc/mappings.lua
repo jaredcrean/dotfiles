@@ -70,7 +70,29 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+-- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+-- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+-- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+-- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+vim.cmd([[
+  packadd vim-tmux-navigator
+  nnoremap <silent><c-h> <cmd>TmuxNavigateLeft<cr>
+  nnoremap <silent><c-j> <cmd>TmuxNavigateDown<cr>
+  nnoremap <silent><c-k> <cmd>TmuxNavigateUp<cr>
+  nnoremap <silent><c-l> <cmd>TmuxNavigateRight<cr>
+
+  tnoremap <c-h> <C-\><C-N><cmd>TmuxNavigateLeft<cr>
+  tnoremap <c-j> <C-\><C-N><cmd>TmuxNavigateDown<cr>
+  tnoremap <c-k> <C-\><C-N><cmd>TmuxNavigateUp<cr>
+  tnoremap <c-l> <C-\><C-N><cmd>TmuxNavigateRight<cr>
+]])
+
+vim.cmd([[
+  packadd better-vim-tmux-resizer
+  let g:tmux_resizer_no_mappings = 1
+  nnoremap <silent> <m-h> <cmd>TmuxResizeLeft<cr>
+  nnoremap <silent> <m-j> <cmd>TmuxResizeDown<cr>
+  nnoremap <silent> <m-k> <cmd>TmuxResizeUp<cr>
+  nnoremap <silent> <m-l> <cmd>TmuxResizeRight<cr>
+]])

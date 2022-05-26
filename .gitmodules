@@ -1,0 +1,3 @@
+[submodule "wezterm/.config/wezterm/wezterm/.config/wezterm/wezterm.nvim"]
+	path = wezterm/.config/wezterm/wezterm/.config/wezterm/wezterm.nvim
+	url = git@github.com:aca/wezterm.nvim.git

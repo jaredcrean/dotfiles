@@ -37,4 +37,3 @@ export LESSOPEN='| lessfilter-fzf %s'
 
 ### FZF settings
 export FZF_PREVIEW_ADVANCED=true
-export FZF_ALT_C_COMMAND="fd -t d . $HOME"

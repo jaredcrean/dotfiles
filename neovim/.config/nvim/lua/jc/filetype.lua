@@ -8,6 +8,7 @@ require("filetype").setup {
     complex = {
           -- Set the filetype of any full filename matching the regex to gitconfig
           [".*i3/config"] = "i3config", -- Included in the plugin
+          ["*lambda*/serverless.template"] = "json", -- Included in the plugin
           }
         },
 }

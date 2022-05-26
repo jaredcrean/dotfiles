@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/auto-session",
     url = "https://github.com/rmagatti/auto-session"
   },
+  ["better-vim-tmux-resizer"] = {
+    loaded = true,
+    path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/better-vim-tmux-resizer",
+    url = "https://github.com/RyanMillerC/better-vim-tmux-resizer"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/jcrean/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -359,14 +364,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: project.nvim
-time([[Config for project.nvim]], true)
-require'jc.project'
-time([[Config for project.nvim]], false)
 -- Config for: org-bullets.nvim
 time([[Config for org-bullets.nvim]], true)
 try_loadstring("\27LJ\2\nd\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\fsymbols\1\0\0\1\5\0\0\b◉\b○\b✸\b✿\nsetup\16org-bullets\frequire\0", "config", "org-bullets.nvim")
 time([[Config for org-bullets.nvim]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+require'jc.project'
+time([[Config for project.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

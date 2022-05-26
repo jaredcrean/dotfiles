@@ -167,6 +167,8 @@ return packer.startup(function(use)
 
 	-- better tmux config
 	use("christoomey/vim-tmux-navigator")
+  use("RyanMillerC/better-vim-tmux-resizer")
+
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") --snippet engine
