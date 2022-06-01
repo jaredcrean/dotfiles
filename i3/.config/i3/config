@@ -178,16 +178,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym $mod+h resize shrink width 20 px or 20 ppt
-        bindsym $mod+j resize grow height 20 px or 20 ppt
-        bindsym $mod+k resize shrink height 20 px or 20 ppt
-        bindsym $mod+l resize grow width 20 px or 20 ppt
+        bindsym $mod+h resize shrink width 40 px or 40 ppt
+        bindsym $mod+j resize grow height 40 px or 40 ppt
+        bindsym $mod+k resize shrink height 40 px or 40 ppt
+        bindsym $mod+l resize grow width 40 px or 40 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 20 px or 20 ppt
-        bindsym Down resize grow height 20 px or 20 ppt
-        bindsym Up resize shrink height 20 px or 20 ppt
-        bindsym Right resize grow width 20 px or 20 ppt
+        bindsym Left resize shrink width 40 px or 40 ppt
+        bindsym Down resize grow height 40 px or 40 ppt
+        bindsym Up resize shrink height 40 px or 40 ppt
+        bindsym Right resize grow width 40 px or 40 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"

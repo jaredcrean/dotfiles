@@ -38,7 +38,7 @@ alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
-alias tree='lsd --tree'
+alias tree='ls --tree'
 
 ##### Git alias
 alias gcam='git commit -a -m'
@@ -48,6 +48,9 @@ alias gp='git push'
 # Git Worktree's
 alias gwl='git worktree list'
 
+### z.lua jump directory command 
+# alias zb='z -b'
+# alias zh='z -I -t .'
 
 # List the directories in tree format and take an argument for the depth level
 function lst() {

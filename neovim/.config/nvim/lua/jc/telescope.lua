@@ -93,21 +93,6 @@ telescope.setup({
     },
 	},
 	extensions = {
-		--media_files = {
-		--	find_cmd = "fzf", -- find command (defaults to `fd`)
-		--},
-  -- project = {
-  --   base_dirs = {
-  --     '~/gitrepos/',
-  --     {'~/gitrepos/Projects/'},
-  --     --{'~/dev/src3', max_depth = 4},
-  --     {path = '~/gitrepos/Projects/work/'},
-  --     --{path = '~/dev/src5', max_depth = 2},
-  --   },
-  --   hidden_files = true, -- default: false
-  --   theme = "dropdown"
-  -- },
-
 		fzf = {
 			fuzzy = true, -- false will only do exact matching
 			override_generic_sorter = true, -- override the generic sorter
@@ -126,5 +111,5 @@ require'telescope'.load_extension('repo')
 require("telescope").load_extension("git_worktree")
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("emoji")
-require("telescope").load_extension('harpoon')
+--require("telescope").load_extension('harpoon')
 require('telescope').load_extension('lazygit')

@@ -6,7 +6,9 @@
 #  export EDITOR='nvim'
 #fi
 
-export EDITOR='neovide'
+#eval "$(lua /usr/local/bin/z.lua --init zsh)"
+
+export EDITOR='nvim'
 #export XDG_CONFIG_HOME='$HOME/.config'
 #export XDG_CONFIG_DIRS='/etc/xdg/'
 
@@ -25,9 +27,10 @@ export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 
 ### Firefox Settings
 # Force firefox to use EGL which is faster
-MOZ_X11_EGL=1
+export BROWSER='/usr/bin/firefox' 
+export MOZ_X11_EGL=1
 # Enable Pixel-perfect trackpad scrolling for firefox
-MOZ_USE_XINPUT2=1
+export MOZ_USE_XINPUT2=1
 
 ### "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -37,3 +40,6 @@ export LESSOPEN='| lessfilter-fzf %s'
 
 ### FZF settings
 export FZF_PREVIEW_ADVANCED=true
+
+### z.lua settings
+export _ZL_ROOT_MARKERS=".git,.svn,.hg,.root,package.json"
