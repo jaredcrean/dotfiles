@@ -150,7 +150,7 @@ return packer.startup(function(use)
   use ('lukas-reineke/headlines.nvim')
 
 --  use ('ThePrimeagen/harpoon')
-  use('toppair/reach.nvim')
+--  use('toppair/reach.nvim')
   use('chentoast/marks.nvim')
 
 	-- CMP Plugins
