@@ -169,7 +169,12 @@ return packer.startup(function(use)
   -- Markdown Colors
   use {"ellisonleao/glow.nvim", branch = 'main'}
 	-- Buffers
-	use("akinsho/bufferline.nvim")
+	-- use("akinsho/bufferline.nvim")
+  use({
+    'noib3/nvim-cokeline',
+    requires = 'kyazdani42/nvim-web-devicons',
+  })
+
 	use("kazhala/close-buffers.nvim")
 
 	-- better tmux config
