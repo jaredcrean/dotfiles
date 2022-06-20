@@ -2,7 +2,7 @@
 # export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore'
 export FZ_HISTORY_CD_CMD="_zlua"
 source $HOME/.zshrc.d/plugins/fz/fz.sh
-
+export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 # Show systemctl servies in FZF
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 

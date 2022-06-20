@@ -14,6 +14,7 @@ vim.cmd([[
     autocmd!
     autocmd FileType gitcommit setlocal wrap
     autocmd FileType gitcommit setlocal spell
+    autocmd BufEnter * :lua require('lazygit.utils').project_root_dir()
   augroup end
   augroup _markdown
     autocmd!

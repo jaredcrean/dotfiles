@@ -33,7 +33,7 @@ alias yay='paru'
 #alias ls='exa --icons --long --git'
 #alias lsa='exa -a --icons --long --git'
 
-alias ls='lsd'
+alias ls='lsd --config-file $HOME/.config/lsd/config.yaml'
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
@@ -47,6 +47,11 @@ alias gp='git push'
 
 # Git Worktree's
 alias gwl='git worktree list'
+alias gwa='git worktree add'
+alias gwr='git worktree remove'
+
+# Remove vim swp files
+alias rmvs='~/.local/share/nvim/swap/'
 
 ### z.lua jump directory command 
 # alias zb='z -b'

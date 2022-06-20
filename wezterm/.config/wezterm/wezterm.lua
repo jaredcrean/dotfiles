@@ -1,6 +1,19 @@
 local wezterm = require 'wezterm';
 --Themes
 
+local catppuccin = require("colors/catppuccin").setup {
+	-- whether or not to sync with the system's theme
+	sync = false,
+	-- the flavours to switch between when syncing
+	-- available flavours: "latte" | "frappe" | "macchiato" | "mocha"
+	-- sync_flavours = {
+	-- 	light = "latte",
+	-- 	dark = "mocha"
+	-- },
+	-- the default/fallback flavour, when syncing is disabled
+	flavour = "macchiato"
+}
+
 
 --require('domians.ssh')
 
@@ -69,21 +82,25 @@ end)
 
 -- Settings for look and feel
 return {
+
   -- color_scheme = "tokyonight_storm",
-  color_scheme = "Gruvbox Dark",
+  -- color_scheme = "Gruvbox Dark",
+  -- color_scheme = "Gruvbox Dark",
+  colors = catppuccin,
+
   -- font = wezterm.font("Source Code Pro", {weight="Semibold"}),
-  window_background_image = "/home/jcrean/Pictures/Wallpapers/VJsznPD.jpeg",
-  window_background_image_hsb = {
-    -- Darken the background image by reducing it to 1/3rd
-    brightness = 0.05,
 
-    -- You can adjust the hue by scaling its value.
-    -- a multiplier of 1.0 leaves the value unchanged.
-    hue = 1.0,
+  -- window_background_image = "/home/jcrean/Pictures/Wallpapers/VJsznPD.jpeg",
+  -- window_background_image_hsb = {
+  --   -- Darken the background image by reducing it to 1/3rd
+  --   brightness = 0.05,
+  --   -- You can adjust the hue by scaling its value.
+  --   -- a multiplier of 1.0 leaves the value unchanged.
+  --   hue = 1.0,
+  --   -- You can adjust the saturation also.
+  --   saturation = 1.0,
+  -- },
 
-    -- You can adjust the saturation also.
-    saturation = 1.0,
-  },
   scrollback_lines = 10000,
 --  font_antialias = "Subpixel", -- None, Greyscale, Subpixel
   --font_hinting = "Full",  -- None, Vertical, VerticalSubpixel, Full
@@ -131,4 +148,16 @@ return {
     { key = "j", mods = "ALT", action = wezterm.action({ EmitEvent = "resize-down" }) },
 
   },
+
+  unix_domains = {
+    {
+      name = "desktop",
+    }
+  },
+
+  -- This causes `wezterm` to act as though it was started as
+  -- `wezterm connect unix` by default, connecting to the unix
+  -- domain on startup.
+  -- If you prefer to connect manually, leave out this line.
+  default_gui_startup_args = {"connect", "desktop"},
 }

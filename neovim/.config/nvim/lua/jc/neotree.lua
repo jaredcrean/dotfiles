@@ -57,7 +57,7 @@ require('neo-tree').setup({
       },
       window = {
         position = "left",
-        width = 40,
+        width = 30,
         mapping_options = {
           noremap = true,
           nowait = true,
@@ -65,7 +65,7 @@ require('neo-tree').setup({
         mappings = {
           ["<space>"] = {
               "toggle_node",
-              nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+              nowait = true, -- disable `nowait` if you have existing combos starting with this char that you want to use
           },
           ["<2-LeftMouse>"] = "open",
           ["<cr>"] = "open",
@@ -80,7 +80,7 @@ require('neo-tree').setup({
             "add",
             -- some commands may take optional config options, see `:h neo-tree-mappings` for details
             config = {
-              show_path = "none" -- "none", "relative", "absolute"
+              show_path = "relative" -- "none", "relative", "absolute"
             }
           },
           ["A"] = "add_directory", -- also accepts the config.show_path option.

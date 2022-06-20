@@ -48,8 +48,8 @@ user_pref("toolkit.scrollbox.verticalScrollDistance",                      3);//
 //user_pref("mousewheel.system_scroll_override.enabled", false);            
 
 /// AveYo: uncomment if you prefer even more smoothness than V3 
-//user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant",   125);//NSS+  [1250]
-//user_pref("general.smoothScroll.msdPhysics.regularSpringConstant",       500);//NSS+  [1000]
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant",   125);//NSS+  [1250]
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant",       500);//NSS+  [1000]
 
 // AveYo: uncomment for something more sharper, then fiddle with these going lower for smoothness:
 //user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant",  1250);
@@ -73,6 +73,6 @@ user_pref("browser.urlbar.formatting.enabled", false);                          
 user_pref("browser.urlbar.trimURLs", false);                                               // o Display all parts of the url in the urlbar
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);                              // x Enable Add button in Search engines options
 user_pref("browser.xul.error_pages.expert_bad_cert", true);                                // x Display advanced info on Insecure Connection
-//user_pref("browser.zoom.siteSpecific", false);                                           // / Disable remembering zoom per site
+user_pref("browser.zoom.siteSpecific", true);                                           // / Disable remembering zoom per site
 //user_pref("dom.confirm_repost.testing.always_accept", true);                             // / Hide confirm dialog when reloading a POST request
 user_pref("dom.disable_beforeunload", true);                                               // x Confirm you want to leave dialog on page close
