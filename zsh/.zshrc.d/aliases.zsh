@@ -1,6 +1,7 @@
 alias reload="source ~/.zshrc"
+
 alias cdw="cd $HOME/gitrepos/Projects/work/"
-alias cdr="cd $HOME/gitrepos/"
+#alias cdr="cd $HOME/gitrepos/"
 alias cdd="cd $HOME/.dotfiles"
 
 alias vim="nvim"
@@ -8,6 +9,7 @@ alias htop="btop"
 #alias rm='rm -I'
 #alias mv='mv -I'
 alias cp='cp -i'
+
 # AWS set profile
 #alias asp="asp"
 
@@ -19,7 +21,7 @@ alias cdnas="cd /nfs/nas/"
 # Make clip put selection in clipboard rather then middle mouse click
 alias xclip="xclip -selection clipboard"
 
-alias reload="omz reload"
+# alias reload="omz reload"
 
 alias cat="bat"
 
@@ -28,6 +30,17 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias yay='paru'
+
+## Pacman/Paru
+
+# List packages and installed size
+alias plis='LC_ALL=C.UTF-8 pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h'
+
+#List packages in FZF with preview
+alias plp="paru -Qq | fzf --preview 'paru -Qil {}' --layout=reverse --bind 'enter:execute(paru -Qil {} | less)'"
+
+# Search the avaliable packages from the repos using fzf 
+alias psp="paru -Slq | fzf --preview 'paru -Si {}' --layout=reverse"
 
 # Better ls
 #alias ls='exa --icons --long --git'
@@ -52,10 +65,6 @@ alias gwr='git worktree remove'
 
 # Remove vim swp files
 alias rmvs='~/.local/share/nvim/swap/'
-
-### z.lua jump directory command 
-# alias zb='z -b'
-# alias zh='z -I -t .'
 
 # List the directories in tree format and take an argument for the depth level
 function lst() {
