@@ -3,8 +3,8 @@ include ~/.config/i3/i3-gaps.config
 #Needed for i3-gaps
 #hide_edge_borders both
 for_window [class="^.*"] border pixel 2 
-gaps inner 3
-gaps outer 3
+gaps inner 5
+gaps outer 5
 
 bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+Shift+z	gaps outer current minus 5
@@ -156,7 +156,7 @@ assign [class="Deezer"] $ws5
 # bindsym --release $mod+Print exec shutter -s --output=~/Pictures/SCREESHOTS/$(date +%F-%T).png
 
 # Autostart
-exec_always --no-startup-id "/usr/bin/feh --bg-fill ~/Pictures/Wallpapers/backiee-203955-landscape.jpg"
+exec_always --no-startup-id "/usr/bin/feh --bg-fill ~/Pictures/Wallpapers/endyFixed_01.png"
 exec_always --no-startup-id xinput --set-prop 14 "libinput Natural Scrolling Enabled" 1
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh --material
 # exec_always --no-startup-id wezterm-mux-server --daemonize
@@ -287,7 +287,7 @@ bindsym XF86MonBrightnessUp exec /usr/sbin/light -A 1
 bindsym XF86MonBrightnessDown exec /usr/sbin/light -U 1
 # suspend
 # bindsym $mod+p exec suspendandlock
-bindsym $mod+q  exec "i3lock -c 000000"
+bindsym $mod+Escape  exec "i3lock -c 000000"
 
 
 ## This will control spotify but needs the playerctl package installed

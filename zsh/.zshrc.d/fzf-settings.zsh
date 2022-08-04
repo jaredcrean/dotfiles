@@ -1,13 +1,20 @@
 # export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 # export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore'
-export FZ_HISTORY_CD_CMD="_zlua"
-source $HOME/.zshrc.d/plugins/fz/fz.sh
+#export FZ_HISTORY_CD_CMD="zoxide"
+
+export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+
+### FZF settings
+export FZF_PREVIEW_ADVANCED=true
+
 export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
+
 # Show systemctl servies in FZF
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-export LESSOPEN='|~/.lessfilter %s'
+
+export LESSOPEN='|/usr/bin/lessfilter %s'
 
 # Show evniroment var's in fzf
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \

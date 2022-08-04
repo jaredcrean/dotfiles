@@ -9,6 +9,7 @@ stow --verbose --target="$HOME" wezterm
 #stow --verbose --target="$HOME" polybar-collection
 stow --verbose --target="$HOME" picom
 stow --verbose --target="$HOME" rofi
+stow --verbose --target="$HOME" profile
 #stow --verbose --target="$HOME" firefox
 #echo "1" > ./polybar-themes/setup.sh --material
 #stow --verbose --target=$HOME i3
