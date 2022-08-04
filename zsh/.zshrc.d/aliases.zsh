@@ -3,6 +3,7 @@ alias reload="source ~/.zshrc"
 alias cdw="cd $HOME/gitrepos/Projects/work/"
 #alias cdr="cd $HOME/gitrepos/"
 alias cdd="cd $HOME/.dotfiles"
+alias cdr="cd $HOME/gitrepos/"
 
 alias vim="nvim"
 alias htop="btop"
