@@ -52,7 +52,7 @@ zstyle ':completion:*:descriptions' format '[%d]'
 # set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # preview directory's content with lsd when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --tree --level 2 --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --tree --level 2 --all --color=always $realpath'
 
 zstyle ':fzf-tab:complete:*' fzf-preview 'exa -1 --tree --level 2 --color=always $realpath'
 # switch group using `,` and `.`
