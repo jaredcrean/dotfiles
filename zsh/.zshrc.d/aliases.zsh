@@ -1,6 +1,6 @@
 alias reload="source ~/.zshrc"
 
-alias cdw="cd $HOME/gitrepos/Projects/work/"
+alias cdw="cd $HOME/gitrepos/work/"
 #alias cdr="cd $HOME/gitrepos/"
 alias cdd="cd $HOME/.dotfiles"
 alias cdr="cd $HOME/gitrepos/"
@@ -11,6 +11,9 @@ alias htop="btop"
 #alias mv='mv -I'
 alias cp='cp -i'
 
+alias up-joplin='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh'
+alias up-joplin-pre='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh'
+alias vim-alias='vim ~/.zshrc.d/aliases.zsh'
 # AWS set profile
 #alias asp="asp"
 
@@ -32,27 +35,11 @@ alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias yay='paru'
 
-## Pacman/Paru
-
-# List packages and installed size
-alias plis='LC_ALL=C.UTF-8 pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h'
-
-#List packages in FZF with preview
-alias plp="paru -Qq | fzf --preview 'paru -Qil {}' --layout=reverse --bind 'enter:execute(paru -Qil {} | less)'"
-
-# Search the avaliable packages from the repos using fzf 
-alias psp="paru -Slq | fzf --preview 'paru -Si {}' --layout=reverse"
 
 # Better ls
-#alias ls='exa --icons --long --git'
-#alias lsa='exa -a --icons --long --git'
+alias ls='exa --icons --long --git'
+alias lsa='exa -a --icons --long --git'
 
-alias ls='lsd --config-file $HOME/.config/lsd/config.yaml'
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
-alias tree='ls --tree'
 
 ##### Git alias
 alias gcam='git commit -a -m'
@@ -65,7 +52,7 @@ alias gwa='git worktree add'
 alias gwr='git worktree remove'
 
 # Remove vim swp files
-alias rmvs='~/.local/share/nvim/swap/'
+alias rmvs='~/.local/share/nvim/swap/*.s[a-z]p'
 
 # List the directories in tree format and take an argument for the depth level
 function lst() {

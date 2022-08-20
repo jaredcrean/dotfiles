@@ -29,16 +29,11 @@ bindsym $mod+p exec bwmenu -c 30 --auto-lock 3600
 bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
 
 # Floating Windows for zoom
-#for_window [class="zoom"] floating enable
-#for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
-#for_window [class="zoom" title="Zoom Meeting"] floating enable sticky enable
-#for_window [class="zoom" title="Settings"] floating enable sticky enable
+for_window [class="zoom"] floating enable
+for_window [class="zoom" title="Zoom - Licensed Account"] floating disable
+for_window [class="zoom" title="Zoom Meeting"] floating enable sticky enable
+for_window [class="zoom" title="Settings"] floating enable sticky enable
 
-for_window [instance="zoom"] move container to workspace $ws4, workspace $ws4, floating enable
-for_window [instance="join"] move container to workspace $ws4, workspace $ws4, floating enable
-for_window [title="^Zoom Meeting$"] floating enable, move position 3453 px 1330 px, resize set 1486 px 1166 px
-for_window [title="^Zoom - Licensed Account$"] floating enable, move position 4954 px 1330 px, resize set 392 px 483 px
-for_window [title="^Chat$"] floating enable, move position 4738 px 1830 px, resize set 596 px 600 px
 
 
 
@@ -167,6 +162,7 @@ assign [class="Digikam"] $ws6
 
 # Autostart
 exec_always --no-startup-id "/usr/bin/feh --bg-fill /home/jcrean/Pictures/Wallpapers/please-stay-on-trail.jpg"
+exec_always --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 # exec_always --no-startup-id xinput --set-prop 14 "libinput Natural Scrolling Enabled" 1
 exec_always --no-startup-id /usr/local/bin/set-natural-scolling.sh
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh --material
@@ -174,6 +170,8 @@ exec_always --no-startup-id bash ~/.config/polybar/launch.sh --material
 exec_always --no-startup-id unclutter
 exec_always --no-startup-id blueberry-tray
 exec_always --no-startup-id "/usr/sbin/copyq"
+
+exec_always --no-startup-id rclone-browser
 exec --no-startup-id kdeconnect &
 exec --no-startup-id xfce4-power-manager 
 exec --no-startup-id nm-applet

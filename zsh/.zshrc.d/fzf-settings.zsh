@@ -1,27 +1,33 @@
-# export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-# export FZF_DEFAULT_COMMAND='fd --type file --hidden --no-ignore'
-#export FZ_HISTORY_CD_CMD="zoxide"
+#!/bin/zsh
 
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZ_HISTORY_CD_CMD="zoxide"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
-
-### FZF settings
 export FZF_PREVIEW_ADVANCED=true
+export LESSOPEN='| lessfilter-fzf %s'
 
-export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
+# Themes
+# Gruvbox theme for fzf
+export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
+#export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 
+# or for everything
+zstyle ':completion:*' fzf-search-display true
 # Show systemctl servies in FZF
-zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+# zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+#zstyle ':fzf-tab:complete:ps:*' fzf-tab 'ps -ef '
 
-zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+#zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 
-export LESSOPEN='|/usr/bin/lessfilter %s'
+# zstyle ':fzf-tab:complete:*:*' fzf-preview '/usr/bin/bat -plman --color=always ${(Q)realpath}|head --lines 500'
 
-# Show evniroment var's in fzf
-zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
-	fzf-preview 'echo ${(P)word}'
 
 # Better git completions in FZF
-# it is an example. you can change it
+# preview a `git status` when completing git add
+zstyle ':completion::*:git::git,add,*' fzf-completion-opts --preview='git -c color.status=always status --short'
 zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
 	'git diff $word | delta'
 zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
@@ -39,7 +45,29 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 	"recent commit object name") git show --color=always $word | delta ;;
 	*) git log --color=always $word ;;
 	esac'
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with lsd when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --tree --level 2 --color=always $realpath'
 
+zstyle ':fzf-tab:complete:*' fzf-preview 'exa -1 --tree --level 2 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+# _fzf_comprun() {
+#   local command=$1
+#   shift
+
+#  case "$command" in
+#    cd)           fzf "$@" --preview 'lsd --color --icon -1 {} | head -200' ;;
+#    ps)           fzf "$@" --preview 'ps -ef {} | head -200' ;;
+#    *)            fzf "$@" ;;
+#  esac
+#}
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
@@ -53,29 +81,3 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
-
-# Get list of k8s pods
-pods() {
-  FZF_DEFAULT_COMMAND="kubectl get pods --all-namespaces" \
-    fzf --info=inline --layout=reverse --header-lines=1 \
-        --prompt "$(kubectl config current-context | sed 's/-context$//')> " \
-        --header $'╱ Enter (kubectl exec) ╱ CTRL-O (open log in editor) ╱ CTRL-R (reload) ╱\n\n' \
-        --bind 'ctrl-/:change-preview-window(80%,border-bottom|hidden|)' \
-        --bind 'enter:execute:kubectl exec -it --namespace {1} {2} -- bash > /dev/tty' \
-        --bind 'ctrl-o:execute:${EDITOR:-vim} <(kubectl logs --all-containers --namespace {1} {2}) > /dev/tty' \
-        --bind 'ctrl-r:reload:$FZF_DEFAULT_COMMAND' \
-        --preview-window up:follow \
-        --preview 'kubectl logs --follow --all-containers --tail=10000 --namespace {1} {2}' "$@"
-}
-
-### PATH
-# mnemonic: [F]ind [P]ath
-# list directories in $PATH, press [enter] on an entry to list the executables inside.
-# press [escape] to go back to directory listing, [escape] twice to exit completely
-
-# local loc=$(echo $PATH | sed -e $'s/:/\\\n/g' | eval "fzf ${FZF_DEFAULT_OPTS} --header='[find:path]'")
-
-# if [[ -d $loc ]]; then
-#   echo "$(rg --files $loc | rev | cut -d"/" -f1 | rev)" | eval "fzf ${FZF_DEFAULT_OPTS} --header='[find:exe] => ${loc}' >/dev/null"
-#   fp
-# fi

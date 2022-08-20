@@ -1,18 +1,18 @@
 local wezterm = require 'wezterm';
 --Themes
 
-local catppuccin = require("colors/catppuccin").setup {
-	-- whether or not to sync with the system's theme
-	sync = false,
-	-- the flavours to switch between when syncing
-	-- available flavours: "latte" | "frappe" | "macchiato" | "mocha"
-	-- sync_flavours = {
-	-- 	light = "latte",
-	-- 	dark = "mocha"
-	-- },
-	-- the default/fallback flavour, when syncing is disabled
-	flavour = "macchiato"
-}
+-- local catppuccin = require("colors/catppuccin").setup {
+-- 	-- whether or not to sync with the system's theme
+-- 	sync = false,
+-- 	-- the flavours to switch between when syncing
+-- 	-- available flavours: "latte" | "frappe" | "macchiato" | "mocha"
+-- 	-- sync_flavours = {
+-- 	-- 	light = "latte",
+-- 	-- 	dark = "mocha"
+-- 	-- },
+-- 	-- the default/fallback flavour, when syncing is disabled
+-- 	flavour = "macchiato"
+-- }
 
 
 --require('domians.ssh')
@@ -85,8 +85,9 @@ return {
 
   -- color_scheme = "tokyonight_storm",
   -- color_scheme = "Gruvbox Dark",
-  -- color_scheme = "Gruvbox Dark",
-  colors = catppuccin,
+  -- color_scheme = "PaperColor Dark (base16)",
+  color_scheme = "Gruvbox dark, pale (base16)",
+  -- colors = catppuccin,
 
   -- font = wezterm.font("Source Code Pro", {weight="Semibold"}),
 
