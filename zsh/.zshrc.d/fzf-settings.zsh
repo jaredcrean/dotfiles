@@ -9,6 +9,9 @@ export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 export FZF_PREVIEW_ADVANCED=true
 export LESSOPEN='| lessfilter-fzf %s'
 
+
+
+#bindkey '^I' fzf_completion
 # Themes
 # Gruvbox theme for fzf
 export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
@@ -16,6 +19,7 @@ export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#9283
 
 # or for everything
 zstyle ':completion:*' fzf-search-display true
+
 # Show systemctl servies in FZF
 # zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 #zstyle ':fzf-tab:complete:ps:*' fzf-tab 'ps -ef '
@@ -23,7 +27,6 @@ zstyle ':completion:*' fzf-search-display true
 #zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 
 # zstyle ':fzf-tab:complete:*:*' fzf-preview '/usr/bin/bat -plman --color=always ${(Q)realpath}|head --lines 500'
-
 
 # Better git completions in FZF
 # preview a `git status` when completing git add
@@ -54,7 +57,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # preview directory's content with lsd when completing cd
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --tree --level 2 --all --color=always $realpath'
 
-zstyle ':fzf-tab:complete:*' fzf-preview 'exa -1 --tree --level 2 --color=always $realpath'
+#zstyle ':fzf-tab:complete:*' fzf-preview 'exa -1 --tree --level 2 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 

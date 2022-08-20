@@ -25,6 +25,8 @@ zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "eastokes/aws-plugin-zsh", as:plugin
 # zplug "skywind3000/z.lua"
 zplug "ajeetdsouza/zoxide", use:zoxide.plugin.zsh
+
+zplug "lincheney/fzf-tab-completion"
 zplug "junegunn/fzf", use:"shell/*.zsh"
 zplug "Aloxaf/fzf-tab"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
