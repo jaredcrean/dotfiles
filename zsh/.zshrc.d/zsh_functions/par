@@ -1,0 +1,12 @@
+# List installed packages into fzf and remove selection
+# Tip: use -e to list only explicitly installed packages
+par() {
+  pkg=$(paru --color=always -Q "$@" | yzf 1 --tiebreak=length --preview="paru --color always -Qli {1}")
+  if test -n "$pkg"
+    then echo "Removing $pkg..."
+      cmd="paru -R --cascade --recursive $pkg"
+      print -s "$cmd"
+      eval "$cmd"
+  fi
+}
+
