@@ -4,14 +4,14 @@ local cfg = {}
 
 local misc_config = {
 
-  scrollback_lines = 15000,
+  scrollback_lines = 10000,
   -- Font Settings
-  font_size = 11,
+  font_size = 14,
   --font_dirs = {"/usr/share/fonts"},
-  freetype_load_target = 'Light',
+  -- freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
   font = wezterm.font {
-    family = 'FiraCode Nerd Font Mono',
+    family = 'Fira Code',
     weight=450,
     stretch='Normal',
     style='Normal',
@@ -24,7 +24,7 @@ local misc_config = {
   default_cursor_style = 'BlinkingBlock',
   term = 'xterm-256color',
   unzoom_on_switch_pane = false,
-  use_fancy_tab_bar = true,
+  use_fancy_tab_bar = false,
   quick_select_patterns = { '[0-9a-f]{7,40}', '\'.*\'', "\".*\"", },
 
   unix_domains = { { name = 'desktop', } },
@@ -38,7 +38,7 @@ local full_config = mytable.merge_all(
   misc_config,
   require("apperance"),
   -- require("ssh-domains"),
-  require("domains"),
+  -- require("domains"),
   require("key-maps"),
   {} -- so the last table can have an ending comma for git diffs :)
 )
