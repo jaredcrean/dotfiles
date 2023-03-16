@@ -1,4 +1,3 @@
-#!/bin/zsh
 
 # Gruvbox theme for fzf
 export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
@@ -77,6 +76,15 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --all --color=always $realpa
 #zstyle ':fzf-tab:complete:*' fzf-preview 'exa -1 --tree --level 2 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
+
+# fzf forgit zsh plugin
+export FORGIT_FZF_DEFAULT_OPTS="
+--exact
+--border
+--cycle
+--reverse
+--height '80%'
+"
 
  _fzf_comprun() {
    local command=$1

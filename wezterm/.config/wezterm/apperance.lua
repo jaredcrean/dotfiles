@@ -25,9 +25,9 @@ wezterm.on(
     local title = basename(pane.foreground_process_name)
       .. ' '
       .. pane.pane_id
-    local color = 'lightblue'
+    local color = 'lightgreen'
     if tab.is_active then
-      color = 'navy'
+      color = 'gray'
     end
     return {
       { Background = { Color = color } },
@@ -41,7 +41,7 @@ wezterm.on(
   function(tab, tabs, panes, config, hover, max_width)
     if tab.is_active then
       return {
-        { Background = { Color = 'blue' } },
+        { Background = { Color = 'lightblue' } },
         { Text = ' ' .. tab.active_pane.title .. ' ' },
       }
     end

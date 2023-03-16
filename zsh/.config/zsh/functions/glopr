@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function glopr {
+
+glop=$(/usr/bin/pgrep GlobalProtect)
+
+  if [[ "$glop" -gt 0 ]];then
+    echo "Killing Global Protect!!!!!!!"
+    pkill GlobalProtect
+  else
+    echo "Global Protect Not Running!!!!!!"
+  fi
+}
+    
+

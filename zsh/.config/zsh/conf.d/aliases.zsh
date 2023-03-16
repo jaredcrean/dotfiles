@@ -14,16 +14,17 @@ alias -g ..9='../../../../../../../../..'
 
 # single character aliases - be sparing!
 alias _=sudo
-alias l=ls
+alias l='exa --grid --color=auto --icons'
 alias g=git
 
 # mask built-ins with better defaults
 alias vi=nvim
+alias vim=nvim
 
 # more ways to ls
-alias ll='ls -lh'
-alias la='ls -lAh'
-alias ldot='ls -ld .*'
+alias ls="exa -1 --color=auto --icons"
+alias -g ls="exa -1 --color=auto --icons"
+
 
 # fix common typos
 alias quit='exit'
@@ -102,6 +103,26 @@ alias l='exa --icons --git --grid'
 alias gcam='git commit -a -m'
 alias gis='git status'
 alias gp='git push'
+
+### Forgit alias to change we have to export them as vars
+export forgit_log=glo
+export forgit_diff=gd
+export forgit_add=ga
+export forgit_reset_head=grh
+export forgit_ignore=gi
+export forgit_checkout_file=gcf
+export forgit_checkout_branch=gcb
+export forgit_branch_delete=gbd
+export forgit_checkout_tag=gct
+export forgit_checkout_commit=gco
+export forgit_revert_commit=grc
+export forgit_clean=gclean
+export forgit_stash_show=gss
+export forgit_stash_push=gsp
+export forgit_cherry_pick=gcp
+export forgit_rebase=grb
+export forgit_blame=gbl
+export forgit_fixup=gfu
 
 # Git Worktree's
 alias gwl='git worktree list'
