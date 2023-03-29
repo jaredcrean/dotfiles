@@ -93,7 +93,16 @@ return packer.startup(function(use)
 
   -- Git plugins
 	use("lewis6991/gitsigns.nvim")
-	use("kdheepak/lazygit.nvim")
+	-- use("kdheepak/lazygit.nvim")
+  use({
+    "nvim-telescope/telescope.nvim",
+    requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
+    config = function()
+        require("telescope").load_extension("lazygit")
+    end,
+  })
+
+  
 
 	-- Terraform setup
 	-- use("hashivim/vim-terraform")

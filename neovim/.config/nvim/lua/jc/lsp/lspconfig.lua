@@ -27,8 +27,10 @@ local servers = {
   terraformls = {},
   tflint = {},
   dockerls = {},
+  -- docker_compose_language_service {},
   yamlls = {},
   bashls = {},
+  -- gradle_ls = {}
 }
 
 local function on_attach(client, bufnr)

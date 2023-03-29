@@ -135,8 +135,9 @@ local mappings = {
 			"Find files",
 		},
 
+    -- Search git repos for charter
 		-- w = {
-		--       "<cmd>lua require('telescope.builtin').find_files({hidden=true, cwd='~/gitrepos/Projects/work', layout_config={prompt_position='bottom'}})<cr>",
+		--       "<cmd>lua require('telescope.builtin').find_files({hidden=true, cwd='~/gitrepos', layout_config={prompt_position='bottom'}})<cr>",
 		-- 	"Search Work Git Repos",
 		-- },
 
@@ -160,10 +161,10 @@ local mappings = {
 	g = {
 		name = "Git",
 		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-		--g = { "<cmd>lua require('telescope').extensions.lazygit.lazygit()<CR>", "Lazygit" },
+		l = { "<cmd>lua require('telescope').extensions.lazygit.lazygit()<CR>", "Lazygit" },
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
 		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-		l = { "<cmd>GitBlameToggle<cr>", "Blame" },
+		-- l = { "<cmd>GitBlameToggle<cr>", "Blame" },
 		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
 		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
