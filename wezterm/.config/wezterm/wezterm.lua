@@ -7,11 +7,11 @@ local misc_config = {
   scrollback_lines = 10000,
   -- Font Settings
   font_size = 14,
-  --font_dirs = {"/usr/share/fonts"},
+  font_dirs = {"/usr/share/fonts"},
   -- freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
   font = wezterm.font {
-    family = 'Fira Code',
+    family = 'SfMono',
     weight=450,
     stretch='Normal',
     style='Normal',
