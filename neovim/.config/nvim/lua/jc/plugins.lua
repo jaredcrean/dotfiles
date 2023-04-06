@@ -163,8 +163,8 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-nvim-lsp")
 
 	-- Session Manager
-	--use("rmagatti/auto-session")
-	--use("rmagatti/session-lens")
+  use("rmagatti/auto-session")
+  use("rmagatti/session-lens")
 
 	use("windwp/nvim-autopairs")
   -- Markdown Colors
