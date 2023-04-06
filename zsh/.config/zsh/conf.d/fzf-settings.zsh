@@ -11,10 +11,10 @@ export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 export FZF_PREVIEW_ADVANCED=true
 export LESSOPEN='| lessfilter-fzf %s'
 
-my-fzf-tab() {
-  functions[compadd]=$functions[-ftb-compadd]
-  zle fzf-tab-complete
-}
+#my-fzf-tab() {
+#  functions[compadd]=$functions[-ftb-compadd]
+#  zle fzf-tab-complete
+#}
 zle -N my-fzf-tab
 bindkey "^I" my-fzf-tab
 
