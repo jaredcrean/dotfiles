@@ -13,8 +13,8 @@ alias -g ..8='../../../../../../../..'
 alias -g ..9='../../../../../../../../..'
 
 # single character aliases - be sparing!
-alias _=sudo
-alias l='exa --grid --color=auto --icons'
+# alias _=sudo
+# alias l='exa --grid --color=auto --icons'
 alias g=git
 
 # mask built-ins with better defaults
@@ -22,8 +22,8 @@ alias vi=nvim
 alias vim=nvim
 
 # more ways to ls
-alias ls="exa -1 --color=auto --icons"
-alias -g ls="exa -1 --color=auto --icons"
+# alias ls="exa --all -1 --color=auto --icons"
+# alias -g ls="exa -1 --color=auto --icons"
 
 
 # fix common typos

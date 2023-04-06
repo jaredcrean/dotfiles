@@ -3,7 +3,7 @@ alias reload="source ~/.zshrc"
 alias cdw='cd $HOME/gitrepos/work/'
 alias cdd='cd $HOME/.dotfiles'
 alias cdr='cd $HOME/gitrepos/'
-alias cdz='cd /nfs/zshare/'
+# alias cdz='cd /nfs/zshare/'
 
 alias vim="nvim"
 alias htop="btop"
@@ -11,19 +11,17 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 
-alias up-joplin='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh'
-alias up-joplin-pre='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh'
-alias vim-alias='vim ~/.zshrc.d/aliases.zsh'
+# alias up-joplin='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh'
+# alias up-joplin-pre='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh'
+# alias vim-alias='vim ~/.zshrc.d/aliases.zsh'
 # AWS set profile
 #alias asp="asp"
 
 # AWS get profile
 alias agp="agp"
 
-alias cdnas="cd /nfs/nas/"
-
 # Make clip put selection in clipboard rather then middle mouse click
-alias xclip="xclip -selection clipboard"
+# alias xclip="xclip -selection clipboard"
 
 # alias reload="omz reload"
 
