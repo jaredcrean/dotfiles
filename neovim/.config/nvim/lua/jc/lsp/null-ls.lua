@@ -8,7 +8,7 @@ nls.setup({
 	sources = {
 		-- # FORMATTING #
 		fmt.trim_whitespace.with({
-			filetypes = { "text", "sh", "zsh", "toml", "make", "conf", "tmux", "terraform" },
+			filetypes = { "text", "sh", "zsh", "toml", "make", "conf", "tmux", "terraform", "yaml" },
 		}),
 
 		fmt.prettierd,

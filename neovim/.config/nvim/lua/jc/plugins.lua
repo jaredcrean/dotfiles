@@ -85,11 +85,17 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")
 
 	-- LSP
-	use("neovim/nvim-lspconfig")
+	-- use("neovim/nvim-lspconfig")
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
-	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
-	use("williamboman/nvim-lsp-installer")
+	-- use("williamboman/nvim-lsp-installer")
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim"
+  }
 
   -- Git plugins
 	use("lewis6991/gitsigns.nvim")

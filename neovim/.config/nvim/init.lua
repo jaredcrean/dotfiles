@@ -8,8 +8,10 @@ require("jc.impatient") -- impatient needs to be setup before any other lua plug
 require("jc.configs") -- plugin independent configs
 require("jc.mappings.mappings") -- plugin independent mappings
 require("jc.lsp")
+require("jc.mason")
+require("jc.mason-tool-installer")
+require("jc.mason-null-ls")
 require("jc.plugins")
-require("jc.lsp-colors")
 require("jc.autocommands")
 require("jc.nvim-web-devicons")
 require("jc.lsp-colors")
