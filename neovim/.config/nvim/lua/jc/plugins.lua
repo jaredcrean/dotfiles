@@ -129,7 +129,7 @@ return packer.startup(function(use)
 
   use {
     "ahmedkhalf/project.nvim",
-    requires = {"neovim/nvim-lspconfig"},
+    -- requires = {"neovim/nvim-lspconfig"},
     config = "require'jc.project'"
   }
 
