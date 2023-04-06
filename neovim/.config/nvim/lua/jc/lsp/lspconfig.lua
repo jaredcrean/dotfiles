@@ -1,61 +1,43 @@
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
---local servers = { 'pyright', 'sumneko_lua', 'terraform_lsp', 'bashls', "yamlls", }
---for _, lsp in pairs(servers) do
---  require('lspconfig')[lsp].setup {
---    on_attach = on_attach,
---    flags = {
---      -- This will be the default in neovim 0.7+
---      debounce_text_changes = 150,
---    }
---  }
---end
+local M = {}
 
--- local M = {}
+local DEFAULT_SETTINGS = {
+    -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "lua_ls" }
+    -- This setting has no relation with the `automatic_installation` setting.
+    ensure_installed = {},
 
--- local ensure_installed = {}
--- local servers = {
---   gopls = {},
---   html = {},
---   jsonls = {},
---   pyright = {},
---   -- rust_analyzer = {},
---   -- sumneko_lua = {},
---   tsserver = {},
---   vimls = {},
---   -- terraform_lsp = {},
---   terraformls = {},
---   tflint = {},
---   dockerls = {},
---   -- docker_compose_language_service {},
---   yamlls = {},
---   bashls = {}
---   -- gradle_ls = {}
--- }
+    -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
+    -- This setting has no relation with the `ensure_installed` setting.
+    -- Can either be:
+    --   - false: Servers are not automatically installed.
+    --   - true: All servers set up via lspconfig are automatically installed.
+    --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
+    --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
+    automatic_installation = false,
+}
 
--- local function on_attach(client, bufnr)
---   -- Enable completion triggered by <C-X><C-O>
---   -- See `:help omnifunc` and `:help ins-completion` for more information.
---   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
--- 
---   -- Use LSP as the handler for formatexpr.
---   -- See `:help formatexpr` for more information.
---   vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
--- 
---   -- Configure key mappings
---   require("jc.mappings.lspkeymaps").setup(client, bufnr)
--- end
--- 
--- local opts = {
---   on_attach = on_attach,
---   flags = {
---     debounce_text_changes = 150,
---   },
--- }
--- 
--- function M.setup()
---    require("jc.mason").setup(servers, opts)
--- end
--- 
--- return M
+local function on_attach(client, bufnr)
+  -- Enable completion triggered by <C-X><C-O>
+  -- See `:help omnifunc` and `:help ins-completion` for more information.
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+  -- Use LSP as the handler for formatexpr.
+  -- See `:help formatexpr` for more information.
+  vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
+
+  -- Configure key mappings
+  require("jc.mappings.lspkeymaps").setup(client, bufnr)
+end
+
+local opts = {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+}
+
+function M.setup()
+   require("jc.lsp.lspconfig").setup(DEFAULT_SETTINGS, opts)
+end
+
+return M

@@ -63,6 +63,15 @@ return packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    "jose-elias-alvarez/null-ls.nvim",
+    "jay-babu/mason-null-ls.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim"
+  }
+
 	use("p00f/nvim-ts-rainbow")
 
 	-- easier commenting
@@ -85,21 +94,12 @@ return packer.startup(function(use)
 	use("nvim-lua/popup.nvim")
 
 	-- LSP
-	-- use("neovim/nvim-lspconfig")
-	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
+	-- use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
-	-- use("williamboman/nvim-lsp-installer")
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "jose-elias-alvarez/null-ls.nvim",
-    "jay-babu/mason-null-ls.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim"
-  }
 
   -- Git plugins
 	use("lewis6991/gitsigns.nvim")
-	-- use("kdheepak/lazygit.nvim")
+	use("kdheepak/lazygit.nvim")
   use({
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
@@ -150,25 +150,6 @@ return packer.startup(function(use)
    as = "catppuccin"
   })
 
-  -- Neorg 
-  -- use {
-  --     "nvim-neorg/neorg",
-  --     requires = "nvim-lua/plenary.nvim"
-  -- }
-
-  -- use {"akinsho/org-bullets.nvim", config = function()
-  --   require("org-bullets").setup {
-  --     symbols = { "◉", "○", "✸", "✿" }
-  --     -- or a function that receives the defaults and returns a list
-  --     --symbols = function(default_list)
-  --     --  table.insert(default_list, "♥")
-  --     --  return default_list
-  --     --end
-  --   }
-  -- end}
-
-  use ('lukas-reineke/headlines.nvim')
-
   use ('ThePrimeagen/harpoon')
 --  use('toppair/reach.nvim')
   use('chentoast/marks.nvim')
@@ -189,17 +170,13 @@ return packer.startup(function(use)
   -- Markdown Colors
   use {"ellisonleao/glow.nvim", branch = 'main'}
 	-- Buffers
-  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+  -- use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
 	use("kazhala/close-buffers.nvim")
 
 	-- better tmux config
 	use("christoomey/vim-tmux-navigator")
   use("RyanMillerC/better-vim-tmux-resizer")
-
-
-  -- Joplin Notes
-  -- use("ZwodahS/jopvim.nvim")
 
   -- Better Spell Checking
   use("vigoux/LanguageTool.nvim")

@@ -8,7 +8,11 @@ require("mason").setup {
         }
     }
 }
+ 
+require("mason-lspconfig").setup()
+require("jc.lsp.lspconfig")
 
 require("mason-null-ls").setup({
     automatic_setup = true,
 })
+
