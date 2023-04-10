@@ -34,9 +34,6 @@ alias cd..='cd ..'
 alias tarls="tar -tvf"
 alias untar="tar -xf"
 
-# find
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
 
 # url encode/decode
 alias urldecode='python3 -c "import sys, urllib.parse as ul; \
@@ -52,7 +49,6 @@ alias zdot='cd ${ZDOTDIR:-~}'
 
 alias reload="source ~/.zshrc"
 
-alias cdw='cd $HOME/gitrepos/work/'
 alias cdd='cd $HOME/.dotfiles'
 alias cdr='cd $HOME/gitrepos/'
 alias cdz='cd /nfs/zshare/'
@@ -63,19 +59,17 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 
-alias up-joplin='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh'
-alias up-joplin-pre='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh'
+# alias up-joplin='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh'
+# alias up-joplin-pre='wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh'
 alias vim-alias='nvim ~/.config.d/aliases.zsh'
 # AWS set profile
 #alias asp="asp"
 
 # AWS get profile
-alias agp="agp"
-
-alias cdnas="cd /nfs/nas/"
+# alias agp="agp"
 
 # Make clip put selection in clipboard rather then middle mouse click
-alias xclip="xclip -selection clipboard"
+# alias xclip="xclip -selection clipboard"
 
 # alias reload="omz reload"
 

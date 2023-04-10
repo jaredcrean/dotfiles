@@ -1,0 +1,66 @@
+/*
+ * Makes urlbar and many other things sharper on the edges
+ *
+ * Contributor(s): DrPugsley
+ */
+
+:root {
+  --toolbarbutton-border-radius: 0px !important;
+}
+
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* Position window controls */
+#TabsToolbar .titlebar-buttonbox-container {
+  display: block;
+  position: absolute;
+  visibility: visible;
+}
+
+/* Reposition the close/maximize/minimize buttons for the "normal" toolbar density  */
+/* When the UI density is set to "normal", the `uidensity` attribute is undefined.  */
+/* `window.document.documentElement.getAttribute("uidensity")` will be null.        */
+:root:not([uidensity]) #TabsToolbar .titlebar-buttonbox-container {
+  margin-left: 12px;
+  margin-top: 12px;
+}
+
+/* Reposition the close/maximize/minimize buttons for the "compact" toolbar density */
+:root[uidensity="compact"] #TabsToolbar .titlebar-buttonbox-container {
+  margin-left: 10px;
+  margin-top: 9px;
+}
+
+#TabsToolbar .titlebar-buttonbox.titlebar-color {
+  margin-left: 0px !important;
+}
+
+/*
+ * Make room for window controls and a bit of extra space for window drag/move.
+ * Only apply this style when not in fullscreen mode.
+ */
+#main-window:not([inFullscreen]) #nav-bar {
+  padding: 0px 0px 0px 70px !important;
+}
+
+/* tab bar auto hide */
+@-moz-document url(chrome://browser/content/browser.xul),
+               url(chrome://browser/content/browser.xhtml) {
+
+  /* show tabs toolbar when navigator-toolbox gets hovered */
+  #main-window:not([customizing]) #navigator-toolbox:hover #TabsToolbar {
+	  visibility: visible !important;
+	  opacity: 1 !important;
+	  margin-bottom: 0px;
+	  transition: visibility 0.5s linear, opacity 0.5s linear, margin-bottom 0.5s linear;
+  }
+  /* hide tabs toolbar when unfocused */
+  #main-window:not([customizing]) #TabsToolbar:not(:hover) {
+	  visibility: collapse !important;
+	  opacity: 0 !important;
+	  margin-bottom: -30px;
+	  transition: visibility 0.5s linear, opacity 0.5s linear, margin-bottom 0.5s linear;
+  }
+}

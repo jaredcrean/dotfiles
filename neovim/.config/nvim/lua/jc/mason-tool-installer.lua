@@ -29,7 +29,6 @@ require('mason-tool-installer').setup {
     'staticcheck',
     -- 'vint',
     'terraform-ls',
-    'helm-ls'
   },
 
   -- if set to true this will check each tool for updates. If updates

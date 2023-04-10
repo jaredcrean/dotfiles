@@ -103,8 +103,8 @@ local mappings = {
    m = {
        name = "Marks",
 -- --	    m = { "<cmd>ReachOpen marks<cr>", "Marks" },
-	     m = { "<cmd>Telescope harpoon marks<cr>", "Marks" },
-	     -- m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "View Marks" },
+	     -- m = { "<cmd>Telescope harpoon marks<cr>", "Marks" },
+	     m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "View Marks" },
 	     a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add Harpoon Marks" },
    },
   n = {
@@ -131,7 +131,7 @@ local mappings = {
 		--},
 
 		f = {
-			"<cmd>lua require('telescope.builtin').find_files({hidden=true, layout_config={prompt_position='bottom'}})<cr>",
+			"<cmd>lua require('telescope.builtin').find_files({hidden=true, no_ignore=true, layout_config={prompt_position='bottom'}})<cr>",
 			"Find files",
 		},
 
