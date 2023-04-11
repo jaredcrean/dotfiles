@@ -1,7 +1,7 @@
 ### Zplug zsh plugins
 #zplug "apachler/zsh-aws", as:plugin
 #zplug 'wfxr/forgit', as:plugin
-#zplug 'NullSense/fuzzy-sys', as:plugin, from:github
+zplug 'NullSense/fuzzy-sys', as:plugin, from:github
 #zplug "kalsowerus/zsh-bitwarden"
 #zplug "eastokes/aws-plugin-zsh", as:plugin, from:github
 #zplug "ajeetdsouza/zoxide", as:plugin, from:github

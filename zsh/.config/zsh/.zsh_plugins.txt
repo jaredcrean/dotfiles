@@ -29,7 +29,7 @@ rummik/zsh-tailf
 mattmc3/zman
 agkozak/zsh-z
 wfxr/forgit
-NullSense/fuzzy-sys
+# NullSense/fuzzy-sys
 eastokes/aws-plugin-zsh
 ajeetdsouza/zoxide
 
@@ -205,7 +205,7 @@ belak/zsh-utils path:completion
 ###
 # Syntax highlighting
 #zsh-users/zsh-syntax-highlighting kind:defer
-zdharma-continuum/fast-syntax-highlighting kind:defer
+# zdharma-continuum/fast-syntax-highlighting kind:defer
 
 
 ### Completions
@@ -244,5 +244,6 @@ zsh-users/zsh-autosuggestions kind:defer
 Aloxaf/fzf-tab kind:defer
 zsh-users/zsh-history-substring-search
 softmoth/zsh-vim-mode kind:defer
+zdharma-continuum/fast-syntax-highlighting kind:defer
 
 # vim: ft=zsh sw=2 ts=2 et
