@@ -36,7 +36,7 @@ ajeetdsouza/zoxide
 ## Git Plugins
 Seinh/git-prune
 ajeetdsouza/zoxide
-junegunn/fzf
+# junegunn/fzf
 
 ### Local Plugins
 #
@@ -247,3 +247,4 @@ softmoth/zsh-vim-mode kind:defer
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
 # vim: ft=zsh sw=2 ts=2 et
+fzf

@@ -72,20 +72,19 @@ source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 #  git clone https://github.com/mattmc3/antidote ${ZDOTDIR:-~}/.antidote
 #
 ## Set the name of the static .zsh plugins file antidote will generate.
-#zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins.zsh
+zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins.zsh
 #
 ## Ensure you have a .zsh_plugins.txt file where you can add plugins.
-#[[ -f ${zsh_plugins:r}.txt ]] || touch ${zsh_plugins:r}.txt
+[[ -f ${zsh_plugins:r}.txt ]] || touch ${zsh_plugins:r}.txt
 #
 ## Lazy-load antidote.
 #fpath+=(${ZDOTDIR:-~}/.antidote/functions)
 #autoload -Uz $fpath[-1]/antidote
 #
 ## Generate static file in a subshell when .zsh_plugins.txt is updated.
-#if [[ ! $zsh_plugins -nt ${zsh_plugins:r}.txt ]]; then
-#  (antidote bundle <${zsh_plugins:r}.txt >|$zsh_plugins)
-#fi
-
+if [[ ! $zsh_plugins -nt ${zsh_plugins:r}.txt ]]; then
+  (antidote bundle <${zsh_plugins:r}.txt >|$zsh_plugins)
+fi
 
 OTHERZSHCONFIG=$(fd --glob '*.zsh' --exclude 'init.sh' ${ZDOTDIR}/conf.d/)
 FILES=($(echo $OTHERZSHCONFIG | tr '\n' ' '))
