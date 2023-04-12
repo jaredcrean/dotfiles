@@ -36,7 +36,7 @@ ajeetdsouza/zoxide
 ## Git Plugins
 Seinh/git-prune
 ajeetdsouza/zoxide
-#junegunn/fzf
+junegunn/fzf
 
 ### Local Plugins
 #
@@ -237,7 +237,7 @@ belak/zsh-utils path:completion
 ###
 
 # Source everything in $ZDOTDIR/rc.d prior to wrapping up.
-# $mattmc3/conf.d
+$mattmc3/conf.d
 
 # These popular core plugins should be loaded at the end
 zsh-users/zsh-autosuggestions kind:defer

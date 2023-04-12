@@ -6,15 +6,16 @@ export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#9283
 
 #export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
-export FZ_HISTORY_CD_CMD="zoxide"
+# export FZ_HISTORY_CD_CMD="zoxide"
 export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 export FZF_PREVIEW_ADVANCED=true
 export LESSOPEN='| lessfilter-fzf %s'
 
-#my-fzf-tab() {
-#  functions[compadd]=$functions[-ftb-compadd]
-#  zle fzf-tab-complete
-#}
+my-fzf-tab() {
+  functions[compadd]=$functions[-ftb-compadd]
+  zle fzf-tab-complete
+}
+
 zle -N my-fzf-tab
 bindkey "^I" my-fzf-tab
 
@@ -85,6 +86,15 @@ export FORGIT_FZF_DEFAULT_OPTS="
 --reverse
 --height '80%'
 "
+
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | xclip)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+
 
  _fzf_comprun() {
    local command=$1

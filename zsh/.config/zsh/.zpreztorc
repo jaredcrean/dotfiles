@@ -90,13 +90,13 @@ zstyle ':prezto:module:git:alias' skip 'yes'
 #
 
 # Set the file to save the history in when an interactive shell exits.
-# zstyle ':prezto:module:history' histfile "${ZDOTDIR:-$HOME}/.zsh_history"
+zstyle ':prezto:module:history' histfile "${ZDOTDIR:-$HOME}/.zsh_history"
 
 # Set the maximum  number  of  events  stored  in  the  internal history list.
-# zstyle ':prezto:module:history' histsize 10000
+zstyle ':prezto:module:history' histsize 10000
 
 # Set the maximum number of history events to save in the history file.
-# zstyle ':prezto:module:history' savehist 10000
+zstyle ':prezto:module:history' savehist 10000
 
 #
 # History Substring Search
@@ -109,7 +109,7 @@ zstyle ':prezto:module:history-substring-search:color' found ''
 zstyle ':prezto:module:history-substring-search:color' not-found ''
 
 # Set the search globbing flags.
-# zstyle ':prezto:module:history-substring-search' globbing-flags ''
+ zstyle ':prezto:module:history-substring-search' globbing-flags ''
 
 #
 # macOS
