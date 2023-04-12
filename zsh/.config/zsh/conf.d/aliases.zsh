@@ -49,7 +49,7 @@ alias zdot='cd ${ZDOTDIR:-~}'
 
 alias reload="source ~/.zshrc"
 
-alias cdd='cd $HOME/.dotfiles'
+alias cdd='cd $HOME/dotfiles'
 alias cdr='cd $HOME/gitrepos/'
 alias cdz='cd /nfs/zshare/'
 
