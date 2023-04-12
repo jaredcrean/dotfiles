@@ -1,7 +1,7 @@
 ### Zplug zsh plugins
 #zplug "apachler/zsh-aws", as:plugin
 #zplug 'wfxr/forgit', as:plugin
-zplug 'NullSense/fuzzy-sys', as:plugin, from:github
+#zplug 'NullSense/fuzzy-sys', as:plugin, from:github
 #zplug "kalsowerus/zsh-bitwarden"
 #zplug "eastokes/aws-plugin-zsh", as:plugin, from:github
 #zplug "ajeetdsouza/zoxide", as:plugin, from:github
@@ -12,14 +12,15 @@ zplug 'NullSense/fuzzy-sys', as:plugin, from:github
 #
 ## Git Plugins
 plugins/git, from:oh-my-zsh
-Seinh/git-prune", from:github
+Seinh/git-prune, from:github
 
-junegunn/fzf", as:plugin, from:github
-Aloxaf/fzf-tab", as:plugin, from:github
-zsh-users/zsh-syntax-highlighting", defer:2
-unixorn/fzf-zsh-plugin", as:plugin, from:github
-unixorn/fzf-zsh-plugin", as:plugin
+junegunn/fzf, as:plugin, from:github
+Aloxaf/fzf-tab, as:plugin, from:github
+zsh-users/zsh-syntax-highlighting, defer:2
+unixorn/fzf-zsh-plugin, as:plugin, from:github
+# unixorn/fzf-zsh-plugin, as:plugin
 softmoth/zsh-vim-mode, from:github
+mbbill/undotree, as:plugin, from:github
 
 #
 # .zsh_plugins.txt - antidote plugins file
@@ -68,7 +69,7 @@ softmoth/zsh-vim-mode
 unixorn/fzf-zsh-plugin
 ajeetdsouza/zoxide
 Aloxaf/fzf-tab
-junegunn/fzf"
+junegunn/fzf
 
 ### Local Plugins
 #

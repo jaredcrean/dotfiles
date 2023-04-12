@@ -22,8 +22,8 @@ openconnect.conf
 
 # Neovim #
 ##########
-/neovim/.config/nvim/plugin/* 
-.*packer_compiled.lua
+*/neovim/.config/nvim/plugin/* 
+*packer_compiled.lua
 
 # Compiled source #
 ###################
