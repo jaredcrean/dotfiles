@@ -1,4 +1,0 @@
-# Remove installed packages (change to pacman/AUR helper of your choice)
-function re() {
-    paru -Qq | fzf -q "$1" -m --preview 'paru -Qi {1}' | xargs -ro paru -Rns
-}
