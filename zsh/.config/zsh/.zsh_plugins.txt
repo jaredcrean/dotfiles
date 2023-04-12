@@ -163,18 +163,18 @@ sorin-ionescu/prezto path:modules/git/functions kind:autoload
 sorin-ionescu/prezto path:modules/git
 
 # And Prezto has tons more...
-# sorin-ionescu/prezto path:modules/history
+sorin-ionescu/prezto path:modules/history
 # sorin-ionescu/prezto path:modules/spectrum
-# sorin-ionescu/prezto path:modules/utility/functions kind:autoload
-# sorin-ionescu/prezto path:modules/utility
+sorin-ionescu/prezto path:modules/utility/functions kind:autoload
+sorin-ionescu/prezto path:modules/utility
 # sorin-ionescu/prezto path:modules/completion
-# sorin-ionescu/prezto path:modules/history-substring-search
+sorin-ionescu/prezto path:modules/history-substring-search
 # sorin-ionescu/prezto path:modules/prompt/functions kind:autoload
 # sorin-ionescu/prezto path:modules/prompt
 # sorin-ionescu/prezto path:modules/python
 # sorin-ionescu/prezto path:modules/python/functions kind:autoload
-# sorin-ionescu/prezto path:modules/osx conditional:is-macos
-# sorin-ionescu/prezto path:modules/osx/functions kind:autoload conditional:is-macos
+sorin-ionescu/prezto path:modules/osx conditional:is-macos
+sorin-ionescu/prezto path:modules/osx/functions kind:autoload conditional:is-macos
 
 
 ### Framework: zsh-utils
