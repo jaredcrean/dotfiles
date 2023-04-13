@@ -7,12 +7,12 @@ local misc_config = {
   scrollback_lines = 10000,
   -- Font Settings
   font_size = 14,
-  font_dirs = {"/usr/share/fonts"},
+  font_dirs = {"~/Library/Fonts"},
   -- freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
   font = wezterm.font {
-    family = 'SfMono',
-    weight=450,
+    family = 'Hasklug Nerd Font Mono',
+    weight=500,
     stretch='Normal',
     style='Normal',
 --    harfbuzz_features = { 'zero' },

@@ -91,6 +91,11 @@ telescope.setup({
         return {"--hidden"}
     end -- builtin picker
     },
+    find_files = {
+    additional_args = function(opts)
+        return {"--hidden"}
+    end -- builtin picker
+    },
 	},
 	extensions = {
 		fzf = {

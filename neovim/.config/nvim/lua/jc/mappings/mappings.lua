@@ -47,6 +47,13 @@ keymap("n", "Y", "y$", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 keymap("n", "J", "mzJ`z", opts)
+-- Keep cursor centered when page jumping
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- Move by visual lines
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -56,6 +63,8 @@ keymap("i", "jk", "<ESC>", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)

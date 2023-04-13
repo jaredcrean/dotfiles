@@ -80,25 +80,16 @@ local opts = {
 
 local mappings = {
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-	["b"] = {
-		"<cmd>Telescope buffers<cr>",
-		"Buffers",
-	},
-
+	["b"] = { "<cmd>Telescope buffers<cr>", "Buffers", },
   ["d"] = { "<cmd>!date \"+DATE: %y/%m/%d%nTIME: %Hyy:%M:%S\"<CR>" },
-	["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
+	["e"] = { "<cmd>Neotree show toggle<cr>", "File Explorer" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["E"] = { "<cmd>Telescope emoji<CR>", "Emoji Search" },
   ["u"] = { "<cmd>UndotreeToggle<CR>", "Undo Tree" },
-	-- ["m"] = { "<cmd>Telescope marks<cr>", "Marks" },
   ["j"] = { "<cmd>Telescope jumplist<cr>", "Jump List" },
-	-- ["f"] = {
-	--"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	-- 	"Find files",
-	-- },
 	["p"] = { "<cmd>lua require'telescope'.extensions.projects.projects{}<cr>", "Projects" },
 
    m = {
@@ -108,11 +99,10 @@ local mappings = {
 	     -- m = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "View Marks" },
 	     a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add Harpoon Marks" },
    },
-  -- n = {
-  --   name = "📔 Notes Joplin",
-  --   n = { "<cmd>lua require('jopvim.telescope').joplin_folders()<cr>", "Create New note in folder" },
-  --   s = { "<cmd>lua require('jopvim.telescope').joplin_notes()<cr>", "Search Notes in Joplin" },
-  -- },
+  n = {
+    n = { "<cmd>tabNext", "Next Tab" },
+    t = { "<cmd>tabnew", "Create New Tab" },
+  },
 
 	P = {
 		name = "Packer",
