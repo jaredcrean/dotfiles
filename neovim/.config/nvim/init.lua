@@ -4,7 +4,7 @@
 -- plugin config to improve start-up time.
 -- it should be always on top on init.lua file
 require("jc.plugins")
-require("jc.impatient") -- impatient needs to be setup before any other lua plugin is loaded so it is recommended you add the following near the start of your
+-- require("jc.impatient") -- impatient needs to be setup before any other lua plugin is loaded so it is recommended you add the following near the start of your
 --require("jc.filetype") -- Easily speed up your neovim startup time!
 require("jc.configs") -- plugin independent configs
 require("jc.mappings.mappings") -- plugin independent mappings
@@ -29,8 +29,14 @@ require("jc.which-key")
 ----require("jc.nvim-tree")
 require("jc.neotree")
 require("jc.autopairs")
+require("jc.close-buffers")
 --require("jc.bufferline")
+require("jc.auto-session")
+require("jc.session-lens")
 require("jc.alpha")
+require("jc.luaSnip")
+require("jc.snippets-settings")
+
 require("jc.glow")
 require("jc.comment")
 require("jc.toggleterm")

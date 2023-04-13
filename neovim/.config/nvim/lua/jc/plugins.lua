@@ -131,7 +131,6 @@ return packer.startup(function(use)
   use {
     "ahmedkhalf/project.nvim",
     -- requires = {"neovim/nvim-lspconfig"},
-    config = "require'jc.project'"
   }
 
 
@@ -166,18 +165,26 @@ return packer.startup(function(use)
 
   -- Neotree
 
-use {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
+  use {
+    "nvim-neo-tree/neo-tree.nvim",
+       branch = "v2.x",
+       requires = {
+         "nvim-lua/plenary.nvim",
+         "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+         "MunifTanjim/nui.nvim",
     }
   }
 
 	-- Session Manager
-  use("rmagatti/auto-session")
+  use {
+    'rmagatti/auto-session',
+    config = function()
+      require("auto-session").setup {
+        log_level = "error",
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+      }
+    end
+  }
   use("rmagatti/session-lens")
 
 	use("windwp/nvim-autopairs")
