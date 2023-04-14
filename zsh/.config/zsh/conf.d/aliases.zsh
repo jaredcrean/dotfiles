@@ -29,6 +29,7 @@ alias vim=nvim
 # fix common typos
 alias quit='exit'
 alias cd..='cd ..'
+alias cd='z'
 
 # tar
 alias tarls="tar -tvf"
