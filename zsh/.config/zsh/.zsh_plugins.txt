@@ -1,3 +1,4 @@
+#!/bin/zsh
 #
 # .zsh_plugins.txt - antidote plugins file
 #
@@ -24,28 +25,20 @@
 # assume GitHub.com, then you can use the user/repo shorthand.
 #
 ###
-#https://github.com/peterhurford/up.zsh
+https://github.com/peterhurford/up.zsh
 rummik/zsh-tailf
 mattmc3/zman
 agkozak/zsh-z
-wfxr/forgit
-# NullSense/fuzzy-sys
-eastokes/aws-plugin-zsh
-ajeetdsouza/zoxide
-
-## Git Plugins
-Seinh/git-prune
-ajeetdsouza/zoxide
-# junegunn/fzf
+junegunn/fzf kind:path
 
 ### Local Plugins
 #
-# Plugins don't have to come from GitHub. You can also use local directories to host
-# your own custom plugins.
+# Plugins don't have to come from GitHub. You can also use local files or directories to
+# host your own custom plugins.
 #
 ###
-~/.config/zsh/plugins/brew
-
+$ZDOTDIR/conf.d/init.zsh
+#$ZDOTDIR/custom/plugins/example
 
 ### Local Plugins with Variables
 #
@@ -82,10 +75,10 @@ ajeetdsouza/zoxide
 ###
 
 # Use kind:fpath for prompts you want available to promptinit.
-#romkatv/powerlevel10k kind:fpath
-#sindresorhus/pure kind:fpath
+# romkatv/powerlevel10k kind:fpath
+
 # Or, just load a prompt plugin the normal way.
-#sindresorhus/pure
+# sindresorhus/pure
 romkatv/powerlevel10k
 
 
@@ -125,18 +118,13 @@ romkatv/zsh-bench kind:path
 #   ohmyzsh/ohmyzsh path:lib/clipboard.zsh
 #
 ####
-#ohmyzsh/ohmyzsh path:lib
-
 ohmyzsh/ohmyzsh path:lib/clipboard.zsh
-ohmyzsh/ohmyzsh path:lib/directories.zsh
 ohmyzsh/ohmyzsh path:plugins/copybuffer
 ohmyzsh/ohmyzsh path:plugins/copyfile
 ohmyzsh/ohmyzsh path:plugins/copypath
 ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/magic-enter
 ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
-ohmyzsh/ohmyzsh path:plugins/fzf
-ohmyzsh/ohmyzsh path:plugins/ssh-agent
 
 
 ### Framework: Prezto
@@ -153,28 +141,28 @@ ohmyzsh/ohmyzsh path:plugins/ssh-agent
 
 # Prezto can be difficult to assemble because it's so interdependent.
 # Use at your own risk.
-sorin-ionescu/prezto path:modules/helper/functions kind:autoload
-sorin-ionescu/prezto path:modules/helper
-sorin-ionescu/prezto path:modules/environment
-sorin-ionescu/prezto path:modules/terminal
-sorin-ionescu/prezto path:modules/editor
-sorin-ionescu/prezto path:modules/directory
-sorin-ionescu/prezto path:modules/git/functions kind:autoload
-sorin-ionescu/prezto path:modules/git
+# sorin-ionescu/prezto path:modules/helper/functions kind:autoload
+# sorin-ionescu/prezto path:modules/helper
+# sorin-ionescu/prezto path:modules/environment
+# sorin-ionescu/prezto path:modules/terminal
+# sorin-ionescu/prezto path:modules/editor
+# sorin-ionescu/prezto path:modules/directory
+# sorin-ionescu/prezto path:modules/git/functions kind:autoload
+# sorin-ionescu/prezto path:modules/git
 
 # And Prezto has tons more...
-sorin-ionescu/prezto path:modules/history
+# sorin-ionescu/prezto path:modules/history
 # sorin-ionescu/prezto path:modules/spectrum
-sorin-ionescu/prezto path:modules/utility/functions kind:autoload
-sorin-ionescu/prezto path:modules/utility
+# sorin-ionescu/prezto path:modules/utility/functions kind:autoload
+# sorin-ionescu/prezto path:modules/utility
 # sorin-ionescu/prezto path:modules/completion
-sorin-ionescu/prezto path:modules/history-substring-search
+# sorin-ionescu/prezto path:modules/history-substring-search
 # sorin-ionescu/prezto path:modules/prompt/functions kind:autoload
 # sorin-ionescu/prezto path:modules/prompt
 # sorin-ionescu/prezto path:modules/python
 # sorin-ionescu/prezto path:modules/python/functions kind:autoload
-sorin-ionescu/prezto path:modules/osx conditional:is-macos
-sorin-ionescu/prezto path:modules/osx/functions kind:autoload conditional:is-macos
+# sorin-ionescu/prezto path:modules/osx conditional:ismacos
+# sorin-ionescu/prezto path:modules/osx/functions kind:autoload conditional:ismacos
 
 
 ### Framework: zsh-utils
@@ -188,9 +176,6 @@ sorin-ionescu/prezto path:modules/osx/functions kind:autoload conditional:is-mac
 belak/zsh-utils path:history
 belak/zsh-utils path:utility
 belak/zsh-utils path:editor
-belak/zsh-utils path:prompt
-belak/zsh-utils path:completion
-
 
 ### Deferred Plugins
 #
@@ -205,7 +190,7 @@ belak/zsh-utils path:completion
 ###
 # Syntax highlighting
 #zsh-users/zsh-syntax-highlighting kind:defer
-# zdharma-continuum/fast-syntax-highlighting kind:defer
+zdharma-continuum/fast-syntax-highlighting kind:defer
 
 
 ### Completions
@@ -229,6 +214,7 @@ zsh-users/zsh-completions path:src kind:fpath
 # fully populated. Use zsh-utils for its completion plugin.
 belak/zsh-utils path:completion
 
+
 ### Final Plugins
 #
 # Remember plugin order matters! Put plugins that need run last at the bottom of your
@@ -236,15 +222,7 @@ belak/zsh-utils path:completion
 #
 ###
 
-# Source everything in $ZDOTDIR/rc.d prior to wrapping up.
-$mattmc3/conf.d
-
 # These popular core plugins should be loaded at the end
 zsh-users/zsh-autosuggestions kind:defer
-Aloxaf/fzf-tab kind:defer
 zsh-users/zsh-history-substring-search
-softmoth/zsh-vim-mode kind:defer
-zdharma-continuum/fast-syntax-highlighting kind:defer
-
-# vim: ft=zsh sw=2 ts=2 et
-fzf
+Aloxaf/fzf-tab  
