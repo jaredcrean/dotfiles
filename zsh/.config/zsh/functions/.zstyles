@@ -9,3 +9,11 @@
 
 # zstyle ':antidote:bundle' file ${ZDOTDIR:-~}/.zplugins.txt
 # zstyle ':antidote:bundle' use-friendly-names 'yes'
+
+# ohmy-ssh ssh-agent
+
+zstyle :omz:plugins:ssh-agent helper ksshaskpass
+zstyle :omz:plugins:ssh-agent lazy yes
+# p10k setting for ssh-agent plugin to play nice
+zstyle :omz:plugins:ssh-agent quiet yes
+zstyle :omz:plugins:ssh-agent lazy yes
