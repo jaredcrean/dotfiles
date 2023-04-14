@@ -124,6 +124,7 @@ ohmyzsh/ohmyzsh path:plugins/copyfile
 ohmyzsh/ohmyzsh path:plugins/copypath
 ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/magic-enter
+ohmyzsh/ohmyzsh path:plugins/ssh-agent kind:zsh
 ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages kind:zsh
 ohmyzsh/ohmyzsh path:plugins/zoxide kind:zsh  # brew install zoxide
@@ -133,6 +134,8 @@ ohmyzsh/ohmyzsh path:plugins/fzf kind:zsh
 ohmyzsh/ohmyzsh path:plugins/ripgrep kind:fpath
 ohmyzsh/ohmyzsh path:plugins/fd kind:fpath
 ohmyzsh/ohmyzsh path:plugins/terraform kind:fpath
+
+
 ### Framework: Prezto
 #
 # Prezto is another popular Zsh framework. You might choose to use parts of it in your
