@@ -17,3 +17,7 @@ zstyle :omz:plugins:ssh-agent lazy yes
 # p10k setting for ssh-agent plugin to play nice
 zstyle :omz:plugins:ssh-agent quiet yes
 zstyle :omz:plugins:ssh-agent lazy yes
+
+# Docker
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes

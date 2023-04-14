@@ -125,6 +125,8 @@ ohmyzsh/ohmyzsh path:plugins/copypath
 ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/magic-enter
 ohmyzsh/ohmyzsh path:plugins/ssh-agent kind:zsh
+ohmyzsh/ohmyzsh path:plugins/aliases kind:zsh
+ohmyzsh/ohmyzsh path:plugins/docker-compose kind:zsh
 ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages kind:zsh
 ohmyzsh/ohmyzsh path:plugins/zoxide kind:zsh  # brew install zoxide
