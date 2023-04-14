@@ -52,3 +52,5 @@ MAGIC_ENTER_GIT_COMMAND="$MAGIC_ENTER_OTHER_COMMAND && git status -sb"
 #
 
 ZSHZ_DATA=${XDG_DATA_HOME:=$HOME/.local/share}/z/data
+
+eval "$(zoxide init zsh)"

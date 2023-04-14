@@ -29,7 +29,7 @@ https://github.com/peterhurford/up.zsh
 rummik/zsh-tailf
 mattmc3/zman
 agkozak/zsh-z
-# junegunn/fzf kind:path
+junegunn/fzf kind:path
 
 ### Local Plugins
 #
@@ -75,11 +75,11 @@ $ZDOTDIR/conf.d/init.zsh
 ###
 
 # Use kind:fpath for prompts you want available to promptinit.
-# romkatv/powerlevel10k kind:fpath
+romkatv/powerlevel10k kind:fpath
 
 # Or, just load a prompt plugin the normal way.
 # sindresorhus/pure
-romkatv/powerlevel10k
+# romkatv/powerlevel10k
 
 
 ### Utilities
@@ -118,6 +118,9 @@ romkatv/zsh-bench kind:path
 #   ohmyzsh/ohmyzsh path:lib/clipboard.zsh
 #
 ####
+# ohmyzsh/ohmyzsh
+ohmyzsh/ohmyzsh path:lib/clipboard.zsh
+# ohmyzsh/ohmyzsh path:lib
 ohmyzsh/ohmyzsh path:lib/clipboard.zsh
 ohmyzsh/ohmyzsh path:plugins/copybuffer
 ohmyzsh/ohmyzsh path:plugins/copyfile
@@ -127,12 +130,14 @@ ohmyzsh/ohmyzsh path:plugins/magic-enter
 ohmyzsh/ohmyzsh path:plugins/ssh-agent kind:zsh
 ohmyzsh/ohmyzsh path:plugins/aliases kind:zsh
 ohmyzsh/ohmyzsh path:plugins/docker-compose kind:zsh
+ohmyzsh/ohmyzsh path:plugins/docker kind:zsh
 ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages kind:zsh
 ohmyzsh/ohmyzsh path:plugins/zoxide kind:zsh  # brew install zoxide
 ohmyzsh/ohmyzsh path:plugins/kubectl kind:fpath
-ohmyzsh/ohmyzsh path:plugins/docker kind:fpath 
-ohmyzsh/ohmyzsh path:plugins/fzf kind:zsh
+# ohmyzsh/ohmyzsh path:plugins/fzf kind:path
+ohmyzsh/ohmyzsh path:plugins/gitignore kind:fpath
+ohmyzsh/ohmyzsh path:plugins/thefuck kind:fpath
 ohmyzsh/ohmyzsh path:plugins/ripgrep kind:fpath
 ohmyzsh/ohmyzsh path:plugins/fd kind:fpath
 ohmyzsh/ohmyzsh path:plugins/terraform kind:fpath
@@ -220,6 +225,7 @@ zdharma-continuum/fast-syntax-highlighting kind:defer
 # zsh-users/zsh-completions is a popular plugin for adding supplemental completions.
 # We combine the `path:` and `kind:fpath` annotations here:
 zsh-users/zsh-completions path:src kind:fpath
+$ZDOTDIR/completions path:src kind:fpath
 
 # Compinit plugins should be near the end of .zsh_plugins.txt so that $fpath has been
 # fully populated. Use zsh-utils for its completion plugin.
@@ -234,7 +240,8 @@ belak/zsh-utils path:completion
 ###
 
 # These popular core plugins should be loaded at the end
-zsh-users/zsh-autosuggestions kind:defer
-zsh-users/zsh-history-substring-search
 softmoth/zsh-vim-mode
-Aloxaf/fzf-tab  
+zsh-users/zsh-autosuggestions kind:defer
+# zsh-users/zsh-history-substring-search
+zdharma-continuum/fast-syntax-highlighting kind:defer
+Aloxaf/fzf-tab kind:zsh

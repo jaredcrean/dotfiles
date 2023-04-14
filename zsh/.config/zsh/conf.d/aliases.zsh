@@ -24,6 +24,7 @@ alias vim=nvim
 # more ways to ls
 # alias ls="exa --all -1 --color=auto --icons"
 # alias -g ls="exa -1 --color=auto --icons"
+alias history='fzf-history-widget'
 
 
 # fix common typos

@@ -2,6 +2,8 @@
 #
 # .zshenv - Zsh environment file, loaded always.
 #
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # NOTE: .zshenv needs to live at ~/.zshenv, not in $ZDOTDIR!
 
