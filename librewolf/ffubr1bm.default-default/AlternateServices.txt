@@ -1,0 +1,6 @@
+https:push.services.mozilla.com:443:.::3	0	19467	https:push.services.mozilla.com:443:push.services.mozilla.com:443::n:1684613810:h3:y:1682015047:n::|n:y:
+https:fonts.gstatic.com:443:.:^partitionKey=%28https%2Ctridactyl.xyz%29:3	0	19467	https:fonts.gstatic.com:443:fonts.gstatic.com:443::n:1684613091:h3:y:1682019412:n:^partitionKey=%28https%2Ctridactyl.xyz%29:|n:y:
+https:fonts.gstatic.com:443:.:^partitionKey=%28https%2Creddit.com%29:3	0	19467	https:fonts.gstatic.com:443:fonts.gstatic.com:443::n:1684613434:h3:y:1682021298:n:^partitionKey=%28https%2Creddit.com%29:|n:y:
+https:fonts.googleapis.com:443:.:^partitionKey=%28https%2Ctridactyl.xyz%29:3	0	19467	https:fonts.googleapis.com:443:fonts.googleapis.com:443::n:1684613091:h3:y:1682019412:n:^partitionKey=%28https%2Ctridactyl.xyz%29:|n:y:
+https:tridactyl.xyz:443:.:^partitionKey=%28https%2Ctridactyl.xyz%29:3	0	19467	https:tridactyl.xyz:443:tridactyl.xyz:443::n:1682107514:h3:y:1682019412:n:^partitionKey=%28https%2Ctridactyl.xyz%29:|n:y:
+https:accounts.google.com:443:.:^partitionKey=%28https%2Creddit.com%29:3	0	19467	https:accounts.google.com:443:accounts.google.com:443::n:1684613434:h3:y:1682021298:n:^partitionKey=%28https%2Creddit.com%29:|n:y:

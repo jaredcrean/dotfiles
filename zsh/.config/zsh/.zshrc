@@ -26,3 +26,5 @@ eval "$(zoxide init zsh)"
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
 autoload -Uz promptinit && promptinit && prompt powerlevel10k
 
+source ${ZDOTDIR}/conf.d/init.zsh
+

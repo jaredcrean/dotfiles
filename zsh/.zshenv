@@ -15,3 +15,13 @@ export ZDOTDIR=${ZDOTDIR:-$XDG_CONFIG_HOME/zsh}
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+# Firefox Setup
+export MOZ_DRM_DEVICE=/dev/dri/renderD128
+export MOZ_USE_XINPUT2=1
+if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+    export MOZ_ENABLE_WAYLAND=1
+fi
+
+# Flatpak Desktop Setup
+export PATH="$PATH:/var/lib/flatpak/exports/share:/home/jcrean/.local/share/flatpak/exports/share"
