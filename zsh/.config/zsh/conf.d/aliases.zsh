@@ -52,8 +52,8 @@ alias zdot='cd ${ZDOTDIR:-~}'
 alias reload="source ~/.zshrc"
 
 alias cdd='cd $HOME/dotfiles'
-alias cdr='cd $HOME/gitrepos/'
-alias cdz='cd /nfs/zshare/'
+alias cdr='cd $HOME/repos'
+# alias cdz='cd /nfs/zshare'
 
 alias vim="nvim"
 alias htop="btop"
