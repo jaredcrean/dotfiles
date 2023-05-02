@@ -29,7 +29,8 @@ https://github.com/peterhurford/up.zsh
 rummik/zsh-tailf
 mattmc3/zman
 agkozak/zsh-z
-junegunn/fzf kind:path
+# junegunn/fzf kind:path
+wfxr/forgit kind:zsh
 
 ### Local Plugins
 #
@@ -127,7 +128,7 @@ ohmyzsh/ohmyzsh path:plugins/copyfile
 ohmyzsh/ohmyzsh path:plugins/copypath
 ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/magic-enter
-ohmyzsh/ohmyzsh path:plugins/ssh-agent kind:zsh
+ohmyzsh/ohmyzsh path:plugins/ssh-agent
 ohmyzsh/ohmyzsh path:plugins/aliases kind:zsh
 ohmyzsh/ohmyzsh path:plugins/docker-compose kind:zsh
 ohmyzsh/ohmyzsh path:plugins/docker kind:zsh
@@ -135,7 +136,7 @@ ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages kind:zsh
 ohmyzsh/ohmyzsh path:plugins/zoxide kind:zsh  # brew install zoxide
 ohmyzsh/ohmyzsh path:plugins/kubectl kind:fpath
-# ohmyzsh/ohmyzsh path:plugins/fzf kind:path
+ohmyzsh/ohmyzsh path:plugins/fzf kind:path
 ohmyzsh/ohmyzsh path:plugins/gitignore kind:fpath
 ohmyzsh/ohmyzsh path:plugins/thefuck kind:fpath
 ohmyzsh/ohmyzsh path:plugins/ripgrep kind:fpath

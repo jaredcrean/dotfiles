@@ -28,7 +28,7 @@ local misc_config = {
   use_fancy_tab_bar = false,
   quick_select_patterns = { '[0-9a-f]{7,40}', '\'.*\'', "\".*\"", },
 
-  -- unix_domains = { { name = 'desktop', } },
+  unix_domains = { { name = 'desktop', } },
 
   -- mouse_bindings = { { event = { Down = { streak = 3, button = 'Left' } }, action = wezterm.action.SelectTextAtMouseCursor 'SemanticZone', mods = 'NONE', }, },
   default_gui_startup_args = {'connect', 'desktop'},

@@ -1,20 +1,21 @@
 
-export FZF_PATH='/usr/local/bin/fzf'
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# export FZF_PATH='/usr/local/bin/fzf'
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/usr/bin/fzf"
-fi
+#if [[ ! "$PATH" == */usr/local/bin* ]]; then
+#  PATH="${PATH:+${PATH}:}/usr/bin/fzf"
+#fi
 #
 ## Auto-completion
 ## ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+# [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+# source /usr/local/opt/fzf/shell/completion.zsh 2> /dev/null
 #
 ## Key bindings
 ## ------------
-#source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
-export FZF_PATH='/usr/local/bin/fzf'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Themes
 ## Groovebox
 #export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
@@ -32,12 +33,18 @@ export FZF_PREVIEW_ADVANCED=true
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 export LESSOPEN='|${ZDOTDIR}/.lessfilter %s'
 
+
 # fzf forgit zsh plugin
 export FORGIT_FZF_DEFAULT_OPTS=" --exact --border --cycle --reverse --height '80%' "
 
 # CTRL-/ to toggle small preview window to see the full command
 # CTRL-Y to copy the command into clipboard using pbcopy
-export FZF_CTRL_R_OPTS=" --preview 'echo {}' --preview-window up:3:hidden:wrap --bind 'ctrl-/:toggle-preview' --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --color header:italic --header 'Press CTRL-Y to copy command into clipboard'"
+#export FZF_CTRL_R_OPTS="
+#  --preview 'echo {}' --preview-window up:3:hidden:wrap
+#  --bind 'ctrl-/:toggle-preview'
+#  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+#  --color header:italic
+#  --header 'Press CTRL-Y to copy command into clipboard'"
 
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"
