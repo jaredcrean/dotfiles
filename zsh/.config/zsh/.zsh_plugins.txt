@@ -38,7 +38,7 @@ wfxr/forgit kind:zsh
 # host your own custom plugins.
 #
 ###
-$ZDOTDIR/conf.d/init.zsh
+#$ZDOTDIR/conf.d/init.zsh
 #$ZDOTDIR/custom/plugins/example
 
 ### Local Plugins with Variables

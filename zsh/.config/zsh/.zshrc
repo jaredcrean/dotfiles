@@ -1,11 +1,10 @@
 # Zsh options.
 
-export HISTFILE=~/.zsh_history
+export HISTFILE=${HOME}/.zsh_history
 export HISTFILESIZE=50000
 export HISTSIZE=50000
 export HISTTIMEFORMAT="[%F %T] "
 # setopt BANG_HIST              # Treat the '!' character specially during expansion.
-setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY       # Write the history file in the ':start:elapsed;command' format.
 setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
 setopt HIST_EXPIRE_DUPS_FIRST # Expire a duplicate event first when trimming history.
@@ -31,14 +30,15 @@ autoload -Uz $fpath[1]/*(.:t)
 
 # Create an amazing Zsh config using antidote plugins.
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-antidote load
 
 # Load Zoxide
 eval "$(zoxide init zsh)"
 eval "$(batpipe)"
 
 antidote load
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-autoload -Uz promptinit && promptinit && prompt powerlevel10k
 
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+autoload -Uz promptinit && promptinit && prompt powerlevel10k
+source ~/.config/zsh/conf.d/init.zsh
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

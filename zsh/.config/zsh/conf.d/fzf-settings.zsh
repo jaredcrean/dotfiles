@@ -14,8 +14,8 @@
 #
 ## Key bindings
 ## ------------
+source ~/.config/zsh/conf.d/fzf-keybindings.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Themes
 ## Groovebox
 #export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
@@ -39,12 +39,12 @@ export FORGIT_FZF_DEFAULT_OPTS=" --exact --border --cycle --reverse --height '80
 
 # CTRL-/ to toggle small preview window to see the full command
 # CTRL-Y to copy the command into clipboard using pbcopy
-#export FZF_CTRL_R_OPTS="
-#  --preview 'echo {}' --preview-window up:3:hidden:wrap
-#  --bind 'ctrl-/:toggle-preview'
-#  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
-#  --color header:italic
-#  --header 'Press CTRL-Y to copy command into clipboard'"
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
 
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"

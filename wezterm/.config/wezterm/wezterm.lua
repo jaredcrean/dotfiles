@@ -9,7 +9,7 @@ local misc_config = {
   font_size = 14,
   font_dirs = {"~/Library/Fonts"},
   -- freetype_load_target = 'Light',
-  freetype_render_target = 'HorizontalLcd',
+  -- freetype_render_target = 'HorizontalLcd',
   font = wezterm.font {
     family = 'Hasklug Nerd Font Mono',
     weight=500,
@@ -19,7 +19,7 @@ local misc_config = {
   },
   selection_word_boundary = " \t\n{}[]()\"'`,;:@│*",
   color_scheme = 'Gruvbox dark, pale (base16)',
-  cursor_blink_rate = 1000,
+  -- cursor_blink_rate = 1000,
   front_end = 'WebGpu',
   -- animation_fps = 10,
   -- default_cursor_style = 'BlinkingBlock',

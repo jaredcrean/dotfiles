@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 -- require("jc.lsp.lsp-installer")
--- require("jc.lsp.handlers").setup()
+require("jc.lsp.handlers").setup()
 require("jc.lsp.null-ls")
 require("jc.lsp.lspconfig")
 -- require "jc.lsp.bashls"

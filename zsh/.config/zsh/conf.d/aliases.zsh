@@ -14,18 +14,11 @@ alias -g ..9='../../../../../../../../..'
 
 # single character aliases - be sparing!
 # alias _=sudo
-# alias l='exa --grid --color=auto --icons'
 alias g=git
 
 # mask built-ins with better defaults
 alias vi=nvim
 alias vim=nvim
-
-# more ways to ls
-# alias ls="exa --all -1 --color=auto --icons"
-# alias -g ls="exa -1 --color=auto --icons"
-alias h='fzf-history-widget'
-
 
 # fix common typos
 alias quit='exit'
@@ -35,7 +28,6 @@ alias cd='z'
 # tar
 alias tarls="tar -tvf"
 alias untar="tar -xf"
-
 
 # url encode/decode
 alias urldecode='python3 -c "import sys, urllib.parse as ul; \
@@ -71,9 +63,7 @@ alias vim-alias='nvim ~/.config.d/aliases.zsh'
 # alias agp="agp"
 
 # Make clip put selection in clipboard rather then middle mouse click
-# alias xclip="xclip -selection clipboard"
-
-# alias reload="omz reload"
+alias xclip="xclip -selection clipboard"
 
 alias cat="bat"
 
@@ -81,7 +71,6 @@ alias cat="bat"
 alias man='batman'
 # Better grep that uses ripgrep
 alias bgr='batgrep'
-
 
 ## Colors
 alias diff='diff --color=auto'
@@ -95,10 +84,9 @@ alias pars='paru --color always -Sl | sed -e "s: :/:; s/ unknown-version//; /ins
 alias pacr="pacman --color always -Q | cut -f 1 -d ' ' | fzf --multi --ansi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 
 # Better ls
-alias ls='exa --icons --long --git'
-alias la='exa -a --icons --long --git'
-alias l='exa --icons --git --grid'
-
+alias ls='exa --icons --long --git --octal-permissions'
+alias la='exa -a --icons --long --git --octal-permissions'
+alias l='exa --icons --git --grid --octal-permissions'
 
 ##### Git alias
 alias gcam='git commit -a -m'
