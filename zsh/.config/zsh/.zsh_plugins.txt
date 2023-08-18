@@ -29,7 +29,7 @@ https://github.com/peterhurford/up.zsh
 rummik/zsh-tailf
 mattmc3/zman
 agkozak/zsh-z
-junegunn/fzf kind:path
+#junegunn/fzf kind:zsh
 
 ### Local Plugins
 #
@@ -135,7 +135,7 @@ ohmyzsh/ohmyzsh path:plugins/fancy-ctrl-z
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages kind:zsh
 ohmyzsh/ohmyzsh path:plugins/zoxide kind:zsh  # brew install zoxide
 ohmyzsh/ohmyzsh path:plugins/kubectl kind:fpath
-# ohmyzsh/ohmyzsh path:plugins/fzf kind:path
+ohmyzsh/ohmyzsh path:plugins/fzf kind:path
 ohmyzsh/ohmyzsh path:plugins/gitignore kind:fpath
 ohmyzsh/ohmyzsh path:plugins/thefuck kind:fpath
 ohmyzsh/ohmyzsh path:plugins/ripgrep kind:fpath
@@ -189,7 +189,7 @@ ohmyzsh/ohmyzsh path:plugins/terraform kind:fpath
 # If you want a really thin framework, this is great.
 #
 ###
-# belak/zsh-utils path:history
+belak/zsh-utils path:history
 belak/zsh-utils path:utility
 # belak/zsh-utils path:editor
 
