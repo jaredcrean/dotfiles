@@ -11,11 +11,13 @@ local misc_config = {
   -- freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
   font = wezterm.font {
-    family = 'Hasklug Nerd Font Mono',
-    weight=500,
+    -- family = 'Hasklug Nerd Font Mono',
+    -- family = 'Consolas-with-Yahei',
+    family = 'CaskaydiaCove Nerd Font',
+    weight=300,
     stretch='Normal',
     style='Normal',
---    harfbuzz_features = { 'zero' },
+    harfbuzz_features = { 'zero' },
   },
   selection_word_boundary = " \t\n{}[]()\"'`,;:@│*",
   color_scheme = 'Gruvbox dark, pale (base16)',
@@ -29,8 +31,9 @@ local misc_config = {
 
   unix_domains = { { name = 'desktop', } },
 
-  -- mouse_bindings = { { event = { Down = { streak = 3, button = 'Left' } }, action = wezterm.action.SelectTextAtMouseCursor 'SemanticZone', mods = 'NONE', }, },
+  mouse_bindings = { { event = { Down = { streak = 3, button = 'Left' } }, action = wezterm.action.SelectTextAtMouseCursor 'SemanticZone', mods = 'NONE', }, },
   default_gui_startup_args = {'connect', 'desktop'},
+  default_prog = { '/usr/bin/fish', '-l' }
 }
 
 local mytable = require "lib/mystdlib".mytable

@@ -117,7 +117,7 @@ return packer.startup(function(use)
 	-- Trouble show's problems with code in file instead of quickfix menu
 	use({
 		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
+		requires = {"kyazdani42/nvim-web-devicons"},
 	})
 
 	-- Telescope
@@ -155,13 +155,33 @@ return packer.startup(function(use)
   use('chentoast/marks.nvim')
 
 	-- CMP Plugins
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-nvim-lsp")
+  use ('neovim/nvim-lspconfig')
+  use ('hrsh7th/cmp-nvim-lsp')
+  use ('hrsh7th/cmp-buffer')
+  use ('hrsh7th/cmp-path')
+  use ('hrsh7th/cmp-cmdline')
+  use ('hrsh7th/nvim-cmp')
 
+	use("hrsh7th/cmp-bquffer") -- buffer completions
+	use("hrsh7th/cmp-path") -- path completions
+
+	use("saadparwaiz1/cmp_luasnip") -- snippet completions
+
+  --- snippets
+	use("L3MON4D3/LuaSnip") --snippet engine
+	use("rafamadriz/friendly-snippets")
+
+  use {
+  'doxnit/cmp-luasnip-choice',
+  config = function()
+    require('cmp_luasnip_choice').setup({
+        auto_open = true, -- Automatically open nvim-cmp on choice node (default: true)
+    });
+  end,
+  }
+
+ -- Taabby
+  use {'~/tabby/clients/vim', as = 'tabby', enabled = true}
 
   -- Neotree
 
@@ -201,10 +221,6 @@ return packer.startup(function(use)
 
   -- Better Spell Checking
   use("vigoux/LanguageTool.nvim")
-
-	-- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets")
 
 	use("kyazdani42/nvim-web-devicons")
 	use("folke/which-key.nvim")

@@ -33,7 +33,8 @@ local options = {
 	wrap = false, -- display lines as one long line
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
-	guifont = "Hasklug Nerd Font:h13", -- the font used in graphical neovim applications
+---	guifont = "Hasklug Nerd Font:h13", -- the font used in graphical neovim applications
+  guifont = "CaskaydiaCove Nerd Font:h13",
   ttyfast = true,
   guicursor="n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175",
   sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
@@ -47,6 +48,7 @@ local goptions = {
     neovide_cursor_vfx_particle_lifetime = 1.2,
     neovide_cursor_vfx_particle_density = 15.0,
     neovide_cursor_vfx_particle_speed = 10.0,
+    tabby_server_url = 'http://127.0.0.1:8080',
 	--  neovide_cursor_vfx_mode = "sonicboom",
 }
 --endif
@@ -61,6 +63,7 @@ for k, v in ipairs(goptions) do
 	vim.g[k] = v
 end
 
+vim.loader.enable()
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 -- vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
