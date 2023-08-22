@@ -4,3 +4,6 @@
 [submodule "zsh/.zshrc.d/plugins/z.lua"]
 	path = zsh/.zshrc.d/plugins/z.lua
 	url = https://github.com/skywind3000/z.lua
+[submodule "fish/fish/auto-epp"]
+	path = fish/fish/auto-epp
+	url = https://github.com/jothi-prasath/auto-epp/

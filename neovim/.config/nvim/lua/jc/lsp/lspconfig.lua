@@ -25,13 +25,15 @@ end
    sumneko_lua = {},
    tsserver = {},
    vimls = {},
+   ansible_language_server = {},
    terraform_lsp = {},
    terraformls = {},
    tflint = {},
    dockerls = {},
---   docker_compose_language_service {},
+   docker_compose_language_service = {},
    yamlls = {},
-   bashls = {}
+   bashls = {},
+   json_lsp = {},
    -- gradle_ls = {}
  }
 

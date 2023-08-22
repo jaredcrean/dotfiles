@@ -6,7 +6,7 @@ local misc_config = {
 
   scrollback_lines = 10000,
   -- Font Settings
-  font_size = 14,
+  font_size = 12,
   font_dirs = {"~/Library/Fonts"},
   -- freetype_load_target = 'Light',
   freetype_render_target = 'HorizontalLcd',
