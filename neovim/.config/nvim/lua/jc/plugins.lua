@@ -195,6 +195,13 @@ return packer.startup(function(use)
     }
   }
 
+  -- Surround text
+  use{
+      "kylechui/nvim-surround",
+      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+--      config = require("/nvim-surround"),
+    }
+
 	-- Session Manager
   use {
     'rmagatti/auto-session',

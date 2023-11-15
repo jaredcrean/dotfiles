@@ -45,7 +45,9 @@ require("jc.glow")
 require("jc.comment")
 require("jc.toggleterm")
 
---require("jc.trouble")
+require("jc.trouble")
+require("jc.nvim-surround")
+
 
 require("jc.marks")
 require("jc.lazygit")
