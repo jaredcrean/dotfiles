@@ -66,4 +66,9 @@ end
 vim.loader.enable()
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
+
+
+--- Add config here. Example config:
+vim.g.tabby_keybinding_accept = '<Tab>'
+
 -- vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work

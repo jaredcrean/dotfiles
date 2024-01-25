@@ -180,8 +180,11 @@ return packer.startup(function(use)
   end,
   }
 
- -- Taabby
-  use {'~/tabby/clients/vim', as = 'tabby', enabled = true}
+  --- Add config here. Example config:
+  vim.g.tabby_keybinding_accept = '<Tab>'
+
+  --- Tabby plugin
+  use { 'TabbyML/vim-tabby' }
 
   -- Neotree
 
